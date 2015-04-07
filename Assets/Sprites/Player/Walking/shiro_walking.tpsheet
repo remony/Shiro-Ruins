@@ -1,0 +1,17 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: shiro_walking.png (128 x 256)
+# $TexturePacker:SmartUpdate:4e11a40cea25d45379c9d9d75253e770:8af3230153bb0fb9281106e7cfd9c96b:cea13fc8115784d0ec367cb4427d7633$
+#
+
+shiro_walking_1;34;118;29;67;0.5;0.5
+shiro_walking_2;65;118;29;67;0.5;0.5
+shiro_walking_3;2;118;30;67;0.5;0.5
+shiro_walking_4;2;49;30;67;0.5;0.5
+shiro_walking_5;37;187;31;67;0.5;0.5
+shiro_walking_6;2;187;33;67;0.5;0.5
+shiro_walking_7;70;187;31;67;0.5;0.5

@@ -1,0 +1,92 @@
+{"frames": {
+
+"mob1_0000_Frame-10.png":
+{
+	"frame": {"x":2,"y":2,"w":22,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":14},
+	"sourceSize": {"w":22,"h":14}
+},
+"mob1_0001_Frame-9.png":
+{
+	"frame": {"x":26,"y":2,"w":17,"h":15},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":17,"h":15},
+	"sourceSize": {"w":17,"h":15}
+},
+"mob1_0002_Frame-8.png":
+{
+	"frame": {"x":45,"y":2,"w":17,"h":13},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":17,"h":13},
+	"sourceSize": {"w":17,"h":13}
+},
+"mob1_0003_Frame-7.png":
+{
+	"frame": {"x":26,"y":19,"w":16,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":10},
+	"sourceSize": {"w":16,"h":10}
+},
+"mob1_0004_Frame-6.png":
+{
+	"frame": {"x":44,"y":21,"w":15,"h":7},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":7},
+	"sourceSize": {"w":15,"h":7}
+},
+"mob1_0005_Frame-5.png":
+{
+	"frame": {"x":26,"y":19,"w":16,"h":10},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":10},
+	"sourceSize": {"w":16,"h":10}
+},
+"mob1_0006_Frame-4.png":
+{
+	"frame": {"x":45,"y":2,"w":17,"h":13},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":17,"h":13},
+	"sourceSize": {"w":17,"h":13}
+},
+"mob1_0007_Frame-3.png":
+{
+	"frame": {"x":26,"y":2,"w":17,"h":15},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":17,"h":15},
+	"sourceSize": {"w":17,"h":15}
+},
+"mob1_0008_Frame-2.png":
+{
+	"frame": {"x":2,"y":2,"w":22,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":14},
+	"sourceSize": {"w":22,"h":14}
+},
+"mob1_0009_Frame-1.png":
+{
+	"frame": {"x":2,"y":18,"w":22,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":22,"h":12},
+	"sourceSize": {"w":22,"h":12}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "mob1.png",
+	"format": "RGBA8888",
+	"size": {"w":61,"h":32},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:2fe99bb17dd2ba8b783bd7150abb3dbd:323247e199de7e7783062df8375424e2:74cfc8acfabc29bb12600d75277e11b2$"
+}
+}
