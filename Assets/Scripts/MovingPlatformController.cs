@@ -8,8 +8,8 @@ public class MovingPlatformController : MonoBehaviour
     public float speed = 50f;
     bool hitWall = false;
     bool moveLeft = false;
-    Rigidbody2D rigidbody = null;
-    SliderJoint2D slider = null;
+    Rigidbody2D rigidbody;
+    SliderJoint2D slider;
 
     
 

@@ -201,6 +201,11 @@
    <properties>
     <property name="unity:tag" value="Ground"/>
    </properties>
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polyline points="0,0 32,0"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="25">
    <properties>
@@ -299,24 +304,35 @@
   </tile>
   <tile id="38">
    <properties>
-    <property name="unity:isTrigger" value="ladder"/>
+    <property name="unity:isTrigger" value="True"/>
    </properties>
-   <objectgroup draworder="index"/>
+   <objectgroup draworder="index">
+    <object id="0" x="8" y="0">
+     <polygon points="0,0 0,32 16,32 16,0"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="39">
    <properties>
-    <property name="unity:isTrigger" value="ladder"/>
+    <property name="unity:isTrigger" value="True"/>
    </properties>
-   <objectgroup draworder="index"/>
+   <objectgroup draworder="index">
+    <object id="0" x="8" y="0">
+     <polygon points="0,0 0,24 0,32 16,32 16,0"/>
+    </object>
+   </objectgroup>
   </tile>
   <tile id="40">
    <properties>
-    <property name="unity:isTrigger" value="ladder"/>
+    <property name="unity:isTrigger" value="True"/>
     <property name="unity:tag" value="Ground"/>
    </properties>
    <objectgroup draworder="index">
     <object id="0" x="0" y="0">
      <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+    <object id="0" x="8" y="16">
+     <polygon points="0,0 0,16 16,16 16,0"/>
     </object>
    </objectgroup>
   </tile>
@@ -334,29 +350,55 @@
    <properties>
     <property name="unity:tag" value="Ground"/>
    </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 0,16 32,16 32,0"/>
-    </object>
-   </objectgroup>
+   <objectgroup draworder="index"/>
   </tile>
   <tile id="44">
    <properties>
-    <property name="unity:tag" value="Ground"/>
+    <property name="unity:isTrigger" value="True"/>
+    <property name="unity:tag" value="water"/>
    </properties>
    <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 0,16 32,16 32,0"/>
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 0,16 32,16 32,-8 0,-8"/>
     </object>
    </objectgroup>
+   <animation>
+    <frame tileid="44" duration="300"/>
+    <frame tileid="46" duration="300"/>
+    <frame tileid="47" duration="300"/>
+    <frame tileid="46" duration="300"/>
+   </animation>
   </tile>
   <tile id="45">
    <properties>
-    <property name="unity:tag" value="Ground"/>
+    <property name="unity:isTrigger" value="True"/>
+    <property name="unity:tag" value="water"/>
    </properties>
    <objectgroup draworder="index">
     <object id="0" x="0" y="0">
-     <polygon points="0,0 0,16 32,16 32,0"/>
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="46">
+   <properties>
+    <property name="unity:isTrigger" value="True"/>
+    <property name="unity:tag" value="water"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="8">
+     <polygon points="0,0 0,24 32,24 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="47">
+   <properties>
+    <property name="unity:isTrigger" value="True"/>
+    <property name="unity:tag" value="water"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="8">
+     <polygon points="0,0 0,24 32,24 32,0"/>
     </object>
    </objectgroup>
   </tile>
@@ -401,7 +443,7 @@
    <property name="unity:sortingOrder" value="-2"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2jsOwjAURUGnBPFp+Ox/p7igISJyIm5c4BnpdtFze4qUAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAwqPu1tj9hz0bb6/9FgAg6Vp3fO9Udw7ePnTYlrcBAHqYymeDXEqus/QVADCieV8lO0tfAQD0t0dbLd0FABhBoqXW3gUAGMFST02zJe4CAIxCXwEAZOkrAICsPfoKAGBk+goAIEtfAQBktfoKAIBtvv2Hrq8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4L+8AIpLCbs=
+   eJzt2bsOgjAAhtEyarwsXhIHn8D3fz5JZJGgFFoChXOSf8OW8YuEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOO85n4BAIAV2YVPX+2aAQCQZq6+utW79OyasHvP3bHPAgAM9a+vzvX2zQ71jpnvnXpD7gYAyK2rM6rw3SCnkK+z9BUAsEXtvortrGfE2foKACDNY8RvpmirX+cCAJQipWNytFTsuQAApZiir6rWUt9JXwEAJZnivyZ9BQBsmb4CAMhriX0FAFAyfQUAsCz6CgAgr76+AgBgmK7vi/oKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANblDV69C94=
   </data>
  </layer>
  <layer name="MovingPlatform2" width="600" height="100">
@@ -417,7 +459,7 @@
    <property name="unity:sortingOrder" value="-1"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2E1rwkAUhtFYKu3OdtkvF7al7f//g07AVWAgjjfedDwHXgQRM7N7yDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa7fJPgAAQGf0FQBALH0FABBLXwEAxNJXAACx9BUAQCx9BQAQa2199Zd9AACAC4199VG2zz7IyW/2AQAALjT21V1l27L7wGe9lL1O9jb5jb4CAP67TWWPp8+HIa6z3md899P4309lu6Heii0DAGhR66vpxs6KbJeWHSp3+Cx7PuMucwcA0CK6SZbcV+UO3ws9DwCgRXYzRfXVEvcBAGiR3UyRfeX9FQCwBtnNpK8AgN5kN1NkX0XfBwCgRXYzeX8FAPQmu5n0FQDQm+xm0lcAwK3Jbqpz+qp23rn3AAC4huym0j8AQG+u1Ur6CgC4Jd5BAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGtwBKoOB/w=
+   eJzt2M1Kw0AUgNFUFN2piy78XbSKiu//fiYQQaaNJJnbZBzPgUugNJmZ3cc0DQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFC6zdobAACojL4CAIilrwAAYukrAIBY+goAIFbaV9sfz20DAMBU7q8AAGKV1lcfa28AACBT11dP7TyvvZHe+9obAADI1PXVWTKf/fOinfPAte7auU/mIfmPvgIA/rrNwFz1z8smrrMeR/z2NvPbN+1cN4etmDMAAHMM9VU6XWfl9sruyPr7zPe/v3E74SxjBwBgjugm+W1ejqz/mvn+1G/oKwDg1Grpq1OcBwBgjpr6yv0VAFACfaWvAIBYNfVV9HkAAOaoqa/cXwEAJVi6r6L7rKOvAICS6Ct9BQAsa8n+yu2rof2OPQcAwBLWbir9AwDUZqlW0lcAwH/iDgoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAowRcgMwp1
   </data>
  </layer>
  <layer name="MovingPlatform1" width="600" height="100">
@@ -426,6 +468,23 @@
   </properties>
   <data encoding="base64" compression="zlib">
    eJztzrEJAAAIwDBP0f+f1MkXREigeyMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOCXnOp6AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYDc4GAEI=
+  </data>
+ </layer>
+ <layer name="Ladder" width="600" height="100">
+  <properties>
+   <property name="unity:isTrigger" value="True"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1rENwCAMRUFvE7P/gmkjRGUjEaG7xi5/+SIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAG+XpAQAAF9FWAAD7aCsAgJpVR2krAIC6uaW0FQBAz/j82goAoC+nCwBAT4a2AgDY6Tk9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+LUXPRkCMQ==
+  </data>
+ </layer>
+ <layer name="Water Layer" width="600" height="100" opacity="0.69">
+  <properties>
+   <property name="unity:isTrigger" value="True"/>
+   <property name="unity:tag" value="Water"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1qENADAMBLEs1O4/XlFJaD7Mlm6HqwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgH2nBQDAzG0BADDjrwAAsvwVAECWvwIAyPJXAABZ/goAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPgeTB8FBQ==
   </data>
  </layer>
 </map>
