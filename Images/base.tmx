@@ -1,10 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="32" tileheight="32" nextobjectid="28">
  <tileset firstgid="1" name="Untitled" tilewidth="32" tileheight="32">
-  <image source="Untitled.png" trans="000000" width="256" height="192"/>
-  <tile id="0">
+  <image source="Untitled.png" trans="000000" width="256" height="704"/>
+  <tile id="81">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="83">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="87">
    <properties>
-    <property name="unity:tag" value="Ground"/>
+    <property name="unity:isTrigger" value="True"/>
+    <property name="unity:tag" value="Ladder"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="0" x="32" y="32">
+     <polygon points="0,0 0,-32 -32,-32 -32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="97">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+   <animation>
+    <frame tileid="97" duration="300"/>
+    <frame tileid="98" duration="300"/>
+    <frame tileid="99" duration="300"/>
+    <frame tileid="98" duration="300"/>
+   </animation>
+  </tile>
+  <tile id="100">
+   <properties>
+    <property name="unity:isTrigger" value="True"/>
+    <property name="unity:tag" value="UnderWater"/>
    </properties>
    <objectgroup draworder="index">
     <object id="0" x="0" y="0">
@@ -12,479 +51,462 @@
     </object>
    </objectgroup>
   </tile>
-  <tile id="1">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
+  <tile id="101">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+   <animation>
+    <frame tileid="101" duration="300"/>
+    <frame tileid="102" duration="300"/>
+    <frame tileid="103" duration="300"/>
+    <frame tileid="102" duration="300"/>
+   </animation>
+  </tile>
+  <tile id="107">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+   <animation>
+    <frame tileid="107" duration="300"/>
+    <frame tileid="108" duration="300"/>
+    <frame tileid="109" duration="300"/>
+    <frame tileid="108" duration="300"/>
+   </animation>
+  </tile>
+  <tile id="110">
    <objectgroup draworder="index">
     <object id="0" x="0" y="0">
      <polygon points="0,0 0,16 32,16 32,0"/>
     </object>
    </objectgroup>
   </tile>
-  <tile id="2">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
+  <tile id="111">
    <objectgroup draworder="index">
     <object id="0" x="0" y="0">
      <polygon points="0,0 0,16 32,16 32,0"/>
     </object>
    </objectgroup>
   </tile>
-  <tile id="3">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="16">
-     <polygon points="0,0 0,16 32,16"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="4">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 0,32 32,32 32,16"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="6">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="8" y="0">
-     <polygon points="0,0 24,8 24,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="7">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-  </tile>
-  <tile id="8">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-  </tile>
-  <tile id="9">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
+  <tile id="112">
    <objectgroup draworder="index">
     <object id="0" x="0" y="0">
      <polygon points="0,0 0,16 32,16 32,0"/>
     </object>
    </objectgroup>
   </tile>
-  <tile id="10">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
+  <tile id="113">
    <objectgroup draworder="index">
     <object id="0" x="0" y="0">
      <polygon points="0,0 0,16 32,16 32,0"/>
     </object>
    </objectgroup>
   </tile>
-  <tile id="11">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
+  <tile id="114">
    <objectgroup draworder="index">
     <object id="0" x="0" y="0">
-     <polygon points="0,0 32,16 32,24 24,24 0,8"/>
+     <polygon points="0,0 0,16 32,16 32,0"/>
     </object>
    </objectgroup>
   </tile>
-  <tile id="12">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
+  <tile id="115">
    <objectgroup draworder="index">
-    <object id="0" x="0" y="16">
-     <polygon points="0,0 32,16 0,16"/>
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
     </object>
    </objectgroup>
   </tile>
-  <tile id="13">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
+  <tile id="120">
    <objectgroup draworder="index">
-    <object id="0" x="8" y="0">
-     <polygon points="0,0 24,0 24,16"/>
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
     </object>
    </objectgroup>
+   <animation>
+    <frame tileid="104" duration="300"/>
+    <frame tileid="105" duration="300"/>
+    <frame tileid="106" duration="300"/>
+    <frame tileid="105" duration="300"/>
+   </animation>
   </tile>
-  <tile id="14">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
+  <tile id="125">
    <objectgroup draworder="index">
-    <object id="0" x="0" y="16">
-     <polygon points="0,0 32,-16 32,0 0,8"/>
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
     </object>
    </objectgroup>
   </tile>
-  <tile id="15">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
+  <tile id="126">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="127">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="128">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="129">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="130">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="131">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="132">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="133">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,8 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="134">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 32,16 32,32 0,16"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="135">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,8 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="136">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="137">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="138">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="139">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="140">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="141">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="142">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="143">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="144">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="145">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="146">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="147">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="148">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="149">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="150">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="151">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="152">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="153">
    <objectgroup draworder="index">
     <object id="0" x="32" y="16">
-     <polygon points="0,0 -32,16 -8,16 0,16"/>
+     <polygon points="0,0 -32,16 0,16"/>
     </object>
    </objectgroup>
   </tile>
-  <tile id="16">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 0,8 16,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="17">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-  </tile>
-  <tile id="19">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 0,16 32,16 32,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="20">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 0,16 32,16 32,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="21">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
+  <tile id="154">
    <objectgroup draworder="index">
     <object id="0" x="32" y="0">
-     <polygon points="0,0 0,16 -30.5455,15.8182 -30.3636,-0.181818"/>
+     <polygon points="0,0 -32,16 -32,0"/>
     </object>
    </objectgroup>
   </tile>
-  <tile id="22">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 32,0 32,16 0,16"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="24">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polyline points="0,0 32,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="25">
-   <properties>
-    <property name="unity:layer" value="MovingPlatform"/>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polyline points="0,0 32,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="26">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-  </tile>
-  <tile id="29">
-   <properties>
-    <property name="unity:isTrigger" value="Sign"/>
-   </properties>
-  </tile>
-  <tile id="30">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 0,16 0,32 32,32 32,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="31">
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polyline points="0,0 32,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="32">
-   <properties>
-    <property name="unity:tag" value="MovingPlatform"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polyline points="0,0 32,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="33">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 32,0 32,32 0,32"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="34">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 0,32 32,32 32,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="35">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 32,0 32,32 0,32"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="36">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 0,32 32,32 32,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="37">
+  <tile id="155">
    <objectgroup draworder="index">
     <object id="0" x="0" y="32">
-     <polygon points="0,0 32,-8 32,0"/>
+     <polygon points="0,0 32,-16 32,-32 0,-16"/>
     </object>
    </objectgroup>
   </tile>
-  <tile id="38">
-   <properties>
-    <property name="unity:isTrigger" value="True"/>
-   </properties>
+  <tile id="157">
    <objectgroup draworder="index">
-    <object id="0" x="8" y="0">
-     <polygon points="0,0 0,32 16,32 16,0"/>
+    <object id="0" x="0" y="32">
+     <polygon points="0,0 32,-16 32,0"/>
     </object>
    </objectgroup>
   </tile>
-  <tile id="39">
-   <properties>
-    <property name="unity:isTrigger" value="True"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="8" y="0">
-     <polygon points="0,0 0,24 0,32 16,32 16,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="40">
-   <properties>
-    <property name="unity:isTrigger" value="True"/>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 0,16 32,16 32,0"/>
-    </object>
-    <object id="0" x="8" y="16">
-     <polygon points="0,0 0,16 16,16 16,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="42">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 0,16 32,16 32,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="43">
-   <properties>
-    <property name="unity:tag" value="Ground"/>
-   </properties>
-   <objectgroup draworder="index"/>
-  </tile>
-  <tile id="44">
-   <properties>
-    <property name="unity:isTrigger" value="True"/>
-    <property name="unity:tag" value="water"/>
-   </properties>
+  <tile id="158">
    <objectgroup draworder="index">
     <object id="0" x="0" y="16">
-     <polygon points="0,0 0,16 32,16 32,-8 0,-8"/>
+     <polygon points="0,0 32,-16 0,-16"/>
     </object>
    </objectgroup>
-   <animation>
-    <frame tileid="44" duration="300"/>
-    <frame tileid="46" duration="300"/>
-    <frame tileid="47" duration="300"/>
-    <frame tileid="46" duration="300"/>
-   </animation>
   </tile>
-  <tile id="45">
-   <properties>
-    <property name="unity:isTrigger" value="True"/>
-    <property name="unity:tag" value="water"/>
-   </properties>
+  <tile id="159">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 32,-16 32,0 0,16"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="161">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="162">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,24 32,24 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="163">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,24 32,24 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="165">
    <objectgroup draworder="index">
     <object id="0" x="0" y="0">
      <polygon points="0,0 0,32 32,32 32,0"/>
     </object>
    </objectgroup>
   </tile>
-  <tile id="46">
-   <properties>
-    <property name="unity:isTrigger" value="True"/>
-    <property name="unity:tag" value="water"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="8">
-     <polygon points="0,0 0,24 32,24 32,0"/>
-    </object>
-   </objectgroup>
-  </tile>
-  <tile id="47">
-   <properties>
-    <property name="unity:isTrigger" value="True"/>
-    <property name="unity:tag" value="water"/>
-   </properties>
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="8">
-     <polygon points="0,0 0,24 32,24 32,0"/>
-    </object>
-   </objectgroup>
-  </tile>
- </tileset>
- <tileset firstgid="49" name="item" tilewidth="32" tileheight="32">
-  <image source="item.png" trans="000000" width="4096" height="512"/>
-  <tile id="0">
-   <animation>
-    <frame tileid="0" duration="100"/>
-    <frame tileid="1" duration="100"/>
-    <frame tileid="2" duration="100"/>
-    <frame tileid="3" duration="100"/>
-   </animation>
-  </tile>
- </tileset>
- <tileset firstgid="2097" name="big_tree1" tilewidth="12" tileheight="90">
-  <image source="The woods/big_tree1.png" trans="000000" width="12" height="90"/>
- </tileset>
- <tileset firstgid="2098" name="scifi_platformTiles_32x32" tilewidth="32" tileheight="32">
-  <image source="scifi_platformTiles_32x32.png" trans="000000" width="1120" height="736"/>
-  <tile id="210">
+  <tile id="166">
    <objectgroup draworder="index">
     <object id="0" x="0" y="0">
      <polygon points="0,0 0,32 32,32 32,0"/>
     </object>
    </objectgroup>
   </tile>
- </tileset>
- <tileset firstgid="2903" name="item4" tilewidth="32" tileheight="32">
-  <image source="item4.png" trans="000000" width="256" height="32"/>
-  <tile id="0">
-   <animation>
-    <frame tileid="0" duration="100"/>
-    <frame tileid="1" duration="100"/>
-    <frame tileid="2" duration="100"/>
-    <frame tileid="3" duration="100"/>
-   </animation>
+  <tile id="168">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="169">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
   </tile>
  </tileset>
- <layer name="Layer 2" width="600" height="100">
+ <layer name="Background" width="600" height="100">
   <properties>
-   <property name="unity:sortingOrder" value="-2"/>
+   <property name="unity:sortingOrder" value="-3"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2UsOgjAARdEyxPiZiG7C/a9PEhkg4VOkBCrnJC8w0KbDGw0BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfvPa+gIAAH+kDJ++KpsBALBMqr561Kua9ypy99YzNM/2Ys/p2zPirjGfBQCYa6yvbvVOzc71LhPn7G1z7goAkFpfZxThu0GuYbiztm4pfQUA5KDbV2OdtXVL6SsA4Ajmdk/s95e01dC5AAC5WNIxKVoq9lwAgFys0VdFZ0vvpK8AgJys8VuTvgIAjkxfAQCktce+AgDImb4CANgXfQUAkNZUXwEAME/f/4v6CgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+yxtN+g30
+   eJzt3cENgkAQhtEtzCY82JUt2KsnDpIFZ/U32TXvJRO4AHP8Qoi2BgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8J8exQEAoGbfUdfdUVsBAIzp9VVrr32lsQAA6irvr/QVAECdvgIAyNJXAABZ+goAIKvXV9voKwCAcfoKACBLXwEAZPn9KwCArGpf+b8cAIAafQUA/KtLZ5L3vu/u++4ZvX3OBgBgNqM9Mzq3g/PUPgAAs9FXAABZs/XV9p2VlgIAVvVNO1WuH+2rs70AAFYw2/urs50AAFYwY18d7QUAsAJ9BQCQpa8AALL0FQBA1q/76mg+2QsAYAWz9hUAwKr0FQBAlr4CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnkgovKY=
   </data>
  </layer>
- <layer name="MovingPlatform2" width="600" height="100">
+ <layer name="Background Layer 2" width="600" height="100">
   <properties>
-   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:sortingOrder" value="-4"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztzrEJAAAIwDBP0f+f1NkHREigeyMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPgip7qeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYGkfsAEI=
+   eJzt1rEJACAQwMDffxLHtLc1IMJdkxUyAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8to4CAHDHXwEAtPwVAEDLXwEAtPwVAEDLXwEAtPwVAEDLXwEAtPwVAEDLXwEAtPwVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAnzZ7yw5x
   </data>
  </layer>
  <layer name="Main Layer" width="600" height="100">
   <properties>
    <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:tag" value="Ground"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2LFOwzAUQFEXFcFGGTqWgcLE//9fE6lIKDS0iV8c15wjPXmKY29XTgkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACo3WbtAwAANEZfAQDE0lcAALH0FQBALH0FABBr2Ff7H+s+AQAwlfcrAIBY+goAIFbfV4du3tY+CABAI/q+ehjM13l97Ga73tEAAO7SZmSez+tTiumsa+9jh8z9d928pN+tmDMAAHOM9dVw+s7K7ZX3C/8/Zn7/vcfrhLvcOgAAc0Q3yV/zceH/n5nfT91DXwEAS2ulr5a4DwDAHC31lfcrAKAG+kpfAQCxWuqr6PsAAMzRUl95vwIAalC6r6L7rKevAICa6Ct9BQCUVbK/cvtq7Ly33gMAoIS1m0r/AACtKdVK+goA+E+8QQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1OAHdRAk8
+   eJzt2r9Kw1AYxuFcmFchXbwAnTq6dGnRTTqI4CAq/rtSv8B3sJxGEsqxJfg88CNpm7QdX2i7DgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxj1F19Emj6t8fpmPF9H6NF8NAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZmHRqPNou3N+v/Pa0OfV57X+PTZZOQcAYN9FBgBAG/YVAEDXvUUf0U22ju6yrzyuoquqZV77ED1W9ffcZkOGfoMEAJi7sqveo8+Ray9/qXc20pCp1wEAzMFz9NpN21WFfQUAsK/sqpcD7rWvAID/qP4PVN0hu6qwrwAA2rKvAADasq8AANqyrwAAjmdsX00JAIAf9hUAQFv2FQDAadhXAAB/w74CAGjPrgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgOP6BozYYMw=
   </data>
  </layer>
- <layer name="MovingPlatform1" width="600" height="100">
+ <objectgroup name="Signs">
   <properties>
+   <property name="spawn" value="AppearingBlock 1"/>
    <property name="unity:sortingOrder" value="-1"/>
   </properties>
-  <data encoding="base64" compression="zlib">
-   eJztzrEJAAAIwDBP0f+f1MkXREigeyMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOCXnOp6AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYDc4GAEI=
-  </data>
- </layer>
- <layer name="Ladder" width="600" height="100">
+  <object id="24" name="movement" gid="30" x="80" y="1632">
+   <properties>
+    <property name="spawn" value="AppearingBlock"/>
+   </properties>
+  </object>
+  <object id="25" name="Ladders" gid="30" x="896" y="1504">
+   <properties>
+    <property name="spawn" value="AppearingBlock"/>
+   </properties>
+  </object>
+  <object id="26" name="Floating platforms" gid="30" x="1176" y="1416">
+   <properties>
+    <property name="spawn" value="AppearingBlock"/>
+   </properties>
+  </object>
+  <object id="27" name="oh no magicall" gid="30" x="1328" y="1416">
+   <properties>
+    <property name="spawn" value="AppearingBlock"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Enemies"/>
+ <layer name="Ladders" width="600" height="100">
   <properties>
    <property name="unity:isTrigger" value="True"/>
+   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:tag" value="Ladder"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2DEKwCAMQNHcpnr/C3YtIggx0FbeW3RQcfwkAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADhRe/sDAAAH0VYAAHW0FQBAzqyjtBUAQN7YUtoKAGBPf+y1FQDAvjasAADsaVHXVn19pPQeAMAXXYVvZTvN7AwAYE5fAQDUys7CKmdoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH90A7TmA3E=
+   eJzt1sEJhFAQREHD1HgWzcEQNMrdgx88Sy8DYxUMc+3jmyYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHhmqx4AANDMp3oAAEAz+goAIEtfAQBk6SsAgCx9BQCQpa8AALL0FQBAlr4CAMjSVwAAWfoKACBLXwEAPHf87rz+sBZtAQDoYL7dsBdtAQDoQF8BAAAAAADAeyzVAwAAmtFXAABZ+goAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7nCwDgDPY=
   </data>
  </layer>
- <layer name="Water Layer" width="600" height="100" opacity="0.69">
+ <layer name="Water surface" width="600" height="100">
   <properties>
    <property name="unity:isTrigger" value="True"/>
    <property name="unity:tag" value="Water"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1qENADAMBLEs1O4/XlFJaD7Mlm6HqwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgH2nBQDAzG0BADDjrwAAsvwVAECWvwIAyPJXAABZ/goAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPgeTB8FBQ==
+   eJztwzENAAAIA7Bpxb8IDOzlIW3SBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBPpgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALi0u9cB6w==
+  </data>
+ </layer>
+ <layer name="Water (under)" width="600" height="100">
+  <properties>
+   <property name="unity:isTrigger" value="True"/>
+   <property name="unity:tag" value="UnderWater"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1jENADAMwLCSHX8KI9A9U05bCofMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC9nCQCAf/4KAKDlrwAAWv4KAKDlrwAAWv4KAKDlrwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgdwHOLQ3Q
+  </data>
+ </layer>
+ <layer name="Moving Platform 1" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:tag" value="MovingPlatform"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztzrEJAAAIwDA/dvB/0C8ETaB7IwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPimptyeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM5orEoA4w==
   </data>
  </layer>
 </map>

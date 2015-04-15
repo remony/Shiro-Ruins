@@ -17,9 +17,12 @@ public class MovingPlatformController : MonoBehaviour
     void Start()
     {
         transform.FindChild("Collision").gameObject.tag = "MovingPlatform";
+        gameObject.tag = "MovingPlatform";
         rigidbody = this.gameObject.AddComponent<Rigidbody2D>();
         slider = this.gameObject.AddComponent<SliderJoint2D>();
         rigidbody.mass = 150;
+        gameObject.transform.position = new Vector2(transform.position.x - 20,transform.position.y);
+        //gameObject.transform.position.x = gameObject.transform.position.x - 20;
         rigidbody.gravityScale = 150;
         rigidbody.isKinematic = false;
         rigidbody.fixedAngle = true;
@@ -30,7 +33,7 @@ public class MovingPlatformController : MonoBehaviour
     {
 
         slider.connectedAnchor = new Vector2(transform.position.x, transform.position.y);
-        slider.collideConnected = true;
+        slider.enableCollision = true;
         slider.angle = 0;
 
 
@@ -63,6 +66,8 @@ public class MovingPlatformController : MonoBehaviour
             rigidbody.isKinematic = false;
         }
     }
+
+
     void OnCollisionExit2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Player")

@@ -1,0 +1,25 @@
+[
+  {
+    "id":0,
+    "text": "I should press w or d to move!"
+  },
+    {
+        "id": 1,
+        "text": "I should climb those white things"
+    },
+    {
+        "id": 2,
+        "text": "Maybe I should swim, but it looks cold..."
+    }
+    ,
+    {
+        "id": 3,
+        "text": "There seems to be some magic floating platform"
+    }
+    ,
+    {
+        "id": 4,
+        "text": "Not so magical after all"
+    }
+
+]

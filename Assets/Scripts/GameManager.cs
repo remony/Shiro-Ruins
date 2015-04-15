@@ -7,10 +7,9 @@ public class GameManager : MonoBehaviour
     //Singleton
     public static GameManager instance = null;
     public LevelManager levelManager;
-    //public MusicManager musicManager;
-    public AudioSource audioSource;
+    public MusicManager musicManager;
 
-    private int level = 0;
+    public int level = 0;
 
     void Awake()
     {
@@ -21,23 +20,17 @@ public class GameManager : MonoBehaviour
         else if (instance != this){
             Destroy(gameObject);
         }
-        audioSource.Play();
-        audioSource.time = 1f;
+        
 
         DontDestroyOnLoad(this.gameObject);
         levelManager = GetComponent<LevelManager>();
+        musicManager = GetComponent<MusicManager>();
         InitGame();
     }
 
     void OnLevelWasLoaded(int index)
     {
-        if (level == 1)
-        {
-            audioSource.time = 14.4f;
-        }
-
-        if (level >= 2)
-            audioSource.Stop();
+        
     }
 
     void InitGame()
@@ -45,6 +38,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Loading level " + level);
         levelManager.setupLevel(level);
         
+    }
+
+    public void playSong(int id)
+    {
+        musicManager.playSong(id);
     }
 
     public void changeLevel(int level)

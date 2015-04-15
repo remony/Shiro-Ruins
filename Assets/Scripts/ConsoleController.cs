@@ -22,7 +22,7 @@ public class ConsoleController : MonoBehaviour {
     RaycastHit2D hit;
     public Transform sightStart, sightEnd;
 
-    Rigidbody2D rigidbody = null;
+    Rigidbody2D rigidbody;
 
 	// Use this for initialization
 	void Start () {
@@ -40,8 +40,7 @@ public class ConsoleController : MonoBehaviour {
         velocity = Input.GetAxisRaw("Horizontal");
         lift = Input.GetAxisRaw("Vertical");
         animator.SetFloat("speed", Mathf.Abs(velocity));
-        int finish = 20;
-        int start = 25;
+     
 
         /*RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - start), new Vector2(transform.position.x - 1, transform.position.y - finish), 1);
         Debug.DrawLine(new Vector3(transform.position.x, transform.position.y - start), new Vector3(transform.position.x, transform.position.y - finish), Color.red);

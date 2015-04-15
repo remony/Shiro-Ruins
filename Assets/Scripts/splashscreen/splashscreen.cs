@@ -4,26 +4,35 @@ using System.Collections;
 public class splashscreen : MonoBehaviour {
     public float delaytime = 5;
 
-    IEnumerator start()
+    IEnumerator astart()
+
     {
+        
         yield return new WaitForSeconds(delaytime);
         changelevel(1);
     }
 	// Update is called once per frame
 	void Update () {
-        StartCoroutine(start());
-
+        
+        
         if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("space"))
         {
-            StopCoroutine(start());
+            StopCoroutine(astart());
             changelevel(1);
         }
 
 	}
 
+    void Start()
+    {
+        StartCoroutine(astart());
+        GameManager.instance.playSong(0);
+    }
 
+    
     public void changelevel(int level)
     {
         GameManager.instance.changeLevel(level);
+        
     }
 }

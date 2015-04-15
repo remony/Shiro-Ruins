@@ -1,0 +1,18 @@
+[
+  {
+    "id" : 0,
+    "title": "You Were In My Dream",
+    "artist" : "Candlegravity",
+    "album" : "A Moment for Myself",
+    "location" : "sounds/Candlegravity_-_06_-_You_Were_In_My_Dream",
+    "license" : "CC BY-NC-SA 3.0"
+  },
+  {
+    "id" : 1,
+    "title": "Helix Nebula",
+    "artist" : "Anamanaguchi",
+    "album" : "Party in Space",
+    "location" : "sounds/14 Helix Nebula",
+    "license" : "Attribution-NonCommercial-ShareAlike 3.0 International License"
+  }
+]

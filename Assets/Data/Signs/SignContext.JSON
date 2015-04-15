@@ -1,0 +1,14 @@
+{
+	"TestObject": {
+		"SomeText": "Blah",
+		"SomeObject": {
+			"SomeNumber": 42,
+			"SomeBool": true,
+			"SomeNull": null
+		},
+
+		"SomeEmptyObject": { },
+		"SomeEmptyArray": [ ],
+		"EmbeddedObject": "{\"field\":\"Value with \\\"escaped quotes\\\"\"}"
+	}
+}
