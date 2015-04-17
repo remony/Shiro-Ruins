@@ -21,4 +21,9 @@ public class Enemy {
         set;
     }
 
+    public int attackPower
+    {
+        get;
+        set;
+    }
 }

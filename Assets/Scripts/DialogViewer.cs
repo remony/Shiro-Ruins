@@ -37,7 +37,7 @@ public class DialogViewer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-        gameObject.GetComponentInChildren<TextMesh>().text = "HELLO";
+        gameObject.GetComponentInChildren<TextMesh>().text = "";
         audioSource = gameObject.AddComponent<AudioSource>();
         NotificationSound = Resources.Load("sounds/Notification") as AudioClip;
 	}

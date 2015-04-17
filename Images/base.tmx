@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="32" tileheight="32" nextobjectid="28">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="32" tileheight="32" nextobjectid="45">
  <tileset firstgid="1" name="Untitled" tilewidth="32" tileheight="32">
-  <image source="Untitled.png" trans="000000" width="256" height="704"/>
+  <image source="Untitled.png" trans="000000" width="256" height="768"/>
+  <tile id="78">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </tile>
   <tile id="81">
    <objectgroup draworder="index">
     <object id="0" x="0" y="0">
@@ -182,9 +187,15 @@
    </objectgroup>
   </tile>
   <tile id="132">
+   <properties>
+    <property name="unity:tag" value="Stairs_top"/>
+   </properties>
    <objectgroup draworder="index">
     <object id="0" x="0" y="0">
      <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+    <object id="0" x="0" y="0">
+     <polyline points="0,0 32,0"/>
     </object>
    </objectgroup>
   </tile>
@@ -419,21 +430,58 @@
     </object>
    </objectgroup>
   </tile>
+  <tile id="172">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="173">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 32,-16 0,-16"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="174">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 32,-16 0,-16"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="181">
+   <animation>
+    <frame tileid="181" duration="50"/>
+    <frame tileid="182" duration="50"/>
+    <frame tileid="183" duration="50"/>
+    <frame tileid="184" duration="50"/>
+   </animation>
+  </tile>
+  <tile id="185">
+   <animation>
+    <frame tileid="185" duration="100"/>
+    <frame tileid="186" duration="100"/>
+    <frame tileid="187" duration="100"/>
+    <frame tileid="188" duration="100"/>
+   </animation>
+  </tile>
  </tileset>
  <layer name="Background" width="600" height="100">
-  <properties>
-   <property name="unity:sortingOrder" value="-3"/>
-  </properties>
-  <data encoding="base64" compression="zlib">
-   eJzt3cENgkAQhtEtzCY82JUt2KsnDpIFZ/U32TXvJRO4AHP8Qoi2BgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8J8exQEAoGbfUdfdUVsBAIzp9VVrr32lsQAA6irvr/QVAECdvgIAyNJXAABZ+goAIKvXV9voKwCAcfoKACBLXwEAZPn9KwCArGpf+b8cAIAafQUA/KtLZ5L3vu/u++4ZvX3OBgBgNqM9Mzq3g/PUPgAAs9FXAABZs/XV9p2VlgIAVvVNO1WuH+2rs70AAFYw2/urs50AAFYwY18d7QUAsAJ9BQCQpa8AALL0FQBA1q/76mg+2QsAYAWz9hUAwKr0FQBAlr4CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnkgovKY=
-  </data>
- </layer>
- <layer name="Background Layer 2" width="600" height="100">
   <properties>
    <property name="unity:sortingOrder" value="-4"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1rEJACAQwMDffxLHtLc1IMJdkxUyAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8to4CAHDHXwEAtPwVAEDLXwEAtPwVAEDLXwEAtPwVAEDLXwEAtPwVAEDLXwEAtPwVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAnzZ7yw5x
+   eJzt3TEOgkAQQNE9mJegsPBOXsG7WlFIlnUWxmQk7yUTaIApfwjR1gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK7pFRwAAGK2HbVsjtoKAGBOr69a++wrjQUAEBd5f6WvAADi9BUAQC59BQCQS18BAOTq9dU6+goAYJ6+AgDIpa8AAHL5/SsAgFzRvvJ/OQAAMfoKALiqW2cy7/3c3PfbM3r7jAYAoJrZnpmd+8551j4AANXoKwCAXNX6av3OKtpSy8kBAMh2pp0i18/21WivnrN99RgMAMAR1d5fjXbq0VcAQDUV+2pvrx59BQBUo6/0FQCQS1/pKwAgl77SVwBArl/31d4c2atHXwEA1VTtKwCAf6WvAABy6SsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgDXcf9i8=
+  </data>
+ </layer>
+ <layer name="Background Layer 2" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-3"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1sEJgDAABMG0aQH2Zpm+9RXIioIzcFwLOwYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8Lbj9gAArNFXAAAtfQUA0NJXAAAtfQUA0NJXAAAtfQUA0NJXAAAtfQUA0NJXAAAtfQUA8A3bgwMA+CN9BQDQ0lcAAK19cQAAXOkrAICWvgIAaOkrAICWvgIAaOkrAICWvgIAaOkrAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJh3At8tWO4=
   </data>
  </layer>
  <layer name="Main Layer" width="600" height="100">
@@ -442,7 +490,7 @@
    <property name="unity:tag" value="Ground"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2r9Kw1AYxuFcmFchXbwAnTq6dGnRTTqI4CAq/rtSv8B3sJxGEsqxJfg88CNpm7QdX2i7DgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxj1F19Emj6t8fpmPF9H6NF8NAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZmHRqPNou3N+v/Pa0OfV57X+PTZZOQcAYN9FBgBAG/YVAEDXvUUf0U22ju6yrzyuoquqZV77ED1W9ffcZkOGfoMEAJi7sqveo8+Ray9/qXc20pCp1wEAzMFz9NpN21WFfQUAsK/sqpcD7rWvAID/qP4PVN0hu6qwrwAA2rKvAADasq8AANqyrwAAjmdsX00JAIAf9hUAQFv2FQDAadhXAAB/w74CAGjPrgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgOP6BozYYMw=
+   eJzt2rFKw1AYhuFemFchXbwAnTp26dKCmzgUwUHUxVkv0v/ACYZ4PEnltFXyPPDStA1Nxg+axQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMY9Retol183+fNVfr+Mtue5NQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPgXlo26jO57x/ved6XrDY+H0m/sct0xAADfXeUAAObuI3qvNJV9BQDMXdpVz9Fr9FhpE90MWkXb6KFw/l10mysp/QdZusbU0r2sKwEAHFt/V71EbyPnX/9QcjFSydTzAAD+ukN3Vce+AgDmqPb8VKq/qw5lXwEAc1R7fir1m13Vsa8AANqyrwAA2rKvAADasq8AAE5nbF9NCQCAL/YVAEBb9hUAwHnYVwAAx2FfAQC0Z1cBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBpfQJFJndd
   </data>
  </layer>
  <objectgroup name="Signs">
@@ -471,7 +519,23 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Enemies"/>
+ <objectgroup name="Enemies">
+  <object id="35" gid="79" x="1464" y="1496">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+  <object id="36" gid="79" x="824" y="1496">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+  <object id="37" gid="79" x="592" y="1392">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+ </objectgroup>
  <layer name="Ladders" width="600" height="100">
   <properties>
    <property name="unity:isTrigger" value="True"/>
@@ -479,7 +543,7 @@
    <property name="unity:tag" value="Ladder"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1sEJhFAQREHD1HgWzcEQNMrdgx88Sy8DYxUMc+3jmyYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHhmqx4AANDMp3oAAEAz+goAIEtfAQBk6SsAgCx9BQCQpa8AALL0FQBAlr4CAMjSVwAAWfoKACBLXwEAPHf87rz+sBZtAQDoYL7dsBdtAQDoQF8BAAAAAADAeyzVAwAAmtFXAABZ+goAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7nCwDgDPY=
+   eJzt1jEOABAQRUHH5IickkKhXyJhJvnZdsuXEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC+oY21eAADi8jIAAOL0FQAAAAAAAPyj3H4AAOAx+goAYC99BQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA53RNTgUY
   </data>
  </layer>
  <layer name="Water surface" width="600" height="100">
@@ -500,13 +564,62 @@
    eJzt1jENADAMwLCSHX8KI9A9U05bCofMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC9nCQCAf/4KAKDlrwAAWv4KAKDlrwAAWv4KAKDlrwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgdwHOLQ3Q
   </data>
  </layer>
- <layer name="Moving Platform 1" width="600" height="100">
+ <layer name="Stairs" width="600" height="100">
   <properties>
+   <property name="unity:isTrigger" value="True"/>
    <property name="unity:sortingOrder" value="-1"/>
-   <property name="unity:tag" value="MovingPlatform"/>
+   <property name="unity:tag" value="Ground"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJztzrEJAAAIwDA/dvB/0C8ETaB7IwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPimptyeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM5orEoA4w==
+   eJzt2UENACAMBEG8owK3mNgE0swo6POyXQsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+MF+fQAAwDD2FQBA67w+AABgGP0KAKBlXwEAtPwHAQBa+hUAQMu+AgBo+Q8CALT0KwCAln4FAAAAwM/0KwCAln0FAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADDHBfvOByw=
+  </data>
+ </layer>
+ <layer name="Stairs_top" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt3TENAAAIBLE3j28kkDDA0io4B5cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBOfQcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI/9BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4EIDMBkBCw==
+  </data>
+ </layer>
+ <objectgroup name="Collisions (map)">
+  <object id="32" x="1120" y="1056">
+   <polygon points="0,0 -8,-16 -32,-16 0,280"/>
+  </object>
+  <object id="33" x="1152" y="1056">
+   <polygon points="0,0 8,-16 32,-16 0,280"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Items">
+  <object id="39" name="item1" gid="29" x="1248" y="1032">
+   <properties>
+    <property name="spawn" value="item"/>
+    <property name="value" value="100"/>
+   </properties>
+  </object>
+  <object id="41" name="item2" gid="29" x="1208" y="1032">
+   <properties>
+    <property name="spawn" value="item"/>
+    <property name="value" value="200"/>
+   </properties>
+  </object>
+  <object id="43" name="item3" gid="24" x="1168" y="1000">
+   <properties>
+    <property name="spawn" value="item2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="Rain" width="600" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1sEJgEAQBMHLPyDj83G+RBCk5UCrYGA3gx4DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3rMdO9/jdF/9AAB/t0UDAGDSVwAALX0FANCp2kpfAQBM+goAoKWtAABa+goAoKWvAABa+goAoKWvAABa+goAoKWvAAA62goAoKWvAADuVc2kuQAAptVdpa8AgK9Z3VX6CgD4mtVdpa8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAp3bQ5hmY
+  </data>
+ </layer>
+ <layer name="RainDrops" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt3TEKACAIQNHufyCHTtfSngjV4HvwZ1fBwTEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOBsJgMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADqsv8Dq2Vnxg4AoJN4EABAJ3YrAIC823fCXwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0sh0xn1Q==
   </data>
  </layer>
 </map>

@@ -14,5 +14,41 @@
     "album" : "Party in Space",
     "location" : "sounds/14 Helix Nebula",
     "license" : "Attribution-NonCommercial-ShareAlike 3.0 International License"
+  },
+  {
+    "id" : 2,
+    "title": "Expedition",
+    "artist" : "Azureflux",
+    "album" : "Piko Piko Stereo",
+    "location": "sounds/Azureflux_-_05_-_Expedition",
+    "url": "http://freemusicarchive.org/music/Azureflux/Piko_Piko_Stereo/05_azureflux_-_expedition",
+    "license" : "Attribution-NonCommercial-ShareAlike License."
+  },
+  {
+    "id" : 3,
+    "title": "Voyage I - Waterfall",
+    "artist" : "The Kyoto Connection",
+    "album" : "Wake Up",
+    "location": "sounds/The_Kyoto_Connection_-_03_-_Voyage_I_-_Waterfall",
+    "url": "http://freemusicarchive.org/music/The_Kyoto_Connection/Wake_Up_1957/03_Voyage_I_-_Waterfall",
+    "license" : "Attribution-ShareAlike 3.0 International License."
+  },
+  {
+    "id" : 4,
+    "title": "Expedition",
+    "artist" : "Azureflux",
+    "album" : "Piko Piko Stereo",
+    "location": "sounds/Azureflux_-_05_-_Expedition",
+    "url": "http://freemusicarchive.org/music/Azureflux/Piko_Piko_Stereo/05_azureflux_-_expedition",
+    "license" : "Attribution-NonCommercial-ShareAlike License."
+  },
+  {
+    "id" : 5,
+    "title": "Expedition",
+    "artist" : "Azureflux",
+    "album" : "Piko Piko Stereo",
+    "location": "sounds/Azureflux_-_05_-_Expedition",
+    "url": "http://freemusicarchive.org/music/Azureflux/Piko_Piko_Stereo/05_azureflux_-_expedition",
+    "license" : "Attribution-NonCommercial-ShareAlike License."
   }
 ]

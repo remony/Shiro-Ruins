@@ -23,6 +23,10 @@ public abstract class CharacterStateHandler : MonoBehaviour
 
     public abstract void onDeath();
 
+    public abstract void onStairs();
+
+    public abstract void onCrossJunction();
+
     public  enum State
     {
         STATE_IDLE,
@@ -33,7 +37,9 @@ public abstract class CharacterStateHandler : MonoBehaviour
         STATE_MOVINGPLATFORM,
         STATE_FALLING,
         STATE_UNDERWATER,
-        STATE_DEATH
+        STATE_DEATH,
+        STATE_STAIRS,
+        STATE_CROSSJUNCTION
     };
 
     public State state;
@@ -76,6 +82,12 @@ public abstract class CharacterStateHandler : MonoBehaviour
                 break;
             case State.STATE_DEATH:
                 onDeath();
+                break;
+            case State.STATE_STAIRS:
+                onStairs();
+                break;
+            case State.STATE_CROSSJUNCTION:
+                onCrossJunction();
                 break;
         }
     }

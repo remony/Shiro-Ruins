@@ -3,7 +3,8 @@ using System;
 using System.Collections;
 
 
-public class CharacterController : CharacterStateHandler    {
+public class CharacterController : CharacterStateHandler
+{
 
 
     public AudioClip NotificationSound;
@@ -18,12 +19,15 @@ public class CharacterController : CharacterStateHandler    {
     private Animator animator;
     private GameObject player;
     private Rigidbody2D body;
-    private Character character;
+    public Character character;
     private GameObject trigger;
 
     public override void onIdle()
     {
+
         body.gravityScale = 150;
+
+
         body.mass = 10;
         if (velocityHorizontal > 0 || velocityHorizontal < 0)
         {
@@ -35,11 +39,22 @@ public class CharacterController : CharacterStateHandler    {
     {
         body.gravityScale = 150;
         body.mass = 10;
-        if(velocityHorizontal == 0)
+        if (velocityHorizontal == 0)
         {
             state = State.STATE_IDLE;
         }
-        body.velocity = new Vector2(velocityHorizontal * character.speed, body.velocity.y);
+
+        if (isGrounded)
+        {
+            body.gravityScale = 150;
+            body.velocity = new Vector2(velocityHorizontal * character.speed, body.velocity.y);
+        }
+        else
+        {
+            body.gravityScale = 150;
+            body.velocity = new Vector2(velocityHorizontal * character.speed, body.velocity.y);
+        }
+
     }
 
     public override void onJumping()
@@ -64,7 +79,7 @@ public class CharacterController : CharacterStateHandler    {
         body.gravityScale = 0;
         body.mass = 10;
         body.velocity = new Vector2(velocityHorizontal * character.speed, velocityVertical * character.speed);
-        
+
     }
 
     public override void onMovingPlatform()
@@ -73,7 +88,7 @@ public class CharacterController : CharacterStateHandler    {
         body.mass = 10;
         if (velocityHorizontal == 0)
         {
-            
+
             body.velocity = new Vector2(transform.parent.GetComponent<Rigidbody2D>().velocity.x, body.velocity.y);
         }
         else
@@ -87,15 +102,14 @@ public class CharacterController : CharacterStateHandler    {
     {
         body.gravityScale = 60;
         body.mass = 10;
-       
-            body.velocity = new Vector2(body.velocity.x, body.velocity.y);
-        
-            
+
+        body.velocity = new Vector2(body.velocity.x, body.velocity.y);
+
+
     }
 
     public override void onUnderWater()
     {
-        StartCoroutine("underWaterBreath");
         body.gravityScale = 80;
         body.mass = 10;
         body.velocity = new Vector2(velocityHorizontal * (character.speed / 4f), velocityVertical * (character.speed / 4f));
@@ -106,6 +120,22 @@ public class CharacterController : CharacterStateHandler    {
         body.velocity = Vector3.zero;
         body.position = new Vector2(57.4f, -647.5f);
         character.health = 100;
+    }
+
+    public override void onStairs()
+    {
+        body.gravityScale = 0;
+        body.mass = 10;
+        body.velocity = new Vector2(velocityHorizontal * character.speed, velocityVertical * (character.speed / 2));
+    }
+
+    public override void onCrossJunction()
+    {
+        //isGrounded = true;
+        body.gravityScale = 0;
+        body.mass = 10;
+
+        body.velocity = new Vector2(velocityHorizontal * character.speed, velocityVertical * (character.speed / 2));
     }
 
 
@@ -128,28 +158,10 @@ public class CharacterController : CharacterStateHandler    {
         animator = gameObject.GetComponent<Animator>();
         body = player.AddComponent<Rigidbody2D>();
         audioSource = player.AddComponent<AudioSource>();
-
-        //Setting up player trigger
-        /*
-        trigger = new GameObject();
-        trigger.name = "trigger";
-        trigger.tag = "Player";
-        trigger.gameObject.transform.parent = GameObject.Find("Player").transform;
-        trigger.AddComponent<Rigidbody2D>();
-        Rigidbody2D triggerBody = (Rigidbody2D)trigger.GetComponent<Rigidbody2D>();
-        triggerBody.gravityScale = 0; 
-        
-        trigger.AddComponent<BoxCollider2D>();
-        BoxCollider2D triggerCol = (BoxCollider2D)trigger.GetComponent<BoxCollider2D>();
-        triggerCol.isTrigger = true;
-        triggerCol.size = new Vector2(5, 15);
-        */
-        //trigger.
-
         body.isKinematic = false;
         body.fixedAngle = true;
     }
-    
+
 
     void Update()
     {
@@ -157,10 +169,19 @@ public class CharacterController : CharacterStateHandler    {
 
         movement();
         checkRespawnHeight(-3000);
-        print("health" + character.health);
+        //print("health" + character.health);
         if (character.health == 0)
         {
             state = State.STATE_DEATH;
+        }
+
+        if (isGrounded)
+        {
+            animator.SetBool("Jumping", false);
+        }
+        else
+        {
+            animator.SetBool("Jumping", true);
         }
 
         //trigger.gameObject.transform.position = this.gameObject.transform.position;
@@ -181,8 +202,8 @@ public class CharacterController : CharacterStateHandler    {
         velocityHorizontal = Input.GetAxisRaw("Horizontal");
         velocityVertical = Input.GetAxisRaw("Vertical");
         animator.SetFloat("speed", Mathf.Abs(velocityHorizontal));
-        
-        
+
+
 
 
         if (velocityHorizontal > 0 && !isFacingRight)
@@ -192,12 +213,12 @@ public class CharacterController : CharacterStateHandler    {
 
         if (isGrounded)
         {
-            if (Input.GetButtonDown("Fire1") || Input.GetKeyDown("space"))
+            if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown("space"))
             {
                 jump();
             }
         }
-        
+
     }
 
     private void jump()
@@ -206,7 +227,7 @@ public class CharacterController : CharacterStateHandler    {
         {
             body.velocity = new Vector2(body.velocity.x, character.jump);
         }
-        
+
     }
 
     private void flip()
@@ -222,6 +243,7 @@ public class CharacterController : CharacterStateHandler    {
 
     void OnTriggerEnter2D(Collider2D coll)
     {
+        
         if (coll.tag.ToString().Equals("Ladder"))
         {
             state = State.STATE_CLIMBING;
@@ -234,7 +256,22 @@ public class CharacterController : CharacterStateHandler    {
         else if (coll.tag.ToString().Equals("UnderWater"))
         {
             state = State.STATE_UNDERWATER;
-            print("DEAD");
+            StartCoroutine("underWaterBreath");
+        }
+        else if (coll.tag.ToString().Equals("Stairs"))
+        {
+
+            state = State.STATE_STAIRS;
+
+
+        }
+        else if (coll.tag.ToString().Equals("CrossJunction"))
+        {
+            if (state == State.STATE_WALKING)
+            {
+                state = State.STATE_WALKING;
+            }
+
         }
 
     }
@@ -253,9 +290,14 @@ public class CharacterController : CharacterStateHandler    {
         else if (coll.tag.ToString().Equals("UnderWater"))
         {
             state = State.STATE_UNDERWATER;
-            print("DEAD");
         }
+        else if (coll.tag.ToString().Equals("Stairs") || coll.tag.ToString().Equals("Stairs_top"))
+        {
+            
+            state = State.STATE_STAIRS;
+            //animator.SetBool("Jumping", false);
 
+        }
     }
 
     void OnTriggerExit2D(Collider2D coll)
@@ -271,8 +313,17 @@ public class CharacterController : CharacterStateHandler    {
         }
         else if (coll.tag.ToString().Equals("UnderWater"))
         {
-            state = State.STATE_SWIMMING;
-            print("You may have saved yourself.....");
+            state = State.STATE_IDLE;
+            StopCoroutine("underWaterBreath");
+        }
+        else if (coll.tag.ToString().Equals("Stairs"))
+        {
+            state = State.STATE_IDLE;
+        } 
+        else if (coll.tag.ToString().Equals("Stairs_top"))
+        {
+            state = State.STATE_IDLE;
+            coll.transform.GetComponent<Collider2D>().isTrigger = false;
         }
     }
 
@@ -293,6 +344,18 @@ public class CharacterController : CharacterStateHandler    {
                 animator.SetBool("Jumping", false);
 
 
+            }   
+            else if (coll.transform.tag.ToString().Equals("Enemy"))
+            {
+                int attack = coll.gameObject.GetComponent<EnemyController>().enemy.attackPower;
+
+                character.health -= attack;
+                
+                
+            }
+            else
+            {
+                //isGrounded = false;
             }
         }
     }
@@ -301,6 +364,7 @@ public class CharacterController : CharacterStateHandler    {
     {
         if (!checkIfSide(coll))
         {
+            //print(coll.transform.tag.ToString());
             if (coll.transform.tag.ToString().Equals("MovingPlatform"))
             {
                 state = State.STATE_MOVINGPLATFORM;
@@ -309,13 +373,48 @@ public class CharacterController : CharacterStateHandler    {
             }
             else if (coll.transform.tag.ToString().Equals("Ground"))
             {
-
                 isGrounded = true;
                 animator.SetBool("Jumping", false);
+            }
+            else if (coll.transform.tag.ToString().Equals("Enemy"))
+            {
+                int attack = coll.gameObject.GetComponent<EnemyController>().enemy.attackPower;
 
+
+                if (coll.gameObject.GetComponent<EnemyController>().state.Equals("STATE_ATTACKING"))
+                {
+                    print("ow");
+                    character.health -= attack;
+                }
+
+            }
+            else if (coll.transform.tag.ToString().Equals("Stairs"))  
+            { 
+                state = State.STATE_STAIRS;
+            }
+            else if (coll.transform.tag.ToString().Equals("Stairs_top"))
+            {
+                if (velocityVertical < -0.7 || velocityVertical > 0.7)
+                {
+                    coll.gameObject.GetComponent<Collider2D>().isTrigger = true;
+                    state = State.STATE_STAIRS;
+                    enableStairs(true);
+                }
+                else
+                {
+                    coll.gameObject.GetComponent<Collider2D>().isTrigger = false;
+                    state = State.STATE_IDLE;
+                    enableStairs(false);
+                }
+            }
+            else
+            {
+                isGrounded = false;
             }
         }
     }
+
+    
 
     void OnCollisionExit2D(Collision2D coll)
     {
@@ -332,44 +431,57 @@ public class CharacterController : CharacterStateHandler    {
             {
 
                 isGrounded = false;
-                state = State.STATE_JUMPING;
+                //state = State.STATE_JUMPING;
                 animator.SetBool("Jumping", true);
 
 
             }
-        }
-        
-    }
+            else if (coll.transform.tag.ToString().Equals("Stairs_top"))
+            {
+                GameObject[] stairs = GameObject.FindGameObjectsWithTag("Stairs");
+                for (int i = 0; i < stairs.Length; i++)
+                {
+                    if (stairs[i].transform.GetComponent<Collider2D>())
+                    {
+                        stairs[i].transform.GetComponent<Collider2D>().enabled = true;
+                    }
 
+                    //GameObject collision = coll.gameObject.transform.FindChild("Collision").gameObject;
+                }
+            }
+        }
+
+    }
 
 
     private bool checkIfSide(Collision2D coll)
     {
-        //print (coll.contacts.Length);
-        //print(coll.contacts[0].normal.y);
-
-        if (coll.contacts[0].normal.y == 0)
+        if (!isGrounded)
         {
-            if (state == State.STATE_JUMPING || state == State.STATE_WALKING)
+            if (coll.contacts[0].normal.y == 0)
             {
-                state = State.STATE_FALLING;
-                isGrounded = false;
-                return true;
-            }
-            return false;
-            
-        }
-        else
-        {
-            if (state == State.STATE_FALLING)
-            {
-                state = State.STATE_IDLE;
-            }
-            
-            return false;
-        }
+                if (state == State.STATE_JUMPING || state == State.STATE_WALKING)
+                {
+                    state = State.STATE_FALLING;
+                    isGrounded = false;
+                    return true;
+                }
+                return false;
 
-        
+            }
+            else
+            {
+                if (state == State.STATE_FALLING)
+                {
+                    state = State.STATE_IDLE;
+                }
+
+                return false;
+            }
+        }
+        return false;
+
+
     }
 
 
@@ -377,8 +489,35 @@ public class CharacterController : CharacterStateHandler    {
     IEnumerator underWaterBreath()
     {
         yield return new WaitForSeconds(2);
-        character.health  = character.health - 25;
-        print("ow");
+        character.health = character.health - 25;
+        StartCoroutine("underWaterBreath");
     }
+
+    //from http://forum.unity3d.com/threads/trigger-collision-contact-point.26232/
+    private bool ifAirAbove()
+    {
+        if (Physics2D.Raycast(transform.position, transform.up, -60).collider.tag == "Stairs")
+        {
+            print("hit");
+            return true;
+
+        }
+        return false;
+    }
+
+    private void enableStairs(bool enable)
+    {
+        GameObject stairs = GameObject.FindGameObjectWithTag("Stairs");
+        if (enable)
+        {
+            stairs.transform.GetComponent<Collider2D>().enabled = true;
+        }
+        else
+        {
+            stairs.transform.GetComponent<Collider2D>().enabled = false;
+            isGrounded = true;
+        }
+    }
+
 
 }

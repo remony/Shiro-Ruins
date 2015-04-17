@@ -6,7 +6,7 @@ public class EnemyController : EnemyStateHandler {
     public Enemy enemy;
     //private GameObject gameObject;
     private Animator animator;
-    public Transform target;
+    public GameObject target;
 
     public bool movingRight = true;
     public float distance = 100;
@@ -27,6 +27,8 @@ public class EnemyController : EnemyStateHandler {
         enemy.health = 100;
         enemy.jump = 350;
         enemy.speed = 50;
+        enemy.attackPower = 15;
+        
         print("Enemy health: " + enemy.health);
 
         startingPos = gameObject.transform;
@@ -35,11 +37,22 @@ public class EnemyController : EnemyStateHandler {
         //endingPos.position = new Vector2(startingPos.position.x + distance, startingPos.position.y);
 
         //print("Enemy distance: starting: " + startingPos + " ending: " + endingPos + " | total distance apart: " + (endingPos - startingPos));
-
+        try
+        {
+            target = GameObject.FindGameObjectWithTag("Player").gameObject;
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log("no player");
+        }
+        
         animator = gameObject.GetComponent<Animator>();
         body = gameObject.GetComponent<Rigidbody2D>();
         body.fixedAngle = true;
         flip();
+
+        velocity = enemy.health;
+        animator.SetFloat("Velocity", Mathf.Abs(velocity));
 	}
 
 
@@ -58,8 +71,6 @@ public class EnemyController : EnemyStateHandler {
 
     public override void onWalking()
     {
-        velocity = enemy.speed;
-
         if (movingRight)
         {
             distFromTarget = gameObject.transform.position.x - endingPos;
@@ -91,44 +102,34 @@ public class EnemyController : EnemyStateHandler {
            movingRight = !movingRight;
            flip();
        }
-     
-        
 
-
-        //transform.Translate(new Vector3(-enemy.speed * Time.deltaTime, 0, 0));
-/*
-        if (distFromTarget < 120 && distFromTarget > 20)
-        {
-            if (distFromTarget > 0)
-            {
-                transform.position += -transform.right * enemy.speed * Time.deltaTime;
-            }
-            else if (distFromTarget < -0)
-            {
-                transform.position += transform.right * -enemy.speed * Time.deltaTime;
-            }
-        }
-        else if (distFromTarget < 10 && distFromTarget > -10)
-        {
-            state = State.STATE_ATTACKING;
-        } 
-*/
       
         
         
     }
 
-    public override void onJumping()
+    public override void onFollow()
     {
+        float step = enemy.speed * Time.deltaTime;
 
+        //print(startingPos.position.x);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.transform.position.x, gameObject.transform.position.y), step);
     }
 
     public override void onAttacking()
     {
-        if (distFromTarget > 10 || distFromTarget < -10)
-        {
-            state = State.STATE_WALKING;
-        }
+        velocity = enemy.speed;
+        float step = enemy.speed * Time.deltaTime;
+
+        //print(startingPos.position.x);
+        transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.transform.position.x + 1, gameObject.transform.position.y + 100), step);
+        
+    }
+
+    private void fallback()
+    {
+        float step = enemy.speed * Time.deltaTime;
+        body.AddForce(new Vector2(200, 205), ForceMode2D.Impulse);
     }
 
 
@@ -141,12 +142,46 @@ public class EnemyController : EnemyStateHandler {
         {
             Destroy(gameObject);
         }
+        //  print(Vector2.Distance(gameObject.transform.position, target.transform.position));
+        if (target != null)
+        {
+            float distance = Vector2.Distance(gameObject.transform.position, new Vector2(target.transform.position.x, target.transform.position.y - 20));
 
-        animator.SetFloat("Velocity", Mathf.Abs(velocity));
+            if (distance < 200 && distance > 30)
+            {
+                state = State.STATE_FOLLOWING;
+
+            }
+            else if (distance > 0 && distance < 30)
+            {
+                state = State.STATE_ATTACKING;
+            }
+            else
+            {
+                state = State.STATE_WALKING;
+            }
+        }
+        
 
 
         //print(gameObject.transform.position.x - target.position.x);
 	}
+
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.transform.tag.ToString().Equals("Player"))
+        {
+            //state = State.STATE_ATTACKING;
+            StartCoroutine("Attack");
+        }
+    }
+
+    IEnumerator Attack()
+    {
+        yield return new WaitForSeconds(0.01f);
+        fallback();
+    }
 
     private void flip()
     {

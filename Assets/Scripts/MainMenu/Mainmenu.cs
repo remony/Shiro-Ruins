@@ -26,4 +26,9 @@ public class Mainmenu : MonoBehaviour {
     {
         GameManager.instance.changeLevel(level);
     }
+
+    public void quitGame()
+    {
+        Application.Quit();
+    }
 }

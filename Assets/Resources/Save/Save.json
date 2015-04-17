@@ -1,0 +1,18 @@
+[
+  {
+    "level_id": 0,
+    "unlocked": 1,
+    "title":  "My first level",
+    "time": 536,
+    "score": 3549,
+    "percentage" :  90
+  },
+  {
+    "level_id": 1,
+    "unlocked": 0,
+    "title": "my lonely second level",
+    "time": 125,
+    "score": 1202,
+    "percentage" :  20
+  }
+]

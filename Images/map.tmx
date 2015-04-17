@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="Map" tilewidth="32" tileheight="32">
+  <image source="Untitled.png" trans="000000" width="256" height="736"/>
+  <tile id="176">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="177">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="32">
+     <polygon points="0,0 32,-16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="179">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="32">
+     <polygon points="0,0 32,-16 32,-32 0,-32"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="181">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 32,-16 32,16 0,16"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="183">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 32,-16 0,-16"/>
+    </object>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 2" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt11EKgkAUhtHZYgv03WX2qpe5o6O3MjgHhqIC4f9AqTWg0qtz+B09nqXXY01O27xSZ7vxTI/YhuuyXa/20OWcuNPRnnd7aJKb3bGqhyZ92b4VR5N5ejxLRY/ezkvyuR5j2U5LONmzI/7P8Py458pzONs1a6jFeVU9YotRj+212buyf2/7sz3iNdmb2Xf2jFrQV3G/8gyvo8OzHN1TtPiubPeWvB9trkWdNbzG72Zb8BnZvmvnNzoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/4A1ylxbJ
+  </data>
+ </layer>
+ <layer name="Tile Layer 1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1AsKwjAQRdHsfw9dgfVTFXV5nQELoYSAWhTkHLgbyBtSCgAAAPAPpkZ83zV6RGO0rzoWm3yidd+9lh0uz3bRoepU7PGufLf1fffK288N7tE5uhX/1Zby7db33Stvf9lhqGI7r/5XQyMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOD3Zm2kPrI=
+  </data>
+ </layer>
+</map>

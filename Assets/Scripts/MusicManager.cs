@@ -9,7 +9,7 @@ public class MusicManager : MonoBehaviour {
     public AudioClip audioClip;
     private Rigidbody2D body;
 
-    
+    private bool backgroundMusicPlaying = false;
 
     GameObject canvas;
     private int currentID = 0;
@@ -42,7 +42,35 @@ public class MusicManager : MonoBehaviour {
         //message = this.gameObject.AddComponent<Text>();
 	}
 
+    public void togglePause(int id)
+    {
+        
 
+        if (backgroundMusicPlaying)
+        {
+            switch (id)
+            {
+                //Background music
+                case 0:
+                    audioSource.Pause();
+                    backgroundMusicPlaying = false;
+                    
+                    break;
+            }
+        }
+        else if (!backgroundMusicPlaying)
+        {
+            switch (id)
+            {
+                //Background music
+                case 0:
+                    audioSource.Play();
+                    backgroundMusicPlaying = true;
+                    break;
+            }
+        }
+        
+    }
     public void playSong(int id)
     {
         Debug.Log("oh");

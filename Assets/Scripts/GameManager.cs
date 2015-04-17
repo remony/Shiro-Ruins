@@ -45,6 +45,11 @@ public class GameManager : MonoBehaviour
         musicManager.playSong(id);
     }
 
+    public void togglePauseMusic(int id)
+    {
+        musicManager.togglePause(id);
+    }
+
     public void changeLevel(int level)
     {
         this.level = level;

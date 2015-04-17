@@ -7,7 +7,6 @@ public class splashscreen : MonoBehaviour {
     IEnumerator astart()
 
     {
-        
         yield return new WaitForSeconds(delaytime);
         changelevel(1);
     }
@@ -26,8 +25,9 @@ public class splashscreen : MonoBehaviour {
     void Start()
     {
         StartCoroutine(astart());
-        GameManager.instance.playSong(0);
+        GameManager.instance.playSong(3);
     }
+
 
     
     public void changelevel(int level)

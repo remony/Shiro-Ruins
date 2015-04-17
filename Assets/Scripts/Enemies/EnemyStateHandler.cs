@@ -8,7 +8,7 @@ public abstract class EnemyStateHandler : MonoBehaviour
 
     public abstract void onWalking();
 
-    public abstract void onJumping();
+    public abstract void onFollow();
 
     public abstract void onAttacking();
 
@@ -16,7 +16,7 @@ public abstract class EnemyStateHandler : MonoBehaviour
     {
         STATE_IDLE,
         STATE_WALKING,
-        STATE_JUMPING,
+        STATE_FOLLOWING,
         STATE_ATTACKING
     };
 
@@ -37,8 +37,8 @@ public abstract class EnemyStateHandler : MonoBehaviour
             case State.STATE_WALKING:
                 onWalking();
                 break;
-            case State.STATE_JUMPING:
-                onJumping();
+            case State.STATE_FOLLOWING:
+                onFollow();
                 break;
             case State.STATE_ATTACKING:
                 onAttacking();

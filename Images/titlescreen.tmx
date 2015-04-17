@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="2">
+ <tileset firstgid="1" name="Untitled" tilewidth="32" tileheight="32">
+  <image source="Untitled.png" trans="000000" width="256" height="736"/>
+  <tile id="101">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,24 32,24 32,0"/>
+    </object>
+   </objectgroup>
+   <animation>
+    <frame tileid="101" duration="300"/>
+    <frame tileid="102" duration="300"/>
+    <frame tileid="103" duration="300"/>
+    <frame tileid="102" duration="300"/>
+   </animation>
+  </tile>
+  <tile id="104">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+   <animation>
+    <frame tileid="104" duration="300"/>
+    <frame tileid="105" duration="300"/>
+    <frame tileid="106" duration="300"/>
+    <frame tileid="105" duration="300"/>
+   </animation>
+  </tile>
+  <tile id="107">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+   <animation>
+    <frame tileid="107" duration="300"/>
+    <frame tileid="108" duration="300"/>
+    <frame tileid="109" duration="300"/>
+    <frame tileid="108" duration="300"/>
+   </animation>
+  </tile>
+ </tileset>
+ <layer name="Background2" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1kFKAzEUgOFc0Z05T6/QhRuvYLuo91OZDDxCAqHT6kO+Dx4ptNnkD50pBcjiI6z9xO/5HXrkokcueuSiRy565KLH36ttTmU779cy7lHbegp7eLzY41K2HpfB1Lbq8Vyxx7VsPa6DqW3V47nO3/PWPr8sTGm/Px8Y5t7b/Fjtse+p3dwWh7lH9NjP+XNxmIt3dvReNXrv7e/7fs6r+/2PzcU7O3qO9xP39Hd+tQdz99zN2R49jovPj6N79MhFj1z0yEWPXPTIRY9c9MhFj1z0yEWPXPTIRY9c9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgP/rC7MV43U=
+  </data>
+ </layer>
+ <layer name="Background" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt18FtwjAUgOEsWaQO0Em4MADX3jtAu1+JRCRiJcEGbL+g75OeQCQRjv9DlGEA1nw2nONlfi5zun6mM/1+rLiG6PSIRY9Y9IhFj1j0iKXGPX8vfB8/9bivdJ/T2TqWTkmPR9anR9mMcno8ur536PHbcEa5PZ79r732ODeYW0sd0hkWriu11x61nptr+5Dbo9Z9RadHLK2eGxM9tv01mFvP9vjKmNFee7R+nq853Dk+7ee79yh598g9L31XfOX69Kg7H4Xn67G/HlvXR6dHLHrEokcsesTSu0fp5LxP6qHHq/TeXz3meu+vHnO991ePud77qwcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADD5B162pLo=
+  </data>
+ </layer>
+ <layer name="Tile Layer 1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1EsKwjAUBdAs0g9uQBAcugVHTh34XYFTF2jABqWgbYyfgOfApTx4paW3JAQAAAAA/sH5QbhZxsxipk8yb/ZKrR+Em9Ob9yjzzT6cV91K+tjFHEK/824QnFd9bF/YSz3sY44975/kvNQf28QswvU/HTXXVWteNHtJTg+JPvqZ3GXcXIetOaX0OeQZd8wl9JFPH3XRR10+2Qf59FEXfdQlff9ha+Y39FEXfdRFH3XRR130AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtF0AQ6g3sw==
+  </data>
+ </layer>
+ <objectgroup name="Enemy">
+  <object id="1" gid="79" x="1016" y="392">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

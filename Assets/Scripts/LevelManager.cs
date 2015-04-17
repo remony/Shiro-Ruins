@@ -1,40 +1,58 @@
 ﻿using UnityEngine;
 using System;
-using System.Collections.Generic;
-using Random = UnityEngine.Random;
+using System.Collections;
+using UnityEngine.UI;
+
 public class LevelManager : MonoBehaviour {
 
-     
+    public Slider progressBar;
+    public GameObject loadingScreen;
 
-	// Use this for initialization
-	void Awake () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    private AsyncOperation async;
 
     private void loadLevel(int level)   {
+        loadingScreen.SetActive(true);
+        String sceneName;
+        
         switch (level)
         {
+                
             case 0:
-                Application.LoadLevel("splashscreen");
+                sceneName = "splashscreen";
                 break;
             case 1:
-                Application.LoadLevel("MainMenu");
+                sceneName = "MainMenu";
                 break;
             case 2:
-                Application.LoadLevel("spriteValley");
+                sceneName = "LevelSelection";
+                break;
+            case 3:
+                sceneName = "spriteValley";
                 break;
             default:
-                Application.LoadLevel("MainMenu");
+                sceneName = "MainMenu";
                 break;
         }
+
+        StartCoroutine(StartLoadingScreen(sceneName));
     }
+
+
 
     public void setupLevel(int level)    {
         loadLevel(level);
+    }
+
+    IEnumerator StartLoadingScreen(string sceneName)
+    {
+        async = Application.LoadLevelAsync(sceneName);
+        while (!async.isDone)
+        {
+            progressBar.value = async.progress;
+            print(async.progress);
+            yield return null;
+        }
+        loadingScreen.SetActive(false);
+
     }
 }
