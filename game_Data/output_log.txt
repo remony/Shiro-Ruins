@@ -14,7 +14,7 @@ Platform assembly: C:\Users\remon\Documents\ShiroRuins\game_Data\Managed\Assembl
 Loading C:\Users\remon\Documents\ShiroRuins\game_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\remon\Documents\ShiroRuins\game_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\remon\Documents\ShiroRuins\game_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.079 seconds
+- Completed reload, in  0.090 seconds
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -34,7 +34,7 @@ Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-<StartLoadingScreen>c__Iterator9:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
+<StartLoadingScreen>c__IteratorA:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
 UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
 UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:62)
 LevelManager:loadLevel(Int32) (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:37)
@@ -44,12 +44,12 @@ GameManager:Awake() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\GameM
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
-UnloadTime: 0.595720 ms
+UnloadTime: 0.569633 ms
 System memory in use before: 11.6 MB.
 System memory in use after: 11.6 MB.
 
-Unloading 46 unused Assets to reduce memory usage. Loaded Objects now: 325.
-Total: 0.234353 ms (FindLiveObjects: 0.028225 ms CreateObjectMapping: 0.018816 ms MarkObjects: 0.156948 ms  DeleteObjects: 0.029935 ms)
+Unloading 46 unused Assets to reduce memory usage. Loaded Objects now: 326.
+Total: 0.295935 ms (FindLiveObjects: 0.032073 ms CreateObjectMapping: 0.018816 ms MarkObjects: 0.213826 ms  DeleteObjects: 0.030363 ms)
 
 oh
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
@@ -66,7 +66,7 @@ UnityEngine.Debug:Log(Object)
 GameManager:InitGame() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\GameManager.cs:38)
 GameManager:changeLevel(Int32) (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\GameManager.cs:56)
 splashscreen:changelevel(Int32) (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\splashscreen\splashscreen.cs:35)
-splashscreen:Update() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\splashscreen\splashscreen.cs:20)
+<astart>c__IteratorC:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\splashscreen\splashscreen.cs:11)
  
 (Filename: C:/Users/remon/Documents/ShiroRuins/Assets/Scripts/GameManager.cs Line: 38)
 
@@ -74,7 +74,7 @@ splashscreen:Update() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\spl
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-<StartLoadingScreen>c__Iterator9:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
+<StartLoadingScreen>c__IteratorA:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
 UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
 UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:62)
 LevelManager:loadLevel(Int32) (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:37)
@@ -82,7 +82,7 @@ LevelManager:setupLevel(Int32) (at C:\Users\remon\Documents\ShiroRuins\Assets\Sc
 GameManager:InitGame() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\GameManager.cs:39)
 GameManager:changeLevel(Int32) (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\GameManager.cs:56)
 splashscreen:changelevel(Int32) (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\splashscreen\splashscreen.cs:35)
-splashscreen:Update() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\splashscreen\splashscreen.cs:20)
+<astart>c__IteratorC:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\splashscreen\splashscreen.cs:11)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
@@ -91,7 +91,7 @@ Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-<StartLoadingScreen>c__Iterator9:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
+<StartLoadingScreen>c__IteratorA:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
@@ -99,11 +99,11 @@ UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-<StartLoadingScreen>c__Iterator9:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
+<StartLoadingScreen>c__IteratorA:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
-UnloadTime: 1.994573 ms
+UnloadTime: 2.702339 ms
 Enemy health: 100
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
@@ -119,11 +119,11 @@ EnemyController:Start() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\E
  
 (Filename: C:/Users/remon/Documents/ShiroRuins/Assets/Scripts/Enemies/EnemyController.cs Line: 46)
 
-System memory in use before: 81.3 MB.
-System memory in use after: 81.3 MB.
+System memory in use before: 57.1 MB.
+System memory in use after: 57.1 MB.
 
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 414.
-Total: 0.456733 ms (FindLiveObjects: 0.022665 ms CreateObjectMapping: 0.017533 ms MarkObjects: 0.392585 ms  DeleteObjects: 0.023520 ms)
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 415.
+Total: 0.573910 ms (FindLiveObjects: 0.023948 ms CreateObjectMapping: 0.014540 ms MarkObjects: 0.519598 ms  DeleteObjects: 0.015395 ms)
 
 Loading level 2
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
@@ -150,7 +150,7 @@ UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Exte
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-<StartLoadingScreen>c__Iterator9:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
+<StartLoadingScreen>c__IteratorA:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
 UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
 UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:62)
 LevelManager:loadLevel(Int32) (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:37)
@@ -173,21 +173,29 @@ UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Exte
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
+0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+<StartLoadingScreen>c__IteratorA:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
 0.9
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-<StartLoadingScreen>c__Iterator9:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
+<StartLoadingScreen>c__IteratorA:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
-UnloadTime: 0.483675 ms
-System memory in use before: 81.4 MB.
-System memory in use after: 81.1 MB.
+UnloadTime: 0.515749 ms
+System memory in use before: 57.2 MB.
+System memory in use after: 56.9 MB.
 
-Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 348.
-Total: 0.342122 ms (FindLiveObjects: 0.022665 ms CreateObjectMapping: 0.016250 ms MarkObjects: 0.206984 ms  DeleteObjects: 0.095794 ms)
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 349.
+Total: 0.404987 ms (FindLiveObjects: 0.025231 ms CreateObjectMapping: 0.020099 ms MarkObjects: 0.249321 ms  DeleteObjects: 0.109051 ms)
 
 Loading level 3
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
@@ -214,7 +222,7 @@ UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Exte
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-<StartLoadingScreen>c__Iterator9:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
+<StartLoadingScreen>c__IteratorA:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
 UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
 UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:62)
 LevelManager:loadLevel(Int32) (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:37)
@@ -237,12 +245,28 @@ UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Exte
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
+0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+<StartLoadingScreen>c__IteratorA:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+
+0.5797843
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+<StartLoadingScreen>c__IteratorA:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
 0.9
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-<StartLoadingScreen>c__Iterator9:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
+<StartLoadingScreen>c__IteratorA:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
@@ -250,11 +274,19 @@ UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-<StartLoadingScreen>c__Iterator9:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
+<StartLoadingScreen>c__IteratorA:MoveNext() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\LevelManager.cs:52)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
 
-UnloadTime: 0.377190 ms
+UnloadTime: 0.393440 ms
+Enemy health: 100
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
+EnemyController:Start() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\Enemies\EnemyController.cs:32)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+
 Enemy health: 100
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
@@ -294,11 +326,6 @@ SignManager:Start() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\Sign\
  
 (Filename: C:/Users/remon/Documents/ShiroRuins/Assets/Scripts/Sign/SignManager.cs Line: 14)
 
-NullReferenceException: Object reference not set to an instance of an object
-  at SignManager.Start () [0x00072] in C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\Sign\SignManager.cs:24 
- 
-(Filename: C:/Users/remon/Documents/ShiroRuins/Assets/Scripts/Sign/SignManager.cs Line: 24)
-
 oh
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
@@ -308,25 +335,9 @@ Level1Manager:Start() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\Lev
  
 (Filename: C:/Users/remon/Documents/ShiroRuins/Assets/Scripts/MusicManager.cs Line: 76)
 
-Enemy health: 100
-UnityEngine.Debug:Internal_Log(Int32, String, Object)
-UnityEngine.Debug:Log(Object)
-UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviour.gen.cs:108)
-EnemyController:Start() (at C:\Users\remon\Documents\ShiroRuins\Assets\Scripts\Enemies\EnemyController.cs:32)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviour.gen.cs Line: 108)
+System memory in use before: 88.5 MB.
+System memory in use after: 88.2 MB.
 
-System memory in use before: 113.4 MB.
-System memory in use after: 113.4 MB.
-
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 723.
-Total: 0.322878 ms (FindLiveObjects: 0.033784 ms CreateObjectMapping: 0.024376 ms MarkObjects: 0.246755 ms  DeleteObjects: 0.017533 ms)
-
-Joystick disconnected ("Controller (Xbox 360 Wireless Receiver for Windows)").
- 
-(Filename: C:/buildslave/unity/build/PlatformDependent/Win/RawInput.cpp Line: 1260)
-
-Joystick reconnected ("Controller (Xbox 360 Wireless Receiver for Windows)").
- 
-(Filename: C:/buildslave/unity/build/PlatformDependent/Win/RawInput.cpp Line: 1325)
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 653.
+Total: 0.611543 ms (FindLiveObjects: 0.059443 ms CreateObjectMapping: 0.033356 ms MarkObjects: 0.488379 ms  DeleteObjects: 0.029080 ms)
 
