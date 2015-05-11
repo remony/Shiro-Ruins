@@ -2,10 +2,12 @@
 using System.Collections;
 
 public class Mainmenu : MonoBehaviour {
-
+    
 	// Use this for initialization
 	void Start () {
-	
+
+
+        GameManager.instance.playSong(2);
 	}
 	
 	// Update is called once per frame

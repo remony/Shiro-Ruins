@@ -34,7 +34,7 @@ public class ItemController : ItemStateHandler
         body.isKinematic = false;
         body.fixedAngle = true;
         body.gravityScale = 0;
-
+        Debug.Log(item.value);
         boxCollider.size = new Vector2(0.1f, 0.1f);
         boxCollider.isTrigger = true;
         levelManager = GameObject.FindGameObjectWithTag("LevelManager");
@@ -56,13 +56,21 @@ public class ItemController : ItemStateHandler
         base.Update();
 	}
 
+
+  
+
     void OnTriggerEnter2D (Collider2D coll)
     {
         if (coll.tag.ToString().Equals("Player"))
         {
             
             audioSource.PlayOneShot(pickupSound, 1f);
-            levelManager.SendMessage("AddScore", item.value);
+            if (levelManager != null)
+            {
+                //levelManager.SendMessage("AddScore", item.value);
+                levelManager.GetComponent<GuiObserver>().AddScore(item.value);
+            }
+            
             StartCoroutine("destroy");
         }
 
@@ -70,8 +78,9 @@ public class ItemController : ItemStateHandler
 
     IEnumerator destroy()
     {
-        yield return new WaitForSeconds(0.14f);
+        yield return new WaitForSeconds(0.13f);
         Destroy(gameObject);
 
     }
 }
+

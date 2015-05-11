@@ -2,69 +2,334 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class GUIManager : MonoBehaviour {
+public class GUIManager : GUIStateHandle, GuiObserver
+{
+    public GameObject messageView;
+    public GameObject completeView;
+    public GameObject failedView;
+    public GameObject startCard;
+    public GameObject magicCooldown;
+    Text[] textGui;
+    Slider healthBar;
+    Level level;
+    float endTime;
 
-    public GameObject target;
-    public int health = 0;
-    public bool displayScore = true;
-    public int score = 0;
-    Text[] healthDisplay;
-    CharacterController characterController;
+    public override void onProgress()
+    {
+        //Get input
+        input();
+    }
 
-    public GameObject pauseMenu;
-
-
-	// Use this for initialization
-	void Start () {
-        healthDisplay = gameObject.GetComponentsInChildren<Text>();
-        target = GameObject.FindGameObjectWithTag("Player").gameObject;
-        characterController = target.GetComponent<CharacterController>();
-
-        healthDisplay[0].text = "Health: " + health;
-        healthDisplay[1].text = "Score: " + score; 
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-        if (characterController.character.health != health)
+    public override void onPause()
+    {
+        //if there the gameObject PauseMenu doens't exist open the scene
+        if (!GameObject.FindGameObjectWithTag("PauseMenu"))
         {
-            health = characterController.character.health;
-            healthDisplay[0].text = "Health: " + health; 
-
+            Application.LoadLevelAdditive("PauseScene");
+            Time.timeScale = 0;
         }
-        if (displayScore)
+        input();
+    }
+
+    public override void onUnPause()
+    {
+        if (GameObject.FindGameObjectWithTag("PauseMenu"))
         {
-            healthDisplay[1].text = "Score: " + score;
+            GameObject pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+            Destroy(pauseMenu);
+            Time.timeScale = 1;
+            state = State.STATE_INPROGRESS;
         }
         else
         {
-            healthDisplay[1].text = "";
+            Debug.Log("Could not find Pause menu gameobject :(");
+        }
+    }
+
+    public override void onComplete()
+    {
+
+        if (completeView)
+        {
+            if (!completeView.activeSelf)
+            {
+                completeView.SetActive(true);
+                level.time = Time.time - level.time;
+                completeView.GetComponentsInChildren<Text>()[1].text = "Score: " + level.score + "\n Time: " + level.time.ToString("#") + " Seconds.";
+                save();
+            }
+        }
+    }
+
+    public override void onDeath()
+    {
+        if (failedView)
+        {
+            if (!failedView.activeSelf)
+            {
+                failedView.SetActive(true);
+                level.time = Time.time - level.time;
+                failedView.GetComponentsInChildren<Text>()[1].text = "Score: " + level.score + "\n Time: " + level.time.ToString("#") + " Seconds.";
+            }
+        }
+    }
+
+    public override void onStart()
+    {
+        if (startCard)
+        {
+            if (!startCard.activeSelf)
+            {
+                startCard.SetActive(true);
+                print(levelID());
+                int id = levelID();
+                JSONObject save = saveData();
+                startCard.GetComponentInChildren<Text>().text = save[id].GetField("Title").str;
+                print(saveData()[levelID()].GetField("Title").str);
+                StartCoroutine("displayStart", 2);
+
+                state = State.STATE_INPROGRESS;
+
+            }
+        }
+    }
+
+    IEnumerator displayStart(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        startCard.SetActive(false);
+    }
+
+    public void onRestart()
+    {
+        GameManager.instance.changeLevel(GameManager.instance.level);
+    }
+
+    IEnumerator waitToEnd(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        state = State.STATE_COMPLETE;
+    }
+
+    private int levelID()
+    {
+
+        int id = GameManager.instance.level;
+
+
+        switch (id)
+        {
+            case 3:
+                id = 0;
+                break;
+            case 4:
+                id = 1;
+                break;
+            case 5:
+                id = 2;
+                break;
+            case 6:
+                id = 3;
+                break;
+            case 7:
+                id = 3;
+                break;
+            case 8:
+                id = 4;
+                break;
+            case 9:
+                id = 5;
+                break;
+            case 10:
+                id = 6;
+                break;
         }
 
-        if (Input.GetKeyDown("i") ||  Input.GetKeyDown("joystick button 7"))
+        return id;
+
+
+
+
+    }
+
+    public JSONObject saveData()
+    {
+        return new JSONObject(PlayerPrefs.GetString("Save"));
+    }
+
+    private void save()
+    {
+        JSONObject save = saveData();
+        int id = levelID();
+        switch (id)
+        {
+            case 3:
+                id = 0;
+                break;
+            case 4:
+                id = 1;
+                break;
+            case 5:
+                id = 2;
+                break;
+            case 6:
+                id = 3;
+                break;
+            case 7:
+                id = 3;
+                break;
+            case 8:
+                id = 4;
+                break;
+            case 9:
+                id = 5;
+                break;
+            case 10:
+                id = 6;
+                break;
+        }
+
+        if (save[0].GetField("Score").n < level.score)
+        {
+            save[0].SetField("Score", level.score);
+            save[0].SetField("Time", level.time);
+            GameManager.instance.UpdateSaveData(save);
+
+        }
+        else
+        {
+            print("Score not higher");
+        }
+
+
+
+
+    }
+
+    void Start()
+    {
+        base.Start();
+        level = new Level();
+        level.score = 0;
+        level.message = "";
+        level.time = Time.time;
+        textGui = gameObject.GetComponentsInChildren<Text>();
+        healthBar = gameObject.GetComponentInChildren<Slider>();
+        healthBar.maxValue = 100;
+        healthBar.minValue = 0;
+        textGui[1].text = "Score: " + level.score;
+        completeView.SetActive(false);
+        failedView.SetActive(false);
+        startCard.SetActive(false);
+        messageView.SetActive(false);
+    }
+
+
+    public void OnButtonClick(int levelId)
+    {
+        GameManager.instance.changeLevel(levelId);
+    }
+
+    void Update()
+    {
+        base.Update();
+        input();
+        timer();
+    }
+
+    private void timer()
+    {
+        textGui[3].text = "Time: " + (Time.time - level.time).ToString("#");
+    }
+
+    private void input()
+    {
+        if (Input.GetKeyDown("i") || Input.GetKeyDown("joystick button 7"))
         {
             if (Time.timeScale == 1)
             {
-                Application.LoadLevelAdditive("PauseScene");
-                Time.timeScale = 0;
+                state = State.STATE_PAUSED;
             }
             else
             {
-                GameObject pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
-                Destroy(pauseMenu);
-                Time.timeScale = 1;
+                state = State.STATE_UNPAUSED;
             }
-            
         }
-        
-        
-	}
+    }
+
+    public void ChangeState(int id)
+    {
+        switch (id)
+        {
+            case 0:
+                state = State.STATE_INPROGRESS;
+                break;
+            case 1:
+                state = State.STATE_PAUSED;
+                break;
+            case 2:
+                state = State.STATE_UNPAUSED;
+                break;
+            case 3:
+                StartCoroutine("waitToEnd", 1);
+                break;
+            case 4:
+                state = State.STATE_DEATH;
+                break;
+        }
+    }
+
+    public void MessageUpdate(string message)
+    {
+        level.message = message;
+        displayMessage();
+    }
 
     public void AddScore(int value)
     {
-        score += value;
+        level.score += value;
+        textGui[1].text = "Score: " + level.score;
+    }
+
+    private void displayMessage()
+    {
+        messageView.SetActive(true);
+        messageView.GetComponentsInChildren<Text>()[0].text = level.message;
+        StopCoroutine("disableMessage");
+        StartCoroutine("disableMessage");
+    }
+
+    IEnumerator disableMessage()
+    {
+        yield return new WaitForSeconds(5);
+        messageView.SetActive(false);
+    }
+
+    public void displayLastMessage()
+    {
+        displayMessage();
+    }
+
+    public void UpdateHealth(int health)
+    {
+        level.health = health;
+        textGui[0].text = level.health.ToString();
+        healthBar.value = level.health;
+    }
+
+    public void updateMagicCooldown(float count)
+    {
+        //print(count);
+        magicCooldown.GetComponentInChildren<Slider>().value = (count);
+
+
+        if (count /3 > 0)
+        {
+            //magicCooldown.GetComponentInChildren<Slider>()
+        }else if (count /3 >= 3)
+        {
+
+        }
     }
 
     void OnLevelWasLoaded()

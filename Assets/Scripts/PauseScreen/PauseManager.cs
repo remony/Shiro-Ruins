@@ -3,23 +3,26 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PauseManager : MonoBehaviour {
+
     GameObject pauseMenu;
-	// Use this for initialization
+    GameObject guiController;
+	
+    // Use this for initialization
 	void Start () {
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        guiController = GameObject.FindGameObjectWithTag("LevelManager");
 	}
-
-
-
+    
     public void onContinue()
     {
         Destroy(pauseMenu);
         Time.timeScale = 1;
+        guiController.GetComponent<GuiObserver>().ChangeState(2);
     }
 
     public void onRestart()
     {
-        print("Not implemented");
+        GameManager.instance.changeLevel(GameManager.instance.level);
     }
 
     public void onOptions()

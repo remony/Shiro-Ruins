@@ -23,6 +23,8 @@ class ItemImporter : Tiled2Unity.ICustomTiledImporter
         if (props["spawn"] != "item")
             return;
 
+       
+
         
 
         // Load the prefab assest and Instantiate it
@@ -35,15 +37,15 @@ class ItemImporter : Tiled2Unity.ICustomTiledImporter
                 (GameObject)GameObject.Instantiate(spawn);
 
 
-            spawnInstance.name = "item" + id.ToString();
-            
+            spawnInstance.name = "item_" + id.ToString();
+
 
             id++;
 
 
             // Use the position of the game object we're attached to
             spawnInstance.transform.parent = gameObject.transform;
-            spawnInstance.transform.localPosition = new Vector3(0, 14f, 0);
+            spawnInstance.transform.localPosition = Vector3.zero;
         }
     }
 

@@ -39,12 +39,24 @@ public class EnemyController : EnemyStateHandler {
         //print("Enemy distance: starting: " + startingPos + " ending: " + endingPos + " | total distance apart: " + (endingPos - startingPos));
         try
         {
-            target = GameObject.FindGameObjectWithTag("Player").gameObject;
+            target = GameObject.FindGameObjectWithTag("Player");
         }
         catch (System.Exception e)
         {
             Debug.Log("no player");
         }
+        
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        //GameObject oh = new GameObject();
+        //for (int i = 0; i < players.Length; i++ )
+        //{
+         //   print(i);
+          //  players[i].transform.parent = oh.transform;
+        //}
+
+
+            print("there is " + players.Length + " PLayers");
         
         animator = gameObject.GetComponent<Animator>();
         body = gameObject.GetComponent<Rigidbody2D>();
@@ -129,7 +141,16 @@ public class EnemyController : EnemyStateHandler {
     private void fallback()
     {
         float step = enemy.speed * Time.deltaTime;
-        body.AddForce(new Vector2(200, 205), ForceMode2D.Impulse);
+        if (movingRight)
+        {
+            body.AddForce(new Vector2(-400, -405), ForceMode2D.Impulse);
+        }
+        else
+        {
+            body.AddForce(new Vector2(400, 405), ForceMode2D.Impulse);
+        }
+        
+        state = State.STATE_IDLE;
     }
 
 
@@ -137,22 +158,24 @@ public class EnemyController : EnemyStateHandler {
 	// Update is called once per frame
 	void Update () {
         base.Update();
-        //print(endingPos.position.x - gameObject.transform.position.x);
-        if (enemy.health == 0)
+
+
+        if (enemy.health == 0 || enemy.health < 0)
         {
+            GameObject.FindGameObjectWithTag("LevelManager").GetComponent<GuiObserver>().AddScore(250);
             Destroy(gameObject);
         }
         //  print(Vector2.Distance(gameObject.transform.position, target.transform.position));
         if (target != null)
         {
             float distance = Vector2.Distance(gameObject.transform.position, new Vector2(target.transform.position.x, target.transform.position.y - 20));
-
-            if (distance < 200 && distance > 30)
+            //print(distance);
+            if (distance < 200 && distance > 35)
             {
                 state = State.STATE_FOLLOWING;
 
             }
-            else if (distance > 0 && distance < 30)
+            else if (distance > 0 && distance < 35 || distance == 0)
             {
                 state = State.STATE_ATTACKING;
             }
@@ -160,6 +183,9 @@ public class EnemyController : EnemyStateHandler {
             {
                 state = State.STATE_WALKING;
             }
+
+
+
         }
         
 
@@ -167,20 +193,60 @@ public class EnemyController : EnemyStateHandler {
         //print(gameObject.transform.position.x - target.position.x);
 	}
 
-
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.transform.tag.ToString().Equals("Player"))
         {
-            //state = State.STATE_ATTACKING;
-            StartCoroutine("Attack");
+            if (state.Equals(State.STATE_ATTACKING))
+            {
+                state = State.STATE_ATTACKING;
+                StartCoroutine("Attack", coll.gameObject);
+            }
+            
         }
     }
 
-    IEnumerator Attack()
+    void OnTriggerEnter2D(Collider2D coll)
     {
-        yield return new WaitForSeconds(0.01f);
-        fallback();
+        if (coll.transform.tag.ToString().Equals("MagicBullet"))
+        {
+            print("ow bullet");
+                enemy.health -= 10;
+            
+        }
+    }
+
+
+    void OnCollisionStay2D(Collision2D coll)
+    {
+        
+        
+        if (coll.transform.tag.ToString().Equals("Player"))
+        {
+            if (coll.gameObject.GetComponent<CharacterController>().state.ToString().Equals("STATE_ATTACKING"))
+            {
+                enemy.health -= 10;
+            }
+        }
+        
+    }
+
+    IEnumerator Attack(GameObject player)
+    {
+        yield return new WaitForSeconds(0.1f);
+        strike(player);
+        
+    }
+
+    private void strike(GameObject player)
+    {
+        if (state.Equals(State.STATE_ATTACKING))
+        {
+            player.GetComponent<CharacterController>().character.health -= enemy.attackPower;
+            print("STRIKE");
+            fallback();
+        }
+        
     }
 
     private void flip()

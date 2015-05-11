@@ -13,6 +13,9 @@ public class SignManager : MonoBehaviour {
         int count = 0;
         Debug.Log("There is " + signs.Length + " signs");
         
+
+        
+
         TextAsset mydata = Resources.Load("Signs/SignContext") as TextAsset;
         signJson = new JSONObject(mydata.text);
 

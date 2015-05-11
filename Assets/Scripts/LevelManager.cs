@@ -27,7 +27,10 @@ public class LevelManager : MonoBehaviour {
                 sceneName = "LevelSelection";
                 break;
             case 3:
-                sceneName = "spriteValley";
+                sceneName = "Tutorial";
+                break;
+            case 4:
+                sceneName = "Level1";
                 break;
             default:
                 sceneName = "MainMenu";
@@ -40,7 +43,7 @@ public class LevelManager : MonoBehaviour {
 
 
     public void setupLevel(int level)    {
-        loadLevel(level);
+                loadLevel(level);
     }
 
     IEnumerator StartLoadingScreen(string sceneName)

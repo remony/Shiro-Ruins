@@ -6,8 +6,8 @@ public class DialogViewer : MonoBehaviour {
 
     private AudioClip NotificationSound;
     private AudioSource audioSource;
-    
 
+    
     IEnumerator wait()
     {
         yield return new WaitForSeconds(5);

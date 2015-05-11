@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.IO;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +11,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     public LevelManager levelManager;
     public MusicManager musicManager;
+    public bool debugMode = false;
+    public int debug_level = 0;
+    GameManagerStore store;
 
     public int level = 0;
 
@@ -17,32 +23,58 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-        else if (instance != this){
+        else if (instance != this)
+        {
             Destroy(gameObject);
         }
-        
 
+        if (debugMode)
+        {
+            level = debug_level;
+        }
+        store = new GameManagerStore();
         DontDestroyOnLoad(this.gameObject);
         levelManager = GetComponent<LevelManager>();
-        musicManager = GetComponent<MusicManager>();
+
+
+
+        if (PlayerPrefs.GetString("Save") != null)
+        {
+            store.saveData = new JSONObject(PlayerPrefs.GetString("Save"));
+        }
+        else
+        {
+            store.saveData = new JSONObject((Resources.Load("Save/Save") as TextAsset).text);
+        }
+
         InitGame();
     }
 
     void OnLevelWasLoaded(int index)
     {
-        
+
     }
 
     void InitGame()
     {
         Debug.Log("Loading level " + level);
         levelManager.setupLevel(level);
-        
+
     }
 
     public void playSong(int id)
     {
         musicManager.playSong(id);
+    }
+
+    public void playSoundEffect(int id)
+    {
+        musicManager.playSoundEffect(id);
+    }
+
+    public void stopSoundEffect()
+    {
+        musicManager.stopSoundEffect();
     }
 
     public void togglePauseMusic(int id)
@@ -55,5 +87,19 @@ public class GameManager : MonoBehaviour
         this.level = level;
         InitGame();
     }
-   
+
+    public JSONObject GetSaveData()
+    {
+        return store.saveData;
+    }
+
+    public void UpdateSaveData(JSONObject save)
+    {
+        store.saveData = save;
+        PlayerPrefs.SetString("Save", store.saveData.ToString());
+        PlayerPrefs.Save();
+        File.WriteAllText(Environment.CurrentDirectory + "/Assets/Resources/Save/" + @"\Save.json", save.ToString(true));
+
+    }
+
 }

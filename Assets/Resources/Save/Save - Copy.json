@@ -1,0 +1,40 @@
+[
+    {
+        "id": 3,
+        "Title" : "Tutorial",
+        "sceneName": "Tutorial",
+        "Score": 100,
+        "Time": 0,
+        "ColourPercentage" : 0,
+        "unlocked": 1
+    },
+    {
+        "id": 2,
+        "Title" : "Level 1",
+        "sceneName": "Level1",
+        "Score": 0,
+        "Time": 0,
+        "ColourPercentage" : 0,
+        "unlocked": 1
+    },
+    {
+        "id": 3,
+        "Title" : "Level 3",
+        "sceneName": "Level3",
+        "Score": 0,
+        "Time": 0,
+        "ColourPercentage" : 0,
+        "unlocked": 0
+    },
+    {
+        "id": 4,
+        "Title" : "Level 4",
+        "sceneName": "Level4",
+        "Score": 0,
+        "Time": 0,
+        "ColourPercentage" : 0,
+        "unlocked": 0
+    }
+    
+
+]

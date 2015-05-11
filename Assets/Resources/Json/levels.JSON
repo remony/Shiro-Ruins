@@ -1,0 +1,57 @@
+[
+    {
+    "id":0,
+    "text": "To move use WASD, Arrows or the left Joystick"
+    },
+    {
+        "id" : 10,
+        "text" : "Press Space or A to jump"
+
+    },
+    {
+        "id" : 11,
+        "text" : "To re-read signs approach a sign and press X or to remind yourself of the previous sign press Y at any point."
+        },
+    {
+        "id": 1,
+        "text": "Press W/UP  to climb stairs"
+    },
+    {
+        "id": 2,
+        "text": "To go back down stairs press down"
+    }
+    ,
+        {
+        "id": 3,
+        "text": "To cross this path use the moving platform"
+    }
+    ,
+    {
+        "id": 4,
+        "text": "nice waterfall..."
+    },
+    {
+        "id" : 5,
+        "text": "I should be able to climb those vines just like stairs"
+    },
+    {
+        "id" : 6,
+        "text": "Collecting Gems add points to the score"
+    },
+
+
+    {
+        "id" : 7,
+        "text": "You will face enemies on your adventure, so watch out"
+    },
+
+    {
+        "id" : 8,
+        "text": "I can attack it by pressing x"
+    },
+
+    {
+        "id" : 9,
+        "text": "To complete the level approach the floating cube"
+    }
+]

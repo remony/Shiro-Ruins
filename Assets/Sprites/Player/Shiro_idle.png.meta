@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: de7b95589ffdc23418cf806f038cf38d
-timeCreated: 1429020877
+timeCreated: 1429460463
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -56,42 +56,42 @@ TextureImporter:
     - name: Shiro_idle_0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 31
-        width: 29
-        height: 67
-      alignment: 9
-      pivot: {x: .519999981, y: .5}
+        x: 40
+        y: 23
+        width: 50
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Shiro_idle_1
       rect:
         serializedVersion: 2
-        x: 176
-        y: 31
-        width: 30
-        height: 66
-      alignment: 9
-      pivot: {x: .5, y: .5}
+        x: 168
+        y: 23
+        width: 50
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Shiro_idle_2
       rect:
         serializedVersion: 2
-        x: 305
-        y: 31
-        width: 28
-        height: 65
-      alignment: 9
-      pivot: {x: .5, y: .5}
+        x: 296
+        y: 23
+        width: 50
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Shiro_idle_3
       rect:
         serializedVersion: 2
-        x: 433
-        y: 31
-        width: 29
-        height: 66
-      alignment: 9
-      pivot: {x: .49000001, y: .5}
+        x: 424
+        y: 23
+        width: 50
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

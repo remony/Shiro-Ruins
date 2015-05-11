@@ -10,6 +10,8 @@ using Tiled2Unity;
 class CustomTiledImporterForBlocks : Tiled2Unity.ICustomTiledImporter
 {
     int id = 0;
+    JSONObject signJson = null;
+    
  
     public void HandleCustomProperties(UnityEngine.GameObject gameObject,
         IDictionary<string, string> props)
@@ -34,9 +36,16 @@ class CustomTiledImporterForBlocks : Tiled2Unity.ICustomTiledImporter
 
             spawnInstance.name = id.ToString();
             spawnInstance.GetComponent<SignController>().id = id;
-            id++;
             
- 
+
+            TextAsset mydata = Resources.Load("Signs/Tutorial") as TextAsset;
+            JSONObject signJson = new JSONObject(mydata.text);
+
+            spawnInstance.GetComponent<SignController>().text = signJson[id].GetField("text").str;
+            
+
+
+            id++;
             // Use the position of the game object we're attached to
             spawnInstance.transform.parent = gameObject.transform;
             spawnInstance.transform.localPosition = new Vector3(0, 14f, 0);

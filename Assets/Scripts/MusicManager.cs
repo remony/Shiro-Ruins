@@ -6,7 +6,11 @@ using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour {
     public AudioSource audioSource;
+    public AudioSource SoundEffect;
     public AudioClip audioClip;
+    public GameObject MusicInfoViewer;
+    
+    
     private Rigidbody2D body;
 
     private bool backgroundMusicPlaying = false;
@@ -20,8 +24,7 @@ public class MusicManager : MonoBehaviour {
     IEnumerator wait()
     {
         yield return new WaitForSeconds(10);
-        Text[] textValue = canvas.GetComponentsInChildren<Text>();
-        textValue[0].text = "";
+        MusicInfoViewer.SetActive(false);
         //body.position = new Vector2(textValue[0].transform.position.x -200, transform.position.y);
         
         //textValue[0].transform.position = -textValue[0].transform.position;
@@ -30,11 +33,15 @@ public class MusicManager : MonoBehaviour {
 
 	void Start () {
         
-        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource = gameObject.GetComponents<AudioSource>()[0];
+        SoundEffect = gameObject.GetComponents<AudioSource>()[1];
         body = gameObject.AddComponent<Rigidbody2D>();
         body.gravityScale = 0;
         canvas = GameObject.Find("Canvas");
         Text[] text = canvas.GetComponentsInChildren<Text>();
+
+        audioSource.outputAudioMixerGroup.name=("Background Music");
+        //SoundEffect.outputAudioMixerGroup.audioMixer.name = ("Background Music") ;
         
         //text[0].transform.position = new Vector2(text[0].transform.position.x - 200, transform.position.y);
         //text[0].horizontalOverflow = OverflowException;
@@ -71,6 +78,18 @@ public class MusicManager : MonoBehaviour {
         }
         
     }
+
+    public void playSoundEffect(int id)
+    {
+        SoundEffect.clip = getSong(id);
+        SoundEffect.Play();
+    }
+
+    public void stopSoundEffect()
+    {
+        SoundEffect.Stop();
+    }
+
     public void playSong(int id)
     {
         Debug.Log("oh");
@@ -85,6 +104,7 @@ public class MusicManager : MonoBehaviour {
 
     private void updateDisplay(int id)
     {
+        MusicInfoViewer.SetActive(true);
         Text[] textValue = canvas.GetComponentsInChildren<Text>();
         textValue[0].text = "Title: " + musicList[id].GetField("title").ToString() + "\nArtist: " + musicList[id].GetField("artist").ToString() + "\nAlbum: " + musicList[id].GetField("album").ToString();
         //body.position = new Vector2(textValue[0].transform.position.x + 200, transform.position.y);

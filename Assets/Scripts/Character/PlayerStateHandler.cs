@@ -27,7 +27,13 @@ public abstract class CharacterStateHandler : MonoBehaviour
 
     public abstract void onCrossJunction();
 
-    public  enum State
+    public abstract void onLava();
+
+    public abstract void onNoGravity();
+
+    public abstract void onAttacking();
+
+    public enum State
     {
         STATE_IDLE,
         STATE_WALKING,
@@ -39,7 +45,10 @@ public abstract class CharacterStateHandler : MonoBehaviour
         STATE_UNDERWATER,
         STATE_DEATH,
         STATE_STAIRS,
-        STATE_CROSSJUNCTION
+        STATE_CROSSJUNCTION,
+        STATE_LAVA,
+        STATE_NOGRAVITY,
+        STATE_ATTACKING
     };
 
     public State state;
@@ -47,7 +56,6 @@ public abstract class CharacterStateHandler : MonoBehaviour
     // Use this for initialization
     protected void Start()
     {
-        
         state = State.STATE_IDLE; //Is not required
     }
 
@@ -88,6 +96,15 @@ public abstract class CharacterStateHandler : MonoBehaviour
                 break;
             case State.STATE_CROSSJUNCTION:
                 onCrossJunction();
+                break;
+            case State.STATE_LAVA:
+                onLava();
+                break;
+            case State.STATE_NOGRAVITY:
+                onNoGravity();
+                break;
+            case State.STATE_ATTACKING:
+                onAttacking();
                 break;
         }
     }

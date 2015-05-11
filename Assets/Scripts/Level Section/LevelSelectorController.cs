@@ -1,64 +1,67 @@
-﻿using UnityEngine.UI;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
+using System;
 
 
-public class LevelSelectorController : MonoBehaviour {
+public class LevelSelectorController : MonoBehaviour
+{
     TextAsset data;
     JSONObject saveData;
     Text[] Gui;
+    public GameObject levelButton;
+    public GameObject ButtonParent;
 
-	// Use this for initialization
-	void Start () {
-        //if (checkForSave())
-        //{
-            Gui = gameObject.GetComponentsInChildren<Text>();
-            data = getSaveData();
-            saveData = new JSONObject(data.text);
-            updateGUI();
-       // }
-        //else
-        //{
-        //    changeLevel(1);
-        //}
-        
+    public List<levelItem> menuList;
 
+    // Use this for initialization
+    void Start()
+    {
+        Gui = gameObject.GetComponentsInChildren<Text>();
+        saveData = GameManager.instance.GetSaveData();
+        updateGUI(); //populate the list with levels (from json)
+        GameManager.instance.playSong(7); 
 
-        
-	}
+    }
 
     private void updateGUI()
     {
-        string title = saveData[0].GetField("title").str;
-        Gui[0].text = title + "\n\n Time: " + saveData[0].GetField("time") + "\nScore: " + saveData[0].GetField("score") + "\nPercentage Restored: " + saveData[0].GetField("percentage");
-    }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    private TextAsset getSaveData()
-    {
-        return Resources.Load("Save/Save") as TextAsset;   
-    }
-
-    private bool checkForSave()
-    {
-
-        if (File.Exists("/Resources/Save/Save.JSON"))
+        for (int i = 0; i < saveData.list.Count; i++)
         {
-            print("The file exists.");
-            return true;
-            
-        }
-        return false;
-    }
+            GameObject newButton = Instantiate(levelButton) as GameObject;
+            LevelButton button = newButton.GetComponent<LevelButton>();
+            if (saveData[i].GetField("unlocked").n == 1)
+            {
+                button.gameObject.GetComponentInChildren<Text>().text = saveData[i].GetField("Title").str + " | Colour restored: " + saveData[i].GetField("ColourPercentage").n + "\nScore: " + saveData[i].GetField("Score").n + " | Time: " + saveData[i].GetField("Time").n;
+                
+            }
+            else
+            {
+                button.gameObject.GetComponentInChildren<Text>().text = saveData[i].GetField("Title").str + " (LOCKED)";
+            }
 
+            if (saveData[i].GetField("unlocked").n == 1)
+            {
+                
+                button.GetComponent<Button>().onClick.AddListener(delegate { changeLevel(Convert.ToInt32(saveData[i].GetField("id").n)); });
+            }
+
+            newButton.transform.SetParent(ButtonParent.gameObject.transform);
+        }
+    }
 
     public void changeLevel(int id)
     {
         GameManager.instance.changeLevel(id);
     }
 }
+
+public class levelItem
+{
+    public string title;
+    public Button.ButtonClickedEvent loadButtonLevel;
+}
+

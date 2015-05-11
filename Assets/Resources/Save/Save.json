@@ -1,18 +1,38 @@
 [
-  {
-    "level_id": 0,
-    "unlocked": 1,
-    "title":  "My first level",
-    "time": 536,
-    "score": 3549,
-    "percentage" :  90
-  },
-  {
-    "level_id": 1,
-    "unlocked": 0,
-    "title": "my lonely second level",
-    "time": 125,
-    "score": 1202,
-    "percentage" :  20
-  }
+	{
+		"id":3,
+		"Title":"Tutorial",
+		"sceneName":"Tutorial",
+		"ColourPercentage":0,
+		"unlocked":1,
+		"Score":2100,
+		"Time":96.09087
+	},
+	{
+		"id":2,
+		"Title":"Level 2",
+		"sceneName":"Level2",
+		"Score":0,
+		"Time":0,
+		"ColourPercentage":0,
+		"unlocked":0
+	},
+	{
+		"id":3,
+		"Title":"Level 3",
+		"sceneName":"Level3",
+		"Score":0,
+		"Time":0,
+		"ColourPercentage":0,
+		"unlocked":0
+	},
+	{
+		"id":4,
+		"Title":"Level 4",
+		"sceneName":"Level4",
+		"Score":0,
+		"Time":0,
+		"ColourPercentage":0,
+		"unlocked":0
+	}
 ]
