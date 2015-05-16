@@ -43,6 +43,7 @@ public class EnemyController : EnemyStateHandler {
             Debug.Log("No Player has been detected..." + e);
         }
         
+
         animator = gameObject.GetComponent<Animator>();
         body = gameObject.GetComponent<Rigidbody2D>();
         body.fixedAngle = true;
@@ -61,6 +62,10 @@ public class EnemyController : EnemyStateHandler {
 
     public override void onWalking()
     {
+        
+
+
+
         if (movingRight)
         {
             distFromTarget = gameObject.transform.position.x - endingPos;
@@ -85,14 +90,15 @@ public class EnemyController : EnemyStateHandler {
     public override void onFollow()
     {
         float step = enemy.speed * Time.deltaTime;
-        if (target.transform.position.y > transform.position.y)
-        {
-            if (Random.Range(0, 40) == 20)
-            {
-                jump();
-            }
-        }
         transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.transform.position.x, gameObject.transform.position.y), step);
+        if (target.transform.position.x > transform.position.x)
+        {
+            movingRight = false;
+        }
+        else if (target.transform.position.x < transform.position.x)
+        {
+            movingRight = true;
+        }
     }
 
     public override void onAttacking()
@@ -109,47 +115,48 @@ public class EnemyController : EnemyStateHandler {
         float step = enemy.speed * Time.deltaTime;
         if (movingRight)
         {
-            body.AddForce(new Vector2(-400, -405), ForceMode2D.Impulse);
+            body.AddForce(new Vector2(200, 405), ForceMode2D.Impulse);
         }
-        else
+        else if (!movingRight)
         {
-            body.AddForce(new Vector2(400, 405), ForceMode2D.Impulse);
+            body.AddForce(new Vector2(-200, 405), ForceMode2D.Impulse);
         }
         
         state = State.STATE_IDLE;
     }
 
 	// Update is called once per frame
-	void Update () {
+    void Update()
+    {
         base.Update();
         if (enemy.health == 0 || enemy.health < 0)
         {
             GameObject.FindGameObjectWithTag("LevelManager").GetComponent<GuiObserver>().AddScore(250);
             Destroy(gameObject);
         }
-        
+
         if (target != null)
         {
-            if (grounded)
+
+            float distance = Vector2.Distance(gameObject.transform.position, new Vector2(target.transform.position.x, target.transform.position.y - 20));
+
+            if (distance < 200 && distance > 35)
             {
-                float distance = Vector2.Distance(gameObject.transform.position, new Vector2(target.transform.position.x, target.transform.position.y - 20));
+                state = State.STATE_FOLLOWING;
 
-                if (distance < 200 && distance > 35)
-                {
-                    state = State.STATE_FOLLOWING;
-
-                }
-                else if (distance > 0 && distance < 35 || distance == 0)
-                {
-                    state = State.STATE_ATTACKING;
-                }
-                else
-                {
-                    state = State.STATE_WALKING;
-                }
             }
+            else if (distance > 0 && distance < 60 || distance == 0)
+            {
+                state = State.STATE_ATTACKING;
+            }
+            else
+            {
+                fallback();
+                state = State.STATE_WALKING;
+            }
+
         }
-	}
+    }
 
 
     public bool checkCollision(Collision2D coll)
@@ -192,8 +199,8 @@ public class EnemyController : EnemyStateHandler {
             if (state.Equals(State.STATE_ATTACKING))
             {
                 state = State.STATE_ATTACKING;
-                strike(coll.gameObject);
-                //StartCoroutine("Attack", coll.gameObject);
+                //strike(coll.gameObject);
+                StartCoroutine("Attack", coll.gameObject);
             }
             
         }   
@@ -261,8 +268,9 @@ public class EnemyController : EnemyStateHandler {
     {
         if (state.Equals(State.STATE_ATTACKING))
         {
-            player.GetComponent<CharacterController>().character.health -= enemy.attackPower;
             fallback();
+            player.GetComponent<CharacterController>().character.health -= enemy.attackPower;
+            
         }
     }
 

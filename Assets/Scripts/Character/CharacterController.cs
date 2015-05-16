@@ -240,6 +240,10 @@ public class CharacterController : CharacterStateHandler
         base.Update();
         playerInput();
         movement();
+
+
+
+        print(character.health);
         
         checkRespawnHeight(-3000);
 

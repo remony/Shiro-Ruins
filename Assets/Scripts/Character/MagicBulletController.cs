@@ -19,7 +19,7 @@ public class MagicBulletController : MonoBehaviour {
 	void Start () {
         magicBullet = new MagicBullet();
         magicBullet.speed = speed;
-        print(magicBullet.speed);
+        //print(magicBullet.speed);
 
         if (!isRight)
         {
@@ -57,10 +57,10 @@ public class MagicBulletController : MonoBehaviour {
             gameObject.GetComponent<Animator>().SetBool("Explode", true);
             collided = true;
             changeSize();
-            print("boom");
+            //print("boom");
             if (collided)
             {
-                print("collided");
+               // print("collided");
             }
 
             collidedObject = coll.transform;
