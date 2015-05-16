@@ -151,7 +151,7 @@ public class EnemyController : EnemyStateHandler {
             }
             else
             {
-                fallback();
+                
                 state = State.STATE_WALKING;
             }
 
