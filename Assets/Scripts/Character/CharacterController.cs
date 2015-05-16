@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections;
 
@@ -11,7 +12,10 @@ public class CharacterController : CharacterStateHandler
     public bool isGrounded = true;
 
     private GameObject levelManager;
-        
+
+    public GameObject mphfun;
+
+
     private AudioSource audioSource;
     private float currentVelocity = 0;
     private bool isFacingRight = false;
@@ -24,6 +28,9 @@ public class CharacterController : CharacterStateHandler
     public Character character;
     private GameObject trigger;
     private Vector2 boxCol;
+
+
+    private bool moveJump = false;
 
     public float magicCooldown = 1;
 
@@ -55,15 +62,15 @@ public class CharacterController : CharacterStateHandler
         {
             state = State.STATE_IDLE;
         }
-
+        print("I'm walking");
         //calculate the speed for movement
         if (velocityHorizontal < 0)
         {
-            currentVelocity += character.speed * (Time.deltaTime * -velocityHorizontal);
+            currentVelocity += character.speed * ((Time.deltaTime * -velocityHorizontal)* 0.5f);
         }
         else if (velocityHorizontal > 0)
         {
-            currentVelocity += character.speed * (Time.deltaTime * velocityHorizontal);
+            currentVelocity += character.speed * ((Time.deltaTime * velocityHorizontal) * 0.5f);
         }
 
         
@@ -86,7 +93,19 @@ public class CharacterController : CharacterStateHandler
     {
         body.gravityScale = 150;
         body.mass = 10;
-        body.velocity = new Vector2(velocityHorizontal * currentVelocity, body.velocity.y);
+
+        if (moveJump)
+        {
+            body.velocity = new Vector2(currentVelocity, body.velocity.y);
+        }
+        else if (!moveJump)
+        {
+            body.velocity = new Vector2(body.velocity.x, body.velocity.y);
+        }
+
+        
+        
+        //body.AddForce(new Vector2(velocityHorizontal * currentVelocity, body.velocity.y), ForceMode2D.Impulse);
     }
 
     public override void onSwimming()
@@ -129,7 +148,7 @@ public class CharacterController : CharacterStateHandler
         body.gravityScale = 60;
         body.mass = 10;
 
-        body.velocity = new Vector2(body.velocity.x, body.velocity.y);
+        body.velocity = new Vector2(body.velocity.x * currentVelocity, body.velocity.y);
         if (isGrounded)
         {
             state = State.STATE_IDLE;
@@ -146,10 +165,13 @@ public class CharacterController : CharacterStateHandler
 
     public override void onLava()
     {
-        body.gravityScale = 80;
+        body.gravityScale = 300;
         body.mass = 10;
-        body.velocity = new Vector2(velocityHorizontal * (currentVelocity / 4f), velocityVertical * (character.speed / 4f));
-        
+        body.velocity = new Vector2(velocityHorizontal * (currentVelocity / 4f), velocityVertical * character.speed);
+        if (character.health <= 0)
+        {
+            state = State.STATE_DEATH;
+        }
     }
 
     public override void onDeath()
@@ -205,7 +227,7 @@ public class CharacterController : CharacterStateHandler
     IEnumerator lavaDamage(float delay)
     {
         yield return new WaitForSeconds(delay);
-        character.health -= 25;
+        character.health -= 50;
         StartCoroutine("lavaDamage", 0.25f);
     }
 
@@ -216,7 +238,7 @@ public class CharacterController : CharacterStateHandler
         character = new Character();
         character.health = 100;
         character.jump = 450;
-        character.speed = 75;
+        character.speed = 80;
         //print(character.health);
 
         character.cooldownLimit = magicCooldown;
@@ -272,6 +294,13 @@ public class CharacterController : CharacterStateHandler
 
     private void playerInput()
     {
+
+        if (velocityHorizontal >= -0.1 && velocityHorizontal <= 0.1f)
+        {
+            currentVelocity = character.speed;
+        }
+
+
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             state = State.STATE_ATTACKING;
@@ -380,7 +409,7 @@ public class CharacterController : CharacterStateHandler
         {
             if (state == State.STATE_WALKING)
             {
-                body.velocity = new Vector2(body.velocity.x * 2, character.jump);
+                body.velocity = new Vector2(body.velocity.x, character.jump);
             }
             else
             {
@@ -727,14 +756,18 @@ public class CharacterController : CharacterStateHandler
 
     void FixedUpdate()
     {
-        if (currentVelocity >= 300)
+        if (currentVelocity >= 250)
         {
-            currentVelocity = 300;
+            currentVelocity = 250;
         }
 
-        if (velocityHorizontal == 0)
+
+        mphfun.GetComponent<Text>().text = currentVelocity + " MPH";
+
+        if (velocityHorizontal < 0.1 && velocityHorizontal > -0.1)
         {
-            state = State.STATE_IDLE;
+            if (state != State.STATE_JUMPING)
+                state = State.STATE_IDLE;
         } 
         else
         {

@@ -4,7 +4,7 @@ using System.Collections;
 public class BreakablePlatformController : MonoBehaviour {
     BreakablePlatform breakablePlatform;
 
-    public float timeToLive = 1;
+    public float timeToLive = 2;
     public float timeToRecover = 5;
     public bool playerIsHere = false;
     public bool recovering = false;

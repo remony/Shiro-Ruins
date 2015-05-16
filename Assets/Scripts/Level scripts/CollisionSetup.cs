@@ -11,6 +11,14 @@ public class CollisionSetup : MonoBehaviour {
             lavas[i].transform.FindChild("Collision").gameObject.tag = "Lava";
         }
 
+        GameObject[] MovingPlatforms = GameObject.FindGameObjectsWithTag("MovingPlatform");
+        for (int i = 0; i < MovingPlatforms.Length; i++)
+        {
+            //MovingPlatforms[i].transform.FindChild("Collision").gameObject.tag = "MovingPlatform";
+            //JumpPads[i].AddComponent<BoxCollider2D>();
+            //MovingPlatforms[i].transform.FindChild("Collision").gameObject.AddComponent<MovingPlatformController>();
+        }
+
         GameObject[] grounds = GameObject.FindGameObjectsWithTag("Ground");
         for (int i = 0; i < grounds.Length; i++)
         {
@@ -53,19 +61,23 @@ public class CollisionSetup : MonoBehaviour {
         {
             Spikes[i].transform.FindChild("Collision").gameObject.tag = "Spike";
         }
+       
 
         GameObject[] JumpPads = GameObject.FindGameObjectsWithTag("JumpPad");
         for (int i = 0; i < JumpPads.Length; i++)
         {
-            JumpPads[i].transform.FindChild("Collision").gameObject.tag = "JumpPad";
+            //JumpPads[i].transform.FindChild("Collision").gameObject.tag = "JumpPad";
             //JumpPads[i].AddComponent<BoxCollider2D>();
-            JumpPads[i].transform.FindChild("Collision").gameObject.AddComponent<JumpPadController>();
+            //JumpPads[i].transform.FindChild("Collision").gameObject.AddComponent<JumpPadController>();
         }
 
-        GameObject[] Platforms = GameObject.FindGameObjectsWithTag("Platform");
-        for (int i = 0; i < Platforms.Length; i++)
+        
+
+
+        GameObject[] PlatformGround = GameObject.FindGameObjectsWithTag("Platforms");
+        for (int i = 0; i < PlatformGround.Length; i++)
         {
-            Platforms[i].transform.FindChild("Collision").gameObject.tag = "Platform";
+            PlatformGround[i].transform.FindChild("Collision").gameObject.tag = "Platform";
         }
 
 

@@ -220,7 +220,7 @@ public class EnemyController : EnemyStateHandler {
     {
         if (coll.transform.tag.ToString().Equals("MagicBullet"))
         {
-            enemy.health -= 10;
+            enemy.health -= (100 / 3);
         }
         else if (coll.transform.tag.ToString().Equals("Spike"))
         {
