@@ -206,7 +206,7 @@ public class CharacterController : CharacterStateHandler
     {
         yield return new WaitForSeconds(delay);
         character.health -= 25;
-        StartCoroutine("lavaDamage", 1);
+        StartCoroutine("lavaDamage", 0.25f);
     }
 
 
@@ -241,18 +241,11 @@ public class CharacterController : CharacterStateHandler
         playerInput();
         movement();
 
-
-
-        print(character.health);
-        
         checkRespawnHeight(-3000);
 
-        if (character.health <= 0.1)
-        {
-            state = State.STATE_DEATH;
-        }
+        
 
-        levelManager.GetComponent<GuiObserver>().UpdateHealth(character.health);
+        
 
         if (isGrounded)
         {
@@ -262,7 +255,15 @@ public class CharacterController : CharacterStateHandler
         {
             animator.SetBool("Jumping", true);
             isGrounded = false;
-            state = State.STATE_JUMPING;
+            if (character.health <= 0)
+            {
+                state = State.STATE_DEATH;
+            }
+            else
+            {
+                state = State.STATE_JUMPING;
+            }
+            
         }
 
         levelManager.GetComponent<GuiObserver>().changeGrounded(isGrounded);
@@ -739,6 +740,14 @@ public class CharacterController : CharacterStateHandler
         {
             state = State.STATE_WALKING;
         }
+
+
+        if (character.health <= 0)
+        {
+            state = State.STATE_DEATH;
+        }
+
+        levelManager.GetComponent<GuiObserver>().UpdateHealth(character.health);
     }
 
 }

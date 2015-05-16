@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         store.saveData = save;
         PlayerPrefs.SetString("Save", store.saveData.ToString());
         PlayerPrefs.Save();
-        File.WriteAllText(Environment.CurrentDirectory + "/Assets/Resources/Save/" + @"\Save.json", save.ToString(true));
+        //File.WriteAllText(Environment.CurrentDirectory + "/Assets/Resources/Save/" + @"\Save.json", save.ToString(true));
 
     }
 
