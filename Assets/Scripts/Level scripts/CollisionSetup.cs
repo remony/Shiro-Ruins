@@ -48,6 +48,27 @@ public class CollisionSetup : MonoBehaviour {
             movingPlatform[i].AddComponent<MovingPlatformController>();
         }
 
+        GameObject[] Spikes = GameObject.FindGameObjectsWithTag("Spike");
+        for (int i = 0; i < Spikes.Length; i++)
+        {
+            Spikes[i].transform.FindChild("Collision").gameObject.tag = "Spike";
+        }
+
+        GameObject[] JumpPads = GameObject.FindGameObjectsWithTag("JumpPad");
+        for (int i = 0; i < JumpPads.Length; i++)
+        {
+            JumpPads[i].transform.FindChild("Collision").gameObject.tag = "JumpPad";
+            //JumpPads[i].AddComponent<BoxCollider2D>();
+            JumpPads[i].transform.FindChild("Collision").gameObject.AddComponent<JumpPadController>();
+        }
+
+        GameObject[] Platforms = GameObject.FindGameObjectsWithTag("Platform");
+        for (int i = 0; i < Platforms.Length; i++)
+        {
+            Platforms[i].transform.FindChild("Collision").gameObject.tag = "Platform";
+        }
+
+
  
 
             

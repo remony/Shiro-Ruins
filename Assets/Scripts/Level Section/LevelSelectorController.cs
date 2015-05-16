@@ -31,24 +31,37 @@ public class LevelSelectorController : MonoBehaviour
     {
         for (int i = 0; i < saveData.list.Count; i++)
         {
+            int levelid = 0;
             GameObject newButton = Instantiate(levelButton) as GameObject;
             LevelButton button = newButton.GetComponent<LevelButton>();
             if (saveData[i].GetField("unlocked").n == 1)
             {
                 button.gameObject.GetComponentInChildren<Text>().text = saveData[i].GetField("Title").str + " | Colour restored: " + saveData[i].GetField("ColourPercentage").n + "\nScore: " + saveData[i].GetField("Score").n + " | Time: " + saveData[i].GetField("Time").n;
-                
+                levelid = Convert.ToInt32(saveData[i].GetField("id").n);
             }
             else
             {
                 button.gameObject.GetComponentInChildren<Text>().text = saveData[i].GetField("Title").str + " (LOCKED)";
             }
 
-            if (saveData[i].GetField("unlocked").n == 1)
-            {
-                
-                button.GetComponent<Button>().onClick.AddListener(delegate { changeLevel(Convert.ToInt32(saveData[i].GetField("id").n)); });
-            }
 
+            if (levelid != 0)
+            {
+                button.GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    GameManager.instance.changeLevel(levelid);
+                });
+            }
+            
+            /*
+                button.GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    //changeLevel(Convert.ToInt32(saveData[i].GetField("id").n));
+                    print(Convert.ToInt32(saveData[i].GetField("id").n));
+                    //GameManager.instance.changeLevel(Convert.ToInt32(saveData[i].GetField("id").n));
+                });
+            
+            */
             newButton.transform.SetParent(ButtonParent.gameObject.transform);
         }
     }

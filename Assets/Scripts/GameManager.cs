@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public int debug_level = 0;
     GameManagerStore store;
 
+    public bool updateSaveFromfile = false;
+
     public int level = 0;
 
     void Awake()
@@ -38,15 +40,18 @@ public class GameManager : MonoBehaviour
 
 
 
-        if (PlayerPrefs.GetString("Save") != null)
+        if (PlayerPrefs.GetString("Save").Equals(null))
         {
             store.saveData = new JSONObject(PlayerPrefs.GetString("Save"));
         }
         else
         {
+            
             store.saveData = new JSONObject((Resources.Load("Save/Save") as TextAsset).text);
+            
+            PlayerPrefs.SetString("Save", store.saveData.ToString());
         }
-
+        print(">>>> " + store.saveData);
         InitGame();
     }
 
@@ -100,6 +105,25 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
         File.WriteAllText(Environment.CurrentDirectory + "/Assets/Resources/Save/" + @"\Save.json", save.ToString(true));
 
+    }
+
+    void Update()
+    {
+        if (updateSaveFromfile)
+        {
+            PlayerPrefs.SetString("Save", null);
+            PlayerPrefs.Save();
+            print(PlayerPrefs.GetString("Save"));
+            print("PlayerPrefs deleted");
+            //store.saveData = new JSONObject((Resources.Load("Save/Save") as TextAsset).text);
+            //PlayerPrefs.SetString("Save", store.saveData.ToString());
+            PlayerPrefs.Save();
+            print(PlayerPrefs.GetString("Save"));
+            //UpdateSaveData(store.saveData);
+            updateSaveFromfile = false;
+        }
+        
+        
     }
 
 }

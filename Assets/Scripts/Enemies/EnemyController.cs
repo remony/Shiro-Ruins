@@ -15,21 +15,28 @@ public class EnemyController : EnemyStateHandler {
 
     private float velocity;
 
+    public bool grounded;
 
     private Rigidbody2D body;
 
     float distFromTarget = 1;
 
-	// Use this for initialization
-	void Start () {
-        base.Start();
+    void createCharacter()
+    {
         enemy = new Enemy();
         enemy.health = 100;
         enemy.jump = 350;
         enemy.speed = 50;
         enemy.attackPower = 15;
-        
-        print("Enemy health: " + enemy.health);
+    }
+
+	// Use this for initialization
+	void Start () {
+        base.Start();
+        createCharacter();
+        print("hwllo");
+        //StartCoroutine("hop");
+        //print("Enemy health: " + enemy.health);
 
         startingPos = gameObject.transform;
         endingPos = startingPos.position.x + distance;
@@ -56,7 +63,7 @@ public class EnemyController : EnemyStateHandler {
         //}
 
 
-            print("there is " + players.Length + " PLayers");
+           // print("there is " + players.Length + " PLayers");
         
         animator = gameObject.GetComponent<Animator>();
         body = gameObject.GetComponent<Rigidbody2D>();
@@ -119,11 +126,18 @@ public class EnemyController : EnemyStateHandler {
         
         
     }
-
+    
     public override void onFollow()
     {
         float step = enemy.speed * Time.deltaTime;
-
+        if (target.transform.position.y > transform.position.y)
+        {
+            if (Random.Range(0, 40) == 20)
+            {
+                jump();
+            }
+        }
+        
         //print(startingPos.position.x);
         transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.transform.position.x, gameObject.transform.position.y), step);
     }
@@ -168,30 +182,79 @@ public class EnemyController : EnemyStateHandler {
         //  print(Vector2.Distance(gameObject.transform.position, target.transform.position));
         if (target != null)
         {
-            float distance = Vector2.Distance(gameObject.transform.position, new Vector2(target.transform.position.x, target.transform.position.y - 20));
-            //print(distance);
-            if (distance < 200 && distance > 35)
+            if (grounded)
             {
-                state = State.STATE_FOLLOWING;
+                float distance = Vector2.Distance(gameObject.transform.position, new Vector2(target.transform.position.x, target.transform.position.y - 20));
+                //print(distance);
+                if (distance < 200 && distance > 35)
+                {
+                    state = State.STATE_FOLLOWING;
 
+                }
+                else if (distance > 0 && distance < 35 || distance == 0)
+                {
+                    state = State.STATE_ATTACKING;
+                }
+                else
+                {
+                    state = State.STATE_WALKING;
+                }
             }
-            else if (distance > 0 && distance < 35 || distance == 0)
-            {
-                state = State.STATE_ATTACKING;
-            }
-            else
-            {
-                state = State.STATE_WALKING;
-            }
-
 
 
         }
+
+ 
         
 
 
         //print(gameObject.transform.position.x - target.position.x);
 	}
+
+
+    public bool checkCollision(Collision2D coll)
+    {
+
+        //pointOfContact = colliderWeTouched.contacts[0].normal; //Grab the normal of the contact point we touched
+        Debug.Log(coll.contacts.Length);
+        Debug.Log(coll.contacts[0].point);
+
+        
+
+
+        //Detect which side of the collider we touched
+        if (coll.contacts[0].normal == new Vector2(-1, 0))
+        {
+            Debug.Log("left side!");
+            return true;
+        }
+
+        if (coll.contacts[0].normal == new Vector2(1, 0))
+        {
+            Debug.Log("We touched the right side of the enemy!");
+            return true;
+        }
+        /*
+        if (coll.contacts[0].normal == new Vector2(0, -1))
+        {
+            Debug.Log("We touched the enemy's bottom!");
+        }
+
+        if (coll.contacts[0].normal == new Vector2(0, 1))
+        {
+            Debug.Log("We touched the top of the enemy!");
+            
+        }
+         * */
+        return false;
+    }
+
+    void jump()
+    {
+        
+        body.AddForce(new Vector2(0, 470), ForceMode2D.Impulse);
+        grounded = false;
+    }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -203,7 +266,20 @@ public class EnemyController : EnemyStateHandler {
                 StartCoroutine("Attack", coll.gameObject);
             }
             
+        }   
+        else if (coll.transform.tag.ToString().Equals("Platform"))
+        {
+            if (checkCollision(coll))
+            {
+                jump();
+
+            }
+            grounded = true;
+            //bool waiting = false;
+            
+
         }
+        
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -214,13 +290,17 @@ public class EnemyController : EnemyStateHandler {
                 enemy.health -= 10;
             
         }
+        else if (coll.transform.tag.ToString().Equals("Spike"))
+        {
+            enemy.health = 0;
+        }
     }
 
 
     void OnCollisionStay2D(Collision2D coll)
     {
-        
-        
+
+
         if (coll.transform.tag.ToString().Equals("Player"))
         {
             if (coll.gameObject.GetComponent<CharacterController>().state.ToString().Equals("STATE_ATTACKING"))
@@ -228,7 +308,23 @@ public class EnemyController : EnemyStateHandler {
                 enemy.health -= 10;
             }
         }
+        else if (coll.transform.tag.ToString().Equals("Platform"))
+        {
+            grounded = true;
+            
+            
+            //movingRight = !movingRight;
+            //body.AddForce(new Vector2(10, 0), ForceMode2D.Impulse);
+        }
         
+    }
+
+    void OnCollisionExit2D(Collision2D coll)
+    {
+        if (coll.transform.tag.ToString().Equals("Ground"))
+        {
+            grounded = false;
+        }
     }
 
     IEnumerator Attack(GameObject player)
@@ -236,6 +332,20 @@ public class EnemyController : EnemyStateHandler {
         yield return new WaitForSeconds(0.1f);
         strike(player);
         
+    }
+
+    IEnumerator hop()
+    {
+        yield return new WaitForSeconds(0.4f);
+        body.AddForce(new Vector2(50, 100), ForceMode2D.Impulse);
+        //StartCoroutine("hop");
+    }
+
+    IEnumerator airJump()
+    {
+        yield return new WaitForSeconds(1);
+        if (!grounded)
+            movingRight = !movingRight;
     }
 
     private void strike(GameObject player)

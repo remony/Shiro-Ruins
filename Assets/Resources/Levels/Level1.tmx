@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="32" tileheight="32" nextobjectid="184">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="32" tileheight="32" nextobjectid="212">
  <tileset firstgid="1" name="Untitled" tilewidth="32" tileheight="32">
-  <image source="Untitled.png" trans="000000" width="256" height="1024"/>
+  <image source="Untitled.png" trans="000000" width="256" height="1184"/>
   <tile id="66">
    <properties>
     <property name="unity" value=""/>
@@ -179,6 +179,9 @@
    </objectgroup>
   </tile>
   <tile id="130">
+   <properties>
+    <property name="unity:tag" value="Stairs_top"/>
+   </properties>
    <objectgroup draworder="index">
     <object id="0" x="0" y="0">
      <polygon points="0,0 0,32 32,32 32,0"/>
@@ -685,8 +688,8 @@
   </tile>
   <tile id="235">
    <objectgroup draworder="index">
-    <object id="0" x="0" y="32">
-     <polygon points="0,0 0,-8 32,-8 32,0"/>
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 32,0 32,16 0,16"/>
     </object>
    </objectgroup>
   </tile>
@@ -751,91 +754,168 @@
     </object>
    </objectgroup>
   </tile>
+  <tile id="256">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="257">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="265">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="266">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="267">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="268">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="269">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,8 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="270">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="290">
+   <objectgroup draworder="index"/>
+  </tile>
  </tileset>
- <tileset firstgid="257" name="TiledIcons" tilewidth="32" tileheight="32">
+ <tileset firstgid="297" name="TiledIcons" tilewidth="32" tileheight="32">
   <image source="../../../Images/TiledIcons.png" trans="000000" width="256" height="32"/>
  </tileset>
+ <tileset firstgid="305" name="breakable platform" tilewidth="32" tileheight="32">
+  <image source="../../Sprites/breakable platform.png" trans="000000" width="256" height="32"/>
+  <tile id="0">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 32,0 32,24 0,24"/>
+    </object>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <layer name="Background" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-5"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1kERACAMBLH6V4JMHPCk5Uhm1sNWAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMNkaGADAy7pfyl8BAGm6X8pfAQBpul/KXwEAaU6Pc/Ol/BUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/2Mm0d3E=
+  </data>
+ </layer>
  <objectgroup name="Signs">
   <properties>
    <property name="spawn" value="AppearingBlock 1"/>
    <property name="unity:sortingOrder" value="-1"/>
   </properties>
  </objectgroup>
- <objectgroup name="Enemies">
+ <objectgroup name="Enemies" visible="0">
   <properties>
    <property name="spawn" value="enemy"/>
   </properties>
-  <object id="169" gid="257" x="672" y="2800">
+  <object id="169" gid="297" x="672" y="2800">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="170" gid="257" x="1016" y="2800">
+  <object id="170" gid="297" x="1016" y="2800">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="171" gid="257" x="1320" y="2800">
+  <object id="171" gid="297" x="1320" y="2800">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="172" gid="257" x="1608" y="2792">
+  <object id="172" gid="297" x="1608" y="2792">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="173" gid="257" x="1960" y="2792">
+  <object id="173" gid="297" x="1960" y="2792">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="174" gid="257" x="2232" y="2792">
+  <object id="174" gid="297" x="2232" y="2792">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="175" gid="257" x="2608" y="2792">
+  <object id="175" gid="297" x="2608" y="2792">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="176" gid="257" x="3160" y="2784">
+  <object id="176" gid="297" x="3160" y="2784">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="177" gid="257" x="3912" y="2792">
+  <object id="177" gid="297" x="3912" y="2792">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="178" gid="257" x="4664" y="2808">
+  <object id="178" gid="297" x="4664" y="2808">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="179" gid="257" x="5104" y="2792">
+  <object id="179" gid="297" x="5104" y="2792">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="180" gid="257" x="5760" y="2800">
+  <object id="180" gid="297" x="5760" y="2800">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="181" gid="257" x="6312" y="2800">
+  <object id="181" gid="297" x="6312" y="2800">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="182" gid="257" x="6752" y="2800">
+  <object id="182" gid="297" x="6752" y="2800">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="183" gid="257" x="7024" y="2808">
+  <object id="183" gid="297" x="7024" y="2808">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
@@ -850,7 +930,7 @@
  </objectgroup>
  <objectgroup name="Items"/>
  <objectgroup name="CharacterSpawn">
-  <object id="48" name="Character" gid="259" x="168" y="2792">
+  <object id="48" name="Character" gid="299" x="168" y="2792">
    <properties>
     <property name="spawn" value="player"/>
    </properties>
@@ -860,21 +940,116 @@
   <properties>
    <property name="spawn" value="end"/>
   </properties>
-  <object id="168" gid="260" x="7064" y="2816"/>
+  <object id="168" gid="300" x="7064" y="2816"/>
  </objectgroup>
  <objectgroup name="Start">
   <properties>
    <property name="spawn" value="start"/>
   </properties>
-  <object id="123" gid="260" x="160" y="2816"/>
+  <object id="123" gid="300" x="160" y="2816"/>
  </objectgroup>
  <layer name="Ground" width="600" height="100">
   <properties>
-   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:sortingOrder" value="-2"/>
    <property name="unity:tag" value="Ground"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt1bENwDAAw7D8P3ftrx18hAOXBHSDzgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7ikXRFAOx4JV0RADvaT5GUANjRfoqkBMCO9lMkJQB2tJ8iKQGwo/0USQmAHe2nSEoA7Gg/RVICYEf7KZISADvaT5GUANjxAQ4P864=
+   eJzt1SEOw0AAA8H8H5fmrwWmZYnkyjcjLTX1dQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKf4POjXxhu70okBsOOW9BcBsKP9KZISADvanyIpAbCj/SmSEgA72p8iKQGwo/0pkhIAO9qfIikBsKP9KZISADvanyIpAbCj/SmSEgA7viyd8V4=
   </data>
  </layer>
+ <layer name="Platform" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:tag" value="Platform"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1rENgDAMRUG7JQT23xYPEAkpTYi46+zqly8CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgC87MqLl6hUAAHsatdRZd9dXAABTruqoO99/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPzPA2vZAIg=
+  </data>
+ </layer>
+ <layer name="Ground 2" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-2"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1jEKgDAMBdAUN0WP6eQFHPXkVuio0MFih/fg0yGBJFsjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL6156yNspW3Zsbde+Ycbc8FAAAAAAAAAAAAAIBHY4qY0t9bAAD0YUj1ebPk2ux/BQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANCtC8XbD4g=
+  </data>
+ </layer>
+ <layer name="Overlay" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1jEKwCAMBVAztbO20N7/olp0c3AswnvwyYcsGZMSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7OWNOaXljr4/49/7AAB29UTPJ7d5jX74rwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYqJBVARg=
+  </data>
+ </layer>
+ <layer name="Overlay 2" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1iEOwCAQRNHdwAGoRXH/U1LRhKpaGvKeGTvyRwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMCZSkbU3P0CAOD/+t1M4+mmK1dHvbfpKgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+TLGbAH8=
+  </data>
+ </layer>
+ <layer name="Stairs" width="600" height="100">
+  <properties>
+   <property name="unity:isTrigger" value="true"/>
+   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:tag" value="Stairs"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1kENAEAIBDH8WzmTPM/AJiTQKpjnVAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHDZmw4AAFjGXwEAZPkrAIAsfwUAkOWvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4GsiYANY
+  </data>
+ </layer>
+ <layer name="Stairs_top" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:tag" value="Stairs_top"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztzjENAAAIA7CZxzf3FBCSVkETAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgF/mOgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBZLHIAhg==
+  </data>
+ </layer>
+ <layer name="Spikes" width="600" height="100">
+  <properties>
+   <property name="unity:isTrigger" value="true"/>
+   <property name="unity:tag" value="Spike"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAIA7D514oIso8TAW3SBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4G9OAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKgFJ8ACxQ==
+  </data>
+ </layer>
+ <objectgroup name="Disappearing Platforms">
+  <object id="186" gid="305" x="544" y="2848">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="187" gid="305" x="576" y="2848">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="188" gid="305" x="608" y="2848">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="JumpPad">
+  <object id="205" gid="291" x="520" y="2848">
+   <properties>
+    <property name="spawn" value="JumpPad"/>
+   </properties>
+  </object>
+  <object id="207" gid="291" x="456" y="2880">
+   <properties>
+    <property name="spawn" value="JumpPad"/>
+   </properties>
+  </object>
+  <object id="211" gid="291" x="704" y="2880">
+   <properties>
+    <property name="spawn" value="JumpPad"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

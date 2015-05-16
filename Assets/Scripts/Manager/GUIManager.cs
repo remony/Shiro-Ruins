@@ -9,6 +9,23 @@ public class GUIManager : GUIStateHandle, GuiObserver
     public GameObject failedView;
     public GameObject startCard;
     public GameObject magicCooldown;
+    public GameObject controls;
+
+    //Controls sprites references
+    public Sprite x_enable;
+    public Sprite x_disable;
+    public Sprite a_enable;
+    public Sprite a_disable;
+
+    //Keyboard sprite references
+    public Sprite space_enable;
+    public Sprite space_disable;
+    public Sprite k_enable;
+    public Sprite k_disable;
+
+    public int currentInputType;
+    public bool displayHelp = true;
+
     Text[] textGui;
     Slider healthBar;
     Level level;
@@ -81,17 +98,24 @@ public class GUIManager : GUIStateHandle, GuiObserver
             if (!startCard.activeSelf)
             {
                 startCard.SetActive(true);
-                print(levelID());
+                StartCoroutine("displayStart", 2);
+
+                state = State.STATE_INPROGRESS;
+                //print(levelID());
                 int id = levelID();
                 JSONObject save = saveData();
                 startCard.GetComponentInChildren<Text>().text = save[id].GetField("Title").str;
                 print(saveData()[levelID()].GetField("Title").str);
-                StartCoroutine("displayStart", 2);
-
-                state = State.STATE_INPROGRESS;
+                
 
             }
         }
+
+        if (magicCooldown)
+            if(magicCooldown.activeSelf)
+            {
+                magicCooldown.SetActive(false);
+            }
     }
 
     IEnumerator displayStart(int delay)
@@ -193,6 +217,11 @@ public class GUIManager : GUIStateHandle, GuiObserver
         {
             save[0].SetField("Score", level.score);
             save[0].SetField("Time", level.time);
+            
+            if (level.score > 1000)
+            {
+                save[1].SetField("unlocked", 1);
+            }
             GameManager.instance.UpdateSaveData(save);
 
         }
@@ -222,6 +251,8 @@ public class GUIManager : GUIStateHandle, GuiObserver
         failedView.SetActive(false);
         startCard.SetActive(false);
         messageView.SetActive(false);
+        controls.gameObject.GetComponent<Animator>().SetBool("display", true);
+        displayHelp = true;
     }
 
 
@@ -233,9 +264,12 @@ public class GUIManager : GUIStateHandle, GuiObserver
     void Update()
     {
         base.Update();
-        input();
+        //input();
         timer();
     }
+
+    
+
 
     private void timer()
     {
@@ -254,6 +288,20 @@ public class GUIManager : GUIStateHandle, GuiObserver
             {
                 state = State.STATE_UNPAUSED;
             }
+        }
+        if (Input.GetKeyDown("h") || Input.GetKeyDown("joystick button 6"))
+        {
+            displayHelp = !displayHelp;
+            print("displaying help = " + displayHelp);
+            if (displayHelp)
+            {
+                controls.gameObject.GetComponent<Animator>().SetBool("display", true);
+            }
+            else
+            {
+                controls.gameObject.GetComponent<Animator>().SetBool("display", false);
+            }
+            
         }
     }
 
@@ -319,17 +367,91 @@ public class GUIManager : GUIStateHandle, GuiObserver
 
     public void updateMagicCooldown(float count)
     {
-        //print(count);
-        magicCooldown.GetComponentInChildren<Slider>().value = (count);
-
-
-        if (count /3 > 0)
+        
+        if (count < 0.91f)
         {
+
+            controls.GetComponentsInChildren<Text>()[1].text = "Magic (" + (100 - count * 100).ToString("#") + ")";
+            if (currentInputType == 0)
+            {
+                controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].sprite = k_disable;
+                controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
+            }
+            else if (currentInputType == 1)
+            {
+                controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].sprite = x_disable;
+                controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
+            }
+
+            magicCooldown.SetActive(true);
+            magicCooldown.GetComponentsInChildren<Image>()[1].fillAmount = count;
             //magicCooldown.GetComponentInChildren<Slider>()
-        }else if (count /3 >= 3)
+        }
+        else if (count >= 0.91f)
         {
+            if (currentInputType == 0)
+            {
+                controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].sprite = k_enable;
+                controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
+            }
+            else if (currentInputType == 1)
+            {
+                controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].sprite = x_enable;
+                controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(2, 2);
+            }
+            controls.GetComponentsInChildren<Text>()[1].text = "Magic";
+            magicCooldown.SetActive(false);
+        }
+    }
+
+    public void changeGrounded(bool grounded)
+    {
+        
+        if (grounded)
+        {
+            if (currentInputType == 0)
+            {
+                controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].sprite = space_enable;
+                controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
+            }
+            else if (currentInputType == 1)
+            {
+                controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].sprite = a_enable;
+                controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
+            }
+
 
         }
+        else
+        {
+            if (currentInputType == 0)
+            {
+                controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].sprite = space_disable;
+                controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
+            }
+            else if (currentInputType == 1)
+            {
+                controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].sprite = a_disable;
+                controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
+            }
+
+        }
+        
+    }
+
+    //Changes the int type of the input (0 = keyboard, 1 = controller)
+    public void changeInput(int type)
+    {
+
+        if (type == 0)
+        {
+            currentInputType = 0;
+        }
+        else if (type == 1)
+        {
+            currentInputType = 1;
+        }
+        //currentInputType = type;
     }
 
     void OnLevelWasLoaded()

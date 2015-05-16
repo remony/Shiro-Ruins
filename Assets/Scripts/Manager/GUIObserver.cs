@@ -9,5 +9,6 @@ public interface GuiObserver
     void UpdateHealth(int health);
     void ChangeState(int id);
     void updateMagicCooldown(float count);
-
+    void changeGrounded(bool grounded);
+    void changeInput(int type);
 }

@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour {
         if (target)
         {
             Vector3 point = GetComponent<Camera>().WorldToViewportPoint(target.position);
-            Vector3 delta = target.position - GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.6f, point.z));
+            Vector3 delta = target.position - GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.4f, point.z));
             Vector3 destination = Vector3.zero;
             if (target.transform.position.x < camera.StartPos.x + 400)
             {
