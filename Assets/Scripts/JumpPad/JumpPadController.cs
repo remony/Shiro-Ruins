@@ -20,14 +20,17 @@ public class JumpPadController : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        
+        if (coll.transform.tag.ToString().Equals("Player"))
+        {
+            if (coll.contacts[0].normal == new Vector2(0, -1))
+            {
+                coll.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPad.JumpForce), ForceMode2D.Impulse);
+
+            }
+        }
        
 
-        if (coll.contacts[0].normal == new Vector2(0, -1))
-        {
-            coll.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpPad.JumpForce), ForceMode2D.Impulse);
-
-        }
+        
 
     }
     

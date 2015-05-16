@@ -72,7 +72,7 @@ public class EnemyController : EnemyStateHandler {
         {
             distFromTarget = (endingPos - distance) - transform.position.x;
             float step = enemy.speed * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(endingPos - (distance * 2), gameObject.transform.position.y), step);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(endingPos - distance, gameObject.transform.position.y), step);
         }
 
         if (distFromTarget == 0)
@@ -192,7 +192,8 @@ public class EnemyController : EnemyStateHandler {
             if (state.Equals(State.STATE_ATTACKING))
             {
                 state = State.STATE_ATTACKING;
-                StartCoroutine("Attack", coll.gameObject);
+                strike(coll.gameObject);
+                //StartCoroutine("Attack", coll.gameObject);
             }
             
         }   
