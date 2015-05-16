@@ -841,7 +841,7 @@
    <property name="unity:sortingOrder" value="-1"/>
   </properties>
  </objectgroup>
- <objectgroup name="Enemies" visible="0">
+ <objectgroup name="Enemies">
   <properties>
    <property name="spawn" value="enemy"/>
   </properties>

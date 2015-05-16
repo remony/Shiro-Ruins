@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 16/05/2015 16:22:18-->
+<!--Last exported: 16/05/2015 17:59:13-->
 <Tiled2Unity version="0.9.9.4">
   <AssignMaterial mesh="mesh_[00]_[00]" material="Untitled" sortingLayerName="" sortingOrder="-5" alphaColorKey="#000000" />
   <AssignMaterial mesh="mesh_[01]_[00]" material="Untitled" sortingLayerName="" sortingOrder="-2" alphaColorKey="#000000" />
@@ -95,6 +95,54 @@
     </GameObject>
     <GameObject name="Signs">
       <Property name="spawn" value="AppearingBlock 1" />
+    </GameObject>
+    <GameObject name="Enemies">
+      <Property name="spawn" value="enemy" />
+      <GameObject name="TileObject" x="672" y="-2800" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="1016" y="-2800" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="1320" y="-2800" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="1608" y="-2792" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="1960" y="-2792" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="2232" y="-2792" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="2608" y="-2792" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="3160" y="-2784" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="3912" y="-2792" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="4664" y="-2808" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="5104" y="-2792" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="5760" y="-2800" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="6312" y="-2800" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="6752" y="-2800" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="7024" y="-2808" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
     </GameObject>
     <GameObject name="Collisions (map)">
       <Property name="spawn" value="item" />

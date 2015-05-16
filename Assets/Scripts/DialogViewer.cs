@@ -15,10 +15,6 @@ public class DialogViewer : MonoBehaviour {
 
     }
 
-
-    //gameObject.GetComponentInChildren<TextMesh>().text = sign.text;
-    //StartCoroutine(wait());
-
     void changeMessage(string message)
     {
         if (message.Length > 10)

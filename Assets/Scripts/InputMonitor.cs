@@ -44,19 +44,8 @@ public class InputMonitor : MonoBehaviour {
             {
                 levelManager.GetComponent<GuiObserver>().changeInput(1);
             }
-
-                //velocityHorizontal = Input.GetAxisRaw("Horizontal");
-                //velocityVertical = Input.GetAxisRaw("Vertical");
         }
-
-
-        //Checking for controllers connected
-        //print(">> there is " + Input.GetJoystickNames().Length + " controllers connected");
-        //for (int i = 0; i < Input.GetJoystickNames().Length; i++)
-        //{
-         //   Debug.Log(Input.GetJoystickNames()[i] + " connected.");
-       //}
-            
+           
      }
 
 }

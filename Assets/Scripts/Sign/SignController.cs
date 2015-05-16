@@ -20,12 +20,12 @@ public class SignController : SignStateHandler
     
     public override void onIdle()
     {
-        //StartCoroutine(wait());
+     
     }
 
     public override void onPlayer()
     {
-        //gameObject.GetComponentInChildren<TextMesh>().text = sign.text;
+       
     }
 
 
@@ -48,10 +48,6 @@ public class SignController : SignStateHandler
         sign.read = false;
 
         guiController = GameObject.FindGameObjectWithTag("LevelManager");
-        //guiController = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<SignObserver>();
-        
-
-
         dialogViewer = GameObject.Find("DialogViewer");
         
     }
@@ -89,7 +85,6 @@ public class SignController : SignStateHandler
             
             if (sign.read == false)
             {
-                //dialogViewer.SendMessage("changeMessage", sign.text);
                 guiController.GetComponent<GuiObserver>().MessageUpdate(sign.text);
                 sign.read = true;
             }            

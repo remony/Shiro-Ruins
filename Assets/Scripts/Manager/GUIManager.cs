@@ -101,7 +101,6 @@ public class GUIManager : GUIStateHandle, GuiObserver
                 StartCoroutine("displayStart", 2);
 
                 state = State.STATE_INPROGRESS;
-                //print(levelID());
                 int id = levelID();
                 JSONObject save = saveData();
                 startCard.GetComponentInChildren<Text>().text = save[id].GetField("Title").str;
@@ -170,10 +169,6 @@ public class GUIManager : GUIStateHandle, GuiObserver
         }
 
         return id;
-
-
-
-
     }
 
     public JSONObject saveData()
@@ -264,12 +259,8 @@ public class GUIManager : GUIStateHandle, GuiObserver
     void Update()
     {
         base.Update();
-        //input();
         timer();
     }
-
-    
-
 
     private void timer()
     {
@@ -292,7 +283,6 @@ public class GUIManager : GUIStateHandle, GuiObserver
         if (Input.GetKeyDown("h") || Input.GetKeyDown("joystick button 6"))
         {
             displayHelp = !displayHelp;
-            print("displaying help = " + displayHelp);
             if (displayHelp)
             {
                 controls.gameObject.GetComponent<Animator>().SetBool("display", true);
@@ -385,7 +375,6 @@ public class GUIManager : GUIStateHandle, GuiObserver
 
             magicCooldown.SetActive(true);
             magicCooldown.GetComponentsInChildren<Image>()[1].fillAmount = count;
-            //magicCooldown.GetComponentInChildren<Slider>()
         }
         else if (count >= 0.91f)
         {
@@ -451,7 +440,6 @@ public class GUIManager : GUIStateHandle, GuiObserver
         {
             currentInputType = 1;
         }
-        //currentInputType = type;
     }
 
     void OnLevelWasLoaded()

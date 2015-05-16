@@ -39,7 +39,9 @@ public class ItemController : ItemStateHandler
         boxCollider.isTrigger = true;
         levelManager = GameObject.FindGameObjectWithTag("LevelManager");
         audioSource = gameObject.AddComponent<AudioSource>();
+        
         int ran = Random.Range(0, 2);
+        //set a random sound
         switch (ran)
         {
             case 0:
@@ -67,7 +69,6 @@ public class ItemController : ItemStateHandler
             audioSource.PlayOneShot(pickupSound, 1f);
             if (levelManager != null)
             {
-                //levelManager.SendMessage("AddScore", item.value);
                 levelManager.GetComponent<GuiObserver>().AddScore(item.value);
             }
             
@@ -76,6 +77,8 @@ public class ItemController : ItemStateHandler
 
     }
 
+
+    //Allows time for sound to play before the item breaks
     IEnumerator destroy()
     {
         yield return new WaitForSeconds(0.13f);
