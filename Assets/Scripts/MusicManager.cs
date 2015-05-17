@@ -102,6 +102,11 @@ public class MusicManager : MonoBehaviour {
         updateDisplay(id);
     }
 
+    public void stopSong()
+    {
+        audioSource.Stop();
+    }
+
     private void updateDisplay(int id)
     {
         MusicInfoViewer.SetActive(true);

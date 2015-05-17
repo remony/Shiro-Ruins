@@ -15,7 +15,7 @@ public class CharacterController : CharacterStateHandler
 
     public GameObject mphfun;
 
-
+    private bool musicPlaying = false;
     private AudioSource audioSource;
     private float currentVelocity = 0;
     private bool isFacingRight = false;
@@ -28,6 +28,8 @@ public class CharacterController : CharacterStateHandler
     public Character character;
     private GameObject trigger;
     private Vector2 boxCol;
+
+    private Transform previousPostiton; //used to stop hugging walls
 
 
     private bool moveJump = false;
@@ -58,19 +60,40 @@ public class CharacterController : CharacterStateHandler
     {
         body.gravityScale = 150;
         body.mass = 10;
-        if (body.velocity.x == 0)
+        //if (body.velocity.x == 0)
+        //{
+        //    state = State.STATE_IDLE;
+        //}
+        //print("I'm walking");
+
+        float timez = 0.1f;
+
+        if (currentVelocity < 150)
         {
-            state = State.STATE_IDLE;
+            timez = 1;
+        } 
+        else if (currentVelocity > 150 && currentVelocity < 200)
+        {
+            timez = 0.5f;
         }
-        print("I'm walking");
+        else if(currentVelocity > 200 && currentVelocity < 250)
+        {
+            timez = 0.25f;
+        }
+        else if(currentVelocity > 250 && currentVelocity < 300)
+        {
+            timez = 0.01f;
+        }
+
+
         //calculate the speed for movement
         if (velocityHorizontal < 0)
         {
-            currentVelocity += character.speed * ((Time.deltaTime * -velocityHorizontal)* 0.5f);
+            currentVelocity += character.speed * ((Time.deltaTime * -velocityHorizontal)* timez);
         }
         else if (velocityHorizontal > 0)
         {
-            currentVelocity += character.speed * ((Time.deltaTime * velocityHorizontal) * 0.5f);
+            currentVelocity += character.speed * ((Time.deltaTime * velocityHorizontal) * timez);
         }
 
         
@@ -96,11 +119,29 @@ public class CharacterController : CharacterStateHandler
 
         if (moveJump)
         {
-            body.velocity = new Vector2(currentVelocity, body.velocity.y);
+            print("move jump");
+            if (currentVelocity > 300)
+            {
+                currentVelocity = 300;
+            }
+            body.velocity = new Vector2(currentVelocity * body.velocity.x, body.velocity.y);
         }
         else if (!moveJump)
         {
-            body.velocity = new Vector2(body.velocity.x, body.velocity.y);
+
+            
+            if (isFacingRight)
+            {
+                body.velocity = new Vector2(currentVelocity, body.velocity.y);
+            }
+
+            else if (!isFacingRight)
+            {
+                body.velocity = new Vector2(-currentVelocity, body.velocity.y);
+            }
+            
+            
+            
         }
 
         
@@ -145,10 +186,19 @@ public class CharacterController : CharacterStateHandler
 
     public override void onFalling()
     {
-        body.gravityScale = 60;
+        body.gravityScale = 180;
         body.mass = 10;
 
-        body.velocity = new Vector2(body.velocity.x * currentVelocity, body.velocity.y);
+ 
+        if (isFacingRight)
+        {
+            body.velocity = new Vector2((character.speed * velocityHorizontal), body.velocity.y);
+        }
+        else if (!isFacingRight)
+        {
+            body.velocity = new Vector2((character.speed * velocityHorizontal), body.velocity.y);
+        }
+        
         if (isGrounded)
         {
             state = State.STATE_IDLE;
@@ -281,10 +331,7 @@ public class CharacterController : CharacterStateHandler
             {
                 state = State.STATE_DEATH;
             }
-            else
-            {
-                state = State.STATE_JUMPING;
-            }
+            
             
         }
 
@@ -407,14 +454,9 @@ public class CharacterController : CharacterStateHandler
     {
         if (state != State.STATE_CLIMBING && state != State.STATE_FALLING)
         {
-            if (state == State.STATE_WALKING)
-            {
-                body.velocity = new Vector2(body.velocity.x, character.jump);
-            }
-            else
-            {
-                body.velocity = new Vector2(body.velocity.x, character.jump);
-            }
+            
+            body.velocity = new Vector2(body.velocity.x, character.jump);
+            
             isGrounded = false;
             
         }
@@ -523,11 +565,11 @@ public class CharacterController : CharacterStateHandler
         }
         else if (coll.tag.ToString().Equals("Stairs"))
         {
-            //state = State.STATE_IDLE;
+            state = State.STATE_WALKING;
         } 
         else if (coll.tag.ToString().Equals("Stairs_top"))
         {
-            //state = State.STATE_IDLE;
+            state = State.STATE_WALKING;
             coll.transform.GetComponent<Collider2D>().isTrigger = false;
         }
     }
@@ -541,11 +583,17 @@ public class CharacterController : CharacterStateHandler
                 state = State.STATE_MOVINGPLATFORM;
                 isGrounded = true;
             }
-            else if (coll.transform.tag.ToString().Equals("Ground") || coll.transform.tag.ToString().Equals("Platform"))
+            else if (coll.transform.tag.ToString().Equals("Ground") || coll.transform.tag.ToString().Equals("Platform") || coll.transform.tag.ToString().Equals("BreakingPlatform"))
             {
-                isGrounded = true;
-                animator.SetBool("Jumping", false);
-            }   
+                if (checkIfTop(coll))
+                {
+                    isGrounded = true;
+                    state = State.STATE_WALKING;
+                    animator.SetBool("Jumping", false);
+
+                }
+
+            }
             else if (coll.transform.tag.ToString().Equals("Enemy"))
             {
                 int attack = coll.gameObject.GetComponent<EnemyController>().enemy.attackPower;
@@ -565,7 +613,12 @@ public class CharacterController : CharacterStateHandler
                 isGrounded = true;
             }
         }
+        else
+        {
+            state = State.STATE_FALLING;
+        }
     }
+    
 
     void OnCollisionStay2D(Collision2D coll)
     {
@@ -578,10 +631,20 @@ public class CharacterController : CharacterStateHandler
                 isGrounded = true;
                 animator.SetBool("Jumping", false);
             }
-            else if (coll.transform.tag.ToString().Equals("Ground"))
+            else if (coll.transform.tag.ToString().Equals("Ground") || coll.transform.tag.ToString().Equals("Platform"))
             {
-                isGrounded = true;
-                animator.SetBool("Jumping", false);
+                if(checkIfTop(coll))
+                {
+                    isGrounded = true;
+                }
+
+
+                if (coll.contacts[0].normal == new Vector2(0, 1))
+                {
+                    //isGrounded = true;
+                    animator.SetBool("Jumping", false);
+
+                }
             }
             else if (coll.transform.tag.ToString().Equals("Enemy"))
             {
@@ -614,16 +677,15 @@ public class CharacterController : CharacterStateHandler
                     enableStairs(false);
                 }
             }
-            else if (coll.transform.tag.ToString().Equals("Platform"))
-            {
-                animator.SetBool("Jumping", false);
-                state = State.STATE_WALKING;
-                isGrounded = true;
-            }
+
             else
             {
-                isGrounded = true;
+                //isGrounded = true;
             }
+        }
+        else
+        {
+            state = State.STATE_FALLING;
         }
     }
 
@@ -670,9 +732,41 @@ public class CharacterController : CharacterStateHandler
 
     }
 
+    //check that you are hitting the top of an object
+    private bool checkIfTop(Collision2D coll)
+    {
+        if (coll.contacts[0].normal == new Vector2(0, 1))
+        {
+            return true;
+        }
+        return false;
+    }
+
+
+    //check that you are hitting the bottom of an object
+    private bool checkIfBottom(Collision2D coll)
+    {
+        if (coll.contacts[0].normal == new Vector2(0, -1))
+        {
+            return true;
+        }
+        return false;
+    }
 
     private bool checkIfSide(Collision2D coll)
     {
+        if (coll.contacts[0].normal == new Vector2(-1, 0)) //left
+        {
+            return true;
+        }
+
+        if (coll.contacts[0].normal == new Vector2(1, 0)) //right
+        {
+            return true;
+        }
+
+        return false;
+        /*
         if (!isGrounded)
         {
             if (coll.contacts[0].normal.y == 0)
@@ -697,7 +791,7 @@ public class CharacterController : CharacterStateHandler
             }
         }
         return false;
-
+        */
 
     }
 
@@ -756,23 +850,39 @@ public class CharacterController : CharacterStateHandler
 
     void FixedUpdate()
     {
-        if (currentVelocity >= 250)
+        if (currentVelocity >= 300)
         {
-            currentVelocity = 250;
+            currentVelocity = 300;
         }
 
 
-        mphfun.GetComponent<Text>().text = currentVelocity + " MPH";
+        mphfun.GetComponent<Text>().text = (currentVelocity - 80).ToString("#") + " MPH";
 
-        if (velocityHorizontal < 0.1 && velocityHorizontal > -0.1)
+        if (currentVelocity > 140 && currentVelocity < 150)
         {
-            if (state != State.STATE_JUMPING)
-                state = State.STATE_IDLE;
-        } 
-        else
-        {
-            state = State.STATE_WALKING;
+            if (!musicPlaying)
+            {
+                musicPlaying = true;
+                GameManager.instance.playSong(8); 
+            }
+            
         }
+        else if (currentVelocity < 140)
+        {
+            musicPlaying = false;
+            GameManager.instance.stopSong();
+        }
+
+
+        //if (velocityHorizontal < 0.1 && velocityHorizontal > -0.1)
+        //{
+         //   if (state != State.STATE_JUMPING)
+          //      state = State.STATE_IDLE;
+        //} 
+        //else
+        //{
+         //   state = State.STATE_WALKING;
+        //}
 
 
         if (character.health <= 0)

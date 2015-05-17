@@ -72,6 +72,11 @@ public class GameManager : MonoBehaviour
         musicManager.playSong(id);
     }
 
+    public void stopSong()
+    {
+        musicManager.stopSong();
+    }
+
     public void playSoundEffect(int id)
     {
         musicManager.playSoundEffect(id);
