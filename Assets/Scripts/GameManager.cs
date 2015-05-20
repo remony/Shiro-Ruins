@@ -38,20 +38,19 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         levelManager = GetComponent<LevelManager>();
 
+        //load save into gamemanager
 
-
-        if (PlayerPrefs.GetString("Save").Equals(null))
+        if (PlayerPrefs.GetString("Save").Equals(""))
         {
-            store.saveData = new JSONObject(PlayerPrefs.GetString("Save"));
+            Debug.Log("No save found: loading file save");
+            store.saveData = new JSONObject((Resources.Load("Save/Save") as TextAsset).text);
+            PlayerPrefs.SetString("Save", store.saveData.ToString());
         }
         else
         {
+            store.saveData = new JSONObject(PlayerPrefs.GetString("Save"));
             
-            store.saveData = new JSONObject((Resources.Load("Save/Save") as TextAsset).text);
-            
-            PlayerPrefs.SetString("Save", store.saveData.ToString());
         }
-        print(">>>> " + store.saveData);
         InitGame();
     }
 
@@ -65,6 +64,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("Loading level " + level);
         levelManager.setupLevel(level);
 
+    }
+
+    public void updateSave()
+    {
+        PlayerPrefs.DeleteKey("Save");
+        store.saveData = new JSONObject((Resources.Load("Save/Save") as TextAsset).text);
+
+        PlayerPrefs.SetString("Save", store.saveData.ToString());
     }
 
     public void playSong(int id)
@@ -110,6 +117,16 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
         //File.WriteAllText(Environment.CurrentDirectory + "/Assets/Resources/Save/" + @"\Save.json", save.ToString(true));
 
+    }
+
+    public void ChangeGameType(int type)
+    {
+        levelManager.setGameType(type);
+    }
+
+    public int GetGameType()
+    {
+        return levelManager.GameType();
     }
 
     void Update()

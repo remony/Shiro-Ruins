@@ -14,6 +14,8 @@ public class LevelSelectorController : MonoBehaviour
     Text[] Gui;
     public GameObject levelButton;
     public GameObject ButtonParent;
+    public Text Title;
+    public Text SubTitle;
 
     public List<levelItem> menuList;
 
@@ -21,8 +23,26 @@ public class LevelSelectorController : MonoBehaviour
     void Start()
     {
         Gui = gameObject.GetComponentsInChildren<Text>();
-        saveData = GameManager.instance.GetSaveData();
+        saveData = new JSONObject(PlayerPrefs.GetString("Save"));
         updateGUI(); //populate the list with levels (from json)
+
+        if (GameManager.instance.GetGameType() == 0)
+        {
+            Title.text = "Adventure";
+        }
+        else if (GameManager.instance.GetGameType() == 1)
+        {
+            Title.text = "Time Trial";
+        }
+        else if (GameManager.instance.GetGameType() == 2)
+        {
+            Title.text = "Hardcore";
+        }
+
+        //SubTitle.text = "Level Selection";
+
+
+        
         GameManager.instance.playSong(7); 
 
     }
@@ -34,10 +54,27 @@ public class LevelSelectorController : MonoBehaviour
             int levelid = 0;
             GameObject buttonObject = Instantiate(levelButton) as GameObject;
             LevelButton button = buttonObject.GetComponent<LevelButton>();
+            string message = "";
             //If the level was unlocked
             if (saveData[i].GetField("unlocked").n == 1)
             {
-                button.gameObject.GetComponentInChildren<Text>().text = saveData[i].GetField("Title").str + " | Colour restored: " + saveData[i].GetField("ColourPercentage").n + "\nScore: " + saveData[i].GetField("Score").n + " | Time: " + saveData[i].GetField("Time").n;
+                if (GameManager.instance.GetGameType() == 0 || GameManager.instance.GetGameType() == 2) //Adventure mode or Hardcore mode
+                {
+                    message = saveData[i].GetField("Title").str + " | Colour restored: " + saveData[i].GetField("ColourPercentage").n + "\nScore: " + saveData[i].GetField("Score").n + " | Time: " + saveData[i].GetField("Time").n;
+                
+                }
+                else if (GameManager.instance.GetGameType() == 1) //Time trial mode
+                {
+                    message = saveData[i].GetField("Title").str + " | Time: " + saveData[i].GetField("TTTime").n;
+                
+                }
+
+                if (saveData[i].GetField("conquered").n == 1)
+                {
+                    message += " [Conquered]";
+                }
+
+                button.gameObject.GetComponentInChildren<Text>().text = message;
                 levelid = Convert.ToInt32(saveData[i].GetField("id").n);
             }
             else //if the level is not yet locked

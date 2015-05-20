@@ -67,8 +67,17 @@ public class ItemController : ItemStateHandler
         {
             
             audioSource.PlayOneShot(pickupSound, 1f);
+            int willHeal = Random.Range(0,2);
+            print(willHeal);
             if (levelManager != null)
             {
+                if (willHeal == 1)
+                {
+                    print("healing");
+                    int health = Random.Range(0, 15);
+                    //coll.gameObject.GetComponent<CharacterController>().heal(health);
+                    coll.GetComponent<CharacterController>().heal(health);
+                }
                 levelManager.GetComponent<GuiObserver>().AddScore(item.value);
             }
             

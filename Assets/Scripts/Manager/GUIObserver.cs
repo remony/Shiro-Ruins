@@ -11,4 +11,5 @@ public interface GuiObserver
     void updateMagicCooldown(float count);
     void changeGrounded(bool grounded);
     void changeInput(int type);
+    void updateSphereCooldown(float count);
 }

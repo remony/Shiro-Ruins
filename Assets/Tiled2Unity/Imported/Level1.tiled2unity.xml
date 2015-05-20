@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 17/05/2015 16:27:33-->
+<!--Last exported: 17/05/2015 19:17:31-->
 <Tiled2Unity version="0.9.9.4">
   <AssignMaterial mesh="mesh_[00]_[00]" material="Untitled" sortingLayerName="" sortingOrder="-5" alphaColorKey="#000000" />
   <AssignMaterial mesh="mesh_[01]_[00]" material="Untitled" sortingLayerName="" sortingOrder="-5" alphaColorKey="#000000" />
@@ -176,11 +176,78 @@
     <GameObject name="Signs">
       <Property name="spawn" value="AppearingBlock 1" />
     </GameObject>
+    <GameObject name="Enemies">
+      <Property name="spawn" value="enemy" />
+      <GameObject name="TileObject" x="672" y="-2800" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="1016" y="-2800" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="1320" y="-2800" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="1608" y="-2792" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="2048" y="-2712" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="2320" y="-2840" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="2696" y="-2688" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="3616" y="-2680" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="3944" y="-2840" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="4664" y="-2808" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="5104" y="-2792" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="5760" y="-2800" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="6312" y="-2800" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="6752" y="-2800" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+      <GameObject name="TileObject" x="7024" y="-2808" rotation="0">
+        <Property name="spawn" value="Enemy" />
+      </GameObject>
+    </GameObject>
     <GameObject name="Collisions (map)">
       <Property name="spawn" value="item" />
       <Property name="value" value="120" />
     </GameObject>
-    <GameObject name="Items" />
+    <GameObject name="Items">
+      <GameObject name="TileObject" x="6904" y="-2848" rotation="0">
+        <Property name="spawn" value="item" />
+      </GameObject>
+      <GameObject name="TileObject" x="6832" y="-2848" rotation="0">
+        <Property name="spawn" value="item" />
+      </GameObject>
+      <GameObject name="TileObject" x="6792" y="-2848" rotation="0">
+        <Property name="spawn" value="item" />
+      </GameObject>
+      <GameObject name="TileObject" x="6760" y="-2848" rotation="0">
+        <Property name="spawn" value="item" />
+      </GameObject>
+      <GameObject name="TileObject" x="6736" y="-2848" rotation="0">
+        <Property name="spawn" value="item" />
+      </GameObject>
+      <GameObject name="TileObject" x="6712" y="-2848" rotation="0">
+        <Property name="spawn" value="item" />
+      </GameObject>
+    </GameObject>
     <GameObject name="CharacterSpawn">
       <GameObject name="Character" x="168" y="-2792" rotation="0">
         <Property name="spawn" value="player" />
@@ -197,117 +264,59 @@
     <GameObject name="Disappearing Platforms">
       <GameObject name="TileObject" x="544" y="-2848" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
       <GameObject name="TileObject" x="576" y="-2848" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
       <GameObject name="TileObject" x="608" y="-2848" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
       <GameObject name="TileObject" x="704" y="-2816" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
       <GameObject name="TileObject" x="736" y="-2816" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
       <GameObject name="TileObject" x="768" y="-2816" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
       <GameObject name="TileObject" x="800" y="-2816" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
       <GameObject name="TileObject" x="832" y="-2816" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
       <GameObject name="TileObject" x="3064" y="-2880" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
       <GameObject name="TileObject" x="3128" y="-2880" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
       <GameObject name="TileObject" x="3192" y="-2880" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
       <GameObject name="TileObject" x="3064" y="-2880" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
       <GameObject name="TileObject" x="3128" y="-2880" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
       <GameObject name="TileObject" x="3192" y="-2880" rotation="0">
         <Property name="spawn" value="DisappearingBlock" />
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
       </GameObject>
-      <GameObject name="TileObject" x="3888" y="-2720" rotation="0">
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
+      <GameObject name="TileObject" x="3888" y="-2720" rotation="0" />
+      <GameObject name="TileObject" x="3952" y="-2720" rotation="0" />
+      <GameObject name="TileObject" x="4016" y="-2720" rotation="0" />
+      <GameObject name="TileObject" x="4080" y="-2720" rotation="0" />
+      <GameObject name="TileObject" x="4144" y="-2720" rotation="0" />
+      <GameObject name="TileObject" x="4208" y="-2720" rotation="0" />
+    </GameObject>
+    <GameObject name="JumpPad">
+      <GameObject name="TileObject" x="520" y="-2848" rotation="0">
+        <Property name="spawn" value="JumpPad" />
       </GameObject>
-      <GameObject name="TileObject" x="3952" y="-2720" rotation="0">
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
-      </GameObject>
-      <GameObject name="TileObject" x="4016" y="-2720" rotation="0">
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
-      </GameObject>
-      <GameObject name="TileObject" x="4080" y="-2720" rotation="0">
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
-      </GameObject>
-      <GameObject name="TileObject" x="4144" y="-2720" rotation="0">
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
-      </GameObject>
-      <GameObject name="TileObject" x="4208" y="-2720" rotation="0">
-        <PolygonCollider2D>
-          <Path>0,0 32,0 32,-24 0,-24</Path>
-        </PolygonCollider2D>
+      <GameObject name="TileObject" x="456" y="-2880" rotation="0">
+        <Property name="spawn" value="JumpPad" />
       </GameObject>
     </GameObject>
   </Prefab>

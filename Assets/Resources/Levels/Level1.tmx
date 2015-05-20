@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="32" tileheight="32" nextobjectid="248">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="32" tileheight="32" nextobjectid="257">
  <tileset firstgid="1" name="Untitled" tilewidth="32" tileheight="32">
   <image source="Untitled.png" trans="000000" width="256" height="1184"/>
   <tile id="0">
@@ -834,11 +834,7 @@
  <tileset firstgid="305" name="breakable platform" tilewidth="32" tileheight="32">
   <image source="../../Sprites/breakable platform.png" trans="000000" width="256" height="32"/>
   <tile id="0">
-   <objectgroup draworder="index">
-    <object id="0" x="0" y="0">
-     <polygon points="0,0 32,0 32,24 0,24"/>
-    </object>
-   </objectgroup>
+   <objectgroup draworder="index"/>
   </tile>
  </tileset>
  <layer name="Background" width="600" height="100">
@@ -865,7 +861,7 @@
    <property name="unity:sortingOrder" value="-1"/>
   </properties>
  </objectgroup>
- <objectgroup name="Enemies" visible="0">
+ <objectgroup name="Enemies">
   <properties>
    <property name="spawn" value="enemy"/>
   </properties>
@@ -889,27 +885,27 @@
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="173" gid="297" x="1960" y="2792">
+  <object id="173" gid="297" x="2048" y="2712">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="174" gid="297" x="2232" y="2792">
+  <object id="174" gid="297" x="2320" y="2840">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="175" gid="297" x="2608" y="2792">
+  <object id="175" gid="297" x="2696" y="2688">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="176" gid="297" x="3160" y="2784">
+  <object id="176" gid="297" x="3616" y="2680">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
   </object>
-  <object id="177" gid="297" x="3912" y="2792">
+  <object id="177" gid="297" x="3944" y="2840">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
@@ -952,7 +948,38 @@
    <property name="value" value="120"/>
   </properties>
  </objectgroup>
- <objectgroup name="Items"/>
+ <objectgroup name="Items">
+  <object id="248" gid="298" x="6904" y="2848">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="251" gid="298" x="6832" y="2848">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="252" gid="298" x="6792" y="2848">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="253" gid="298" x="6760" y="2848">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="254" gid="298" x="6736" y="2848">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="255" gid="298" x="6712" y="2848">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="CharacterSpawn">
   <object id="48" name="Character" gid="299" x="168" y="2792">
    <properties>
@@ -1120,7 +1147,7 @@
   <object id="246" gid="305" x="4144" y="2720"/>
   <object id="247" gid="305" x="4208" y="2720"/>
  </objectgroup>
- <objectgroup name="JumpPad" visible="0">
+ <objectgroup name="JumpPad">
   <object id="205" gid="291" x="520" y="2848">
    <properties>
     <property name="spawn" value="JumpPad"/>

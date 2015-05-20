@@ -36,4 +36,22 @@ public class Character {
         get;
         set;
     }
+
+    public float blastCooldownLimit
+    {
+        get;
+        set;
+    }
+
+    public float blastCooldownTimer
+    {
+        get;
+        set;
+    }
+
+    public float blastCooldownStart
+    {
+        get;
+        set;
+    }
 }

@@ -18,7 +18,7 @@ public class CharacterController : CharacterStateHandler
     private bool musicPlaying = false;
     private AudioSource audioSource;
     private float currentVelocity = 0;
-    private bool isFacingRight = false;
+    public bool isFacingRight = false;
     private float velocityHorizontal = 0f;
     private float velocityVertical = 0f;
     public GameObject spritesheet;
@@ -36,6 +36,7 @@ public class CharacterController : CharacterStateHandler
 
     public float magicCooldown = 1;
 
+    public GameObject blastPrefab;
     public GameObject magicBlastPrefab;
 
     public override void onIdle()
@@ -60,11 +61,7 @@ public class CharacterController : CharacterStateHandler
     {
         body.gravityScale = 150;
         body.mass = 10;
-        //if (body.velocity.x == 0)
-        //{
-        //    state = State.STATE_IDLE;
-        //}
-        //print("I'm walking");
+
 
         float timez = 0.1f;
 
@@ -286,12 +283,20 @@ public class CharacterController : CharacterStateHandler
     {
         base.Start();
         character = new Character();
-        character.health = 100;
+        //If the current game mode is hardware then set the character to 1
+        if (GameManager.instance.GetGameType() == 2)
+        {
+            character.health = 1;
+        }
+        else //For every other gamemode set the character health to full (100)
+        {
+            character.health = 100;
+        }
+        
         character.jump = 450;
-        character.speed = 80;
-        //print(character.health);
-
+        character.speed = 120;
         character.cooldownLimit = magicCooldown;
+        character.blastCooldownLimit = (magicCooldown * 6f);
 
 
 
@@ -313,11 +318,8 @@ public class CharacterController : CharacterStateHandler
         playerInput();
         movement();
 
-        checkRespawnHeight(-3000);
-
-        
-
-        
+        checkRespawnHeight(-3000); //If the player is below the fall limit then they will respawn to the start of the map.
+   
 
         if (isGrounded)
         {
@@ -360,6 +362,40 @@ public class CharacterController : CharacterStateHandler
         {
             levelManager.GetComponent<GuiObserver>().displayLastMessage();
         }
+
+
+
+        if (character.blastCooldownTimer >= character.blastCooldownLimit)
+        {
+            if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown("joystick button 1"))
+            {
+                print("L");
+                if (character.blastCooldownTimer < character.blastCooldownLimit)
+                {
+                    print("poof cooldown");
+                }
+                else
+                {
+                    character.blastCooldownStart = Time.time;
+                    character.blastCooldownTimer = Time.time - character.blastCooldownStart;
+                    shotBlast();
+                    print("boom");
+                }
+            }
+        }
+        else
+        {
+            if (character.blastCooldownStart == 0)
+            {
+                character.blastCooldownStart = -character.blastCooldownLimit;
+            }
+            // (time * 100 / 3)
+
+            character.blastCooldownTimer = Time.time - character.blastCooldownStart;
+        }
+
+        levelManager.GetComponent<GuiObserver>().updateSphereCooldown(character.blastCooldownTimer / character.blastCooldownLimit);
+
         
         if (character.cooldownTimer >= character.cooldownLimit)
         {
@@ -414,8 +450,19 @@ public class CharacterController : CharacterStateHandler
         {
             bullet.GetComponent<MagicBulletController>().isRight = false;
         }
-        
-        
+    }
+
+    private void shotBlast()
+    {
+        GameObject blast = GameObject.Instantiate(blastPrefab, new Vector2(transform.position.x + 0, transform.position.y), transform.rotation) as GameObject;
+        if (isFacingRight)
+        {
+            blast.GetComponent<MagicBulletController>().isRight = true;
+        }
+        else
+        {
+            blast.GetComponent<MagicBulletController>().isRight = false;
+        }
     }
 
     private void checkRespawnHeight(int height)
@@ -576,6 +623,9 @@ public class CharacterController : CharacterStateHandler
 
     void OnCollisionEnter2D(Collision2D coll)
     {
+        print(coll.transform.tag);
+
+
         if (!checkIfSide(coll))
         {
             if (coll.transform.tag.ToString().Equals("MovingPlatform"))
@@ -592,6 +642,11 @@ public class CharacterController : CharacterStateHandler
                     animator.SetBool("Jumping", false);
 
                 }
+                else if (checkIfBottom(coll))
+                {
+                    state = State.STATE_FALLING;
+                    isGrounded = false;
+                }
 
             }
             else if (coll.transform.tag.ToString().Equals("Enemy"))
@@ -607,6 +662,11 @@ public class CharacterController : CharacterStateHandler
                 //state = State.STATE_NOGRAVITY;
                 atEndGoal();
                 isGrounded = true;
+            }
+            else if (coll.transform.tag.ToString().Equals("Untagged"))
+            {
+                if (checkIfBottom(coll))
+                    isGrounded = false;
             }
             else
             {
@@ -858,7 +918,7 @@ public class CharacterController : CharacterStateHandler
 
         mphfun.GetComponent<Text>().text = (currentVelocity - 80).ToString("#") + " MPH";
 
-        if (currentVelocity > 140 && currentVelocity < 150)
+        if (currentVelocity > 190 && currentVelocity < 200)
         {
             if (!musicPlaying)
             {
@@ -867,10 +927,11 @@ public class CharacterController : CharacterStateHandler
             }
             
         }
-        else if (currentVelocity < 140)
+        else if (currentVelocity < 190)
         {
             musicPlaying = false;
-            GameManager.instance.stopSong();
+            if (musicPlaying)
+                GameManager.instance.stopSong();
         }
 
 
@@ -891,6 +952,16 @@ public class CharacterController : CharacterStateHandler
         }
 
         levelManager.GetComponent<GuiObserver>().UpdateHealth(character.health);
+    }
+
+    public void heal(int health)
+    {
+        
+        character.health += health;
+        if (character.health > 100)
+        {
+            character.health = 100;
+        }
     }
 
 }

@@ -2,145 +2,139 @@
 using System.Collections;
 using System;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 
 public class MusicManager : MonoBehaviour {
+    public AudioMixer Mixer;
     public AudioSource audioSource;
     public AudioSource SoundEffect;
     public AudioClip audioClip;
     public GameObject MusicInfoViewer;
+    private GameObject canvas;
+    private MusicM mm;
     
-    
-    private Rigidbody2D body;
+    void Start () {
 
-    private bool backgroundMusicPlaying = false;
+        //Create the music object
+        mm = new MusicM();
+        TextAsset data = Resources.Load("sounds/MusicList") as TextAsset;
+        mm.musicList = new JSONObject(data.text);
 
-    GameObject canvas;
-    private int currentID = 0;
+        //Set the audiosource for music to loop forever
+        audioSource.loop = true;
 
-    JSONObject musicList = null;
-
-
-    IEnumerator wait()
-    {
-        yield return new WaitForSeconds(10);
-        MusicInfoViewer.SetActive(false);
-        //body.position = new Vector2(textValue[0].transform.position.x -200, transform.position.y);
-        
-        //textValue[0].transform.position = -textValue[0].transform.position;
-
-    }
-
-	void Start () {
-        
-        audioSource = gameObject.GetComponents<AudioSource>()[0];
-        SoundEffect = gameObject.GetComponents<AudioSource>()[1];
-        body = gameObject.AddComponent<Rigidbody2D>();
-        body.gravityScale = 0;
+        //Set the volume of the mixer to the saved volume settings (can be changed by the user in-game)
+        Mixer.SetFloat("SEvolume", PlayerPrefs.GetInt("SoundEffectVolume"));
+        Mixer.SetFloat("BKvolume", PlayerPrefs.GetInt("MusicVolume"));
+           
         canvas = GameObject.Find("Canvas");
-        Text[] text = canvas.GetComponentsInChildren<Text>();
-
-        audioSource.outputAudioMixerGroup.name=("Background Music");
-        //SoundEffect.outputAudioMixerGroup.audioMixer.name = ("Background Music") ;
-        
-        //text[0].transform.position = new Vector2(text[0].transform.position.x - 200, transform.position.y);
-        //text[0].horizontalOverflow = OverflowException;
-        
-        //message = this.gameObject.AddComponent<Text>();
 	}
 
+    //A method whihc allows you to pause/play the current playing background/music track
     public void togglePause(int id)
     {
-        
-
-        if (backgroundMusicPlaying)
+        //If the music is playing then pause it 
+        if (isMusicPlaying())
         {
-            switch (id)
-            {
-                //Background music
-                case 0:
-                    audioSource.Pause();
-                    backgroundMusicPlaying = false;
-                    
-                    break;
-            }
+            audioSource.Pause();
+            mm.musicPlaying = false;
+            mm.musicPause = true;
         }
-        else if (!backgroundMusicPlaying)
+        //If the music is not playing then resume it
+        else if (!isMusicPlaying())
         {
-            switch (id)
-            {
-                //Background music
-                case 0:
-                    audioSource.Play();
-                    backgroundMusicPlaying = true;
-                    break;
-            }
+            audioSource.Play();
+            mm.musicPlaying = true;
+            mm.musicPause = false;
         }
-        
     }
 
+    //Play the given sound effect
     public void playSoundEffect(int id)
     {
-        SoundEffect.clip = getSong(id);
-        SoundEffect.Play();
+        if (!currentPlayingSEID().Equals(id))
+        {
+            mm.playingSoundEffectID = id;
+            SoundEffect.clip = getSong(id);
+            SoundEffect.Play();
+        }
+        else
+        {
+            SoundEffect.Play();
+        }
     }
 
+    //Stop the sound effect (possibly not required)
     public void stopSoundEffect()
     {
         SoundEffect.Stop();
     }
 
+    //Play the given id as a song/background track
     public void playSong(int id)
     {
-        Debug.Log("oh");
-        currentID = id;
-        audioSource.clip = getSong(id);
-        audioSource.loop = true;
-        //audioSource.PlayOneShot(getSong(id), 1f);
-        audioSource.Play();
+        //If the song is different than the one that is already playing then play the new one
+        if (!currentPlayingMusicID().Equals(id))
+        {
+            mm.playingMusicID = id;
+            mm.musicPlaying = true;
+            audioSource.clip = getSong(id);
+             
+            audioSource.Play();
+            updateDisplay(id); //Update the display so the user knows what is currently being played.
+        }
 
-        updateDisplay(id);
+        
+        
     }
 
+    //Stop the current playing song (might not be accessed as songs may change without stopping the previous one, new song replaces)
     public void stopSong()
     {
         audioSource.Stop();
+        mm.musicPlaying = false;
     }
 
+    //Displays the song details on the UI
     private void updateDisplay(int id)
     {
         MusicInfoViewer.SetActive(true);
         Text[] textValue = canvas.GetComponentsInChildren<Text>();
-        textValue[0].text = "Title: " + musicList[id].GetField("title").ToString() + "\nArtist: " + musicList[id].GetField("artist").ToString() + "\nAlbum: " + musicList[id].GetField("album").ToString();
-        //body.position = new Vector2(textValue[0].transform.position.x + 200, transform.position.y);
-        StartCoroutine("wait");
+        textValue[0].text = "Title: " + mm.musicList[id].GetField("title").ToString() + "\nArtist: " + mm.musicList[id].GetField("artist").ToString() + "\nAlbum: " + mm.musicList[id].GetField("album").ToString();
+        StartCoroutine("wait"); // After x seconds make the message disappear
     }
 
+
+    //Returns the audioclip for the requested song id
     AudioClip getSong(int id)
+    {   //Gets the location of the song file from the json and loads it from the resource as an audioClip
+        return Resources.Load(mm.musicList [id].GetField ("location").str) as AudioClip;
+    }
+
+    //Returns if music is playing or not
+    public bool isMusicPlaying()
     {
-        TextAsset data = Resources.Load("sounds/MusicList") as TextAsset;
-        musicList = new JSONObject(data.text);
-        AudioClip song = null;
+        return mm.musicPlaying;
+    }
 
-		string location = musicList [id].GetField ("location").str;
-        //location = location.Trim(new Char[] { '"' });
+    //Returns the id of the current playing song
+    public int currentPlayingMusicID()
+    {
+        return mm.playingMusicID;
+    }
 
-        song = Resources.Load(location) as AudioClip;
-        //Debug.Log("Playing: " + location);
-        return song;
+    //Returns the id of the current playing sound effect
+    public int currentPlayingSEID()
+    {
+        return mm.playingSoundEffectID;
     }
 
 
-    void displayDetails(int id)
+    //Wait for 10 seconds then set the GUI item to false (so it is hidden)
+    IEnumerator wait()
     {
-
+        yield return new WaitForSeconds(10);
+        MusicInfoViewer.SetActive(false);
     }
-	
-
-   
-	// Update is called once per frame
-	void Update () {
-
-
-	}
 }

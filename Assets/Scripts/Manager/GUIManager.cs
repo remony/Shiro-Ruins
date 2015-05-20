@@ -16,12 +16,18 @@ public class GUIManager : GUIStateHandle, GuiObserver
     public Sprite x_disable;
     public Sprite a_enable;
     public Sprite a_disable;
+    public Sprite b_enable;
+    public Sprite b_disable;
 
     //Keyboard sprite references
     public Sprite space_enable;
     public Sprite space_disable;
     public Sprite k_enable;
     public Sprite k_disable;
+    public Sprite l_enable;
+    public Sprite l_disable;
+
+    
 
     public int currentInputType;
     public bool displayHelp = true;
@@ -71,8 +77,55 @@ public class GUIManager : GUIStateHandle, GuiObserver
             if (!completeView.activeSelf)
             {
                 completeView.SetActive(true);
+                
                 level.time = Time.time - level.time;
-                completeView.GetComponentsInChildren<Text>()[1].text = "Score: " + level.score + "\n Time: " + level.time.ToString("#") + " Seconds.";
+
+                if (GameManager.instance.GetGameType() == 1)
+                {
+                    completeView.GetComponentsInChildren<Text>()[0].text = "Time Trial\n\nComplete";
+                    if ((level.time / 60) < 1)
+                    {
+                        completeView.GetComponentsInChildren<Text>()[1].text = "Highscore: " + (saveData()[levelID()].GetField("TTTime")).ToString() + "\n Time: " + level.time.ToString("#") + " Seconds.";
+                    }
+                    else
+                    {
+                        completeView.GetComponentsInChildren<Text>()[1].text = "Highscore: " + (saveData()[levelID()].GetField("TTTime")).ToString() + "\n Time: " + (level.time / 60).ToString("#.##") + " Minutes.";
+                    }
+                }
+                else
+                {
+                    completeView.GetComponentsInChildren<Text>()[0].text = "Adventure\n\nComplete";
+                    float time = 0f;
+                    time = level.time;
+
+
+
+                    string message = "";
+
+                    if ((level.time / 60) < 1)
+                    {
+                        message = "Score: " + level.score + "\n Time: " + level.time.ToString("#") + " Seconds.";
+                    }
+                    else
+                    {
+                        message = "Score: " + level.score + "\n Time: " + level.time.ToString("#") + " Minutes.";
+                    }
+
+
+
+                    if (saveData()[levelID()].GetField("scoreToConquer").n < level.score)
+                    {
+                        message += " Conquered.";
+                    }
+
+                    completeView.GetComponentsInChildren<Text>()[1].text = message;
+
+
+                    
+                }
+
+
+
                 save();
             }
         }
@@ -86,7 +139,15 @@ public class GUIManager : GUIStateHandle, GuiObserver
             {
                 failedView.SetActive(true);
                 level.time = Time.time - level.time;
-                failedView.GetComponentsInChildren<Text>()[1].text = "Score: " + level.score + "\n Time: " + level.time.ToString("#") + " Seconds.";
+                if (GameManager.instance.GetGameType() == 0)
+                {
+                    failedView.GetComponentsInChildren<Text>()[1].text = "Score: " + level.score + "\n Time: " + level.time.ToString("#") + " Seconds.";
+                }
+                else
+                {
+                    failedView.GetComponentsInChildren<Text>()[1].text = "Time: " + level.time.ToString("#") + " Seconds.";
+                }
+                
             }
         }
     }
@@ -208,22 +269,42 @@ public class GUIManager : GUIStateHandle, GuiObserver
                 break;
         }
 
-        if (save[0].GetField("Score").n < level.score)
-        {
-            save[0].SetField("Score", level.score);
-            save[0].SetField("Time", level.time);
-            
-            if (level.score > 1000)
-            {
-                save[1].SetField("unlocked", 1);
-            }
-            GameManager.instance.UpdateSaveData(save);
 
-        }
-        else
+        if (GameManager.instance.GetGameType() == 0 || GameManager.instance.GetGameType() == 1)
         {
-            print("Score not higher");
+            if (save[id].GetField("Score").n < level.score)
+            {
+                save[id].SetField("Score", level.score);
+                save[id].SetField("Time", level.time);
+                GameManager.instance.UpdateSaveData(save);
+
+            }
+            else
+            {
+                print("Score not higher");
+            }
+
+            if (save[id].GetField("scoreToConquer").n < level.score)
+            {   
+                save[id].SetField("conquered", 1);
+                save[id + 1].SetField("unlocked", 1);
+                GameManager.instance.UpdateSaveData(save);
+            }
         }
+        else if (GameManager.instance.GetGameType() == 1)
+        {
+            if (save[id].GetField("TTTime").n > level.time)
+            {
+                save[id].SetField("TTTime", level.time);
+                GameManager.instance.UpdateSaveData(save);
+            }
+            else
+            {
+                print("Time not lower");
+            }
+        }
+
+        
 
 
 
@@ -262,9 +343,18 @@ public class GUIManager : GUIStateHandle, GuiObserver
         timer();
     }
 
+
     private void timer()
     {
-        textGui[3].text = "Time: " + (Time.time - level.time).ToString("#");
+        if (GameManager.instance.GetGameType() == 0)
+        {
+            textGui[3].text = "Time: " + (Time.time - level.time).ToString("#");
+        }
+        else
+        {
+            textGui[1].text = "Time: " + (Time.time - level.time).ToString("#");
+        }
+        
     }
 
     private void input()
@@ -326,7 +416,8 @@ public class GUIManager : GUIStateHandle, GuiObserver
     public void AddScore(int value)
     {
         level.score += value;
-        textGui[1].text = "Score: " + level.score;
+        if (GameManager.instance.GetGameType() == 0)
+            textGui[1].text = "Score: " + level.score;
     }
 
     private void displayMessage()
@@ -352,7 +443,42 @@ public class GUIManager : GUIStateHandle, GuiObserver
     {
         level.health = health;
         textGui[0].text = level.health.ToString();
-        healthBar.value = level.health;
+        healthBar.value = health;
+        
+    }
+
+    public void updateSphereCooldown(float count)
+    {
+        if (count < 0.91f)
+        {
+
+            controls.GetComponentsInChildren<Text>()[2].text = "Blast (" + (100 - count * 100).ToString("#") + ")";
+            if (currentInputType == 0)
+            {
+                controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].sprite = l_disable;
+                controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
+            }
+            else if (currentInputType == 1)
+            {
+                controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].sprite = b_disable;
+                controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
+            }
+        }
+        else if (count >= 0.91f)
+        {
+            if (currentInputType == 0)
+            {
+                controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].sprite = l_enable;
+                controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
+            }
+            else if (currentInputType == 1)
+            {
+                controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].sprite = b_enable;
+                controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
+            }
+            controls.GetComponentsInChildren<Text>()[2].text = "Blast";
+            magicCooldown.SetActive(false);
+        }
     }
 
     public void updateMagicCooldown(float count)

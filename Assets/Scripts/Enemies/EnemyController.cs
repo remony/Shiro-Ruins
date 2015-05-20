@@ -202,7 +202,20 @@ public class EnemyController : EnemyStateHandler {
                 //strike(coll.gameObject);
                 StartCoroutine("Attack", coll.gameObject);
             }
-            
+            if (coll.contacts[0].normal == new Vector2(0, -1))
+            {
+                if (coll.gameObject.GetComponent<CharacterController>().isFacingRight)
+                {
+                    coll.gameObject.GetComponent<CharacterController>().GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 6405), ForceMode2D.Impulse);
+                }
+                else
+                {
+                    coll.gameObject.GetComponent<CharacterController>().GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 6405), ForceMode2D.Impulse);
+                }
+               // coll.gameObject.GetComponent<CharacterController>().GetComponent<Rigidbody2D>()
+                enemy.health = 0;
+            }
+           
         }   
         else if (coll.transform.tag.ToString().Equals("Platform"))
         {
@@ -214,6 +227,7 @@ public class EnemyController : EnemyStateHandler {
             grounded = true;
         }
         
+        
     }
 
     void OnTriggerEnter2D(Collider2D coll)
@@ -223,6 +237,10 @@ public class EnemyController : EnemyStateHandler {
             enemy.health -= (100 / 3);
         }
         else if (coll.transform.tag.ToString().Equals("Spike"))
+        {
+            enemy.health = 0;
+        }
+        else if (coll.transform.tag.ToString().Equals("Lava"))
         {
             enemy.health = 0;
         }

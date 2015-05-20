@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour {
 
     public Slider progressBar;
     public GameObject loadingScreen;
+    private int GameTypeID = 0;
 
     private AsyncOperation async;
 
@@ -32,6 +33,9 @@ public class LevelManager : MonoBehaviour {
             case 4:
                 sceneName = "Level1";
                 break;
+            case 5:
+                sceneName = "Options";
+                break;
             default:
                 sceneName = "MainMenu";
                 break;
@@ -52,10 +56,21 @@ public class LevelManager : MonoBehaviour {
         while (!async.isDone)
         {
             progressBar.value = async.progress;
-            print(async.progress);
             yield return null;
         }
         loadingScreen.SetActive(false);
 
     }
+
+    //Returns the value of the GameTypeID this is the game mode that the user is player 0 = adventure 1 = time trial
+    public int GameType()
+    {
+        return GameTypeID;
+    }
+
+    public void setGameType(int type)
+    {
+        GameTypeID = type;
+    }
+
 }
