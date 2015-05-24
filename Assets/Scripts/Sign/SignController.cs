@@ -9,7 +9,6 @@ public class SignController : SignStateHandler
     public int id;
     public Sign sign;
     public GameObject target;
-    private GameObject dialogViewer;
     public GameObject notifyButton;
 
 
@@ -30,6 +29,7 @@ public class SignController : SignStateHandler
 
 
     // Use this for initialization
+    new
     void Start()
     {
         base.Start();
@@ -40,7 +40,7 @@ public class SignController : SignStateHandler
         }
         catch (System.Exception e)
         {
-            Debug.Log("no player");
+            Debug.Log("no player" + e);
         }
         
         sign.id = id;
@@ -48,11 +48,11 @@ public class SignController : SignStateHandler
         sign.read = false;
 
         guiController = GameObject.FindGameObjectWithTag("LevelManager");
-        dialogViewer = GameObject.Find("DialogViewer");
         
     }
 
     // Update is called once per frame
+    new
     void Update()
     {
         base.Update();

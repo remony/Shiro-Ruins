@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
+
 
 public class GUIManager : GUIStateHandle, GuiObserver
 {
@@ -82,49 +84,61 @@ public class GUIManager : GUIStateHandle, GuiObserver
 
                 if (GameManager.instance.GetGameType() == 1)
                 {
-                    completeView.GetComponentsInChildren<Text>()[0].text = "Time Trial\n\nComplete";
+                    completeView.GetComponentsInChildren<Text>()[1].text = "Game mode: Time Trial";
                     if ((level.time / 60) < 1)
                     {
-                        completeView.GetComponentsInChildren<Text>()[1].text = "Highscore: " + (saveData()[levelID()].GetField("TTTime")).ToString() + "\n Time: " + level.time.ToString("#") + " Seconds.";
+                        completeView.GetComponentsInChildren<Text>()[4].text = "Highscore: " + saveData()[levelID()].GetField("TTTime").ToString();
+                        completeView.GetComponentsInChildren<Text>()[5].text = "Time: " + level.time.ToString("#") + " Seconds.";
                     }
                     else
                     {
-                        completeView.GetComponentsInChildren<Text>()[1].text = "Highscore: " + (saveData()[levelID()].GetField("TTTime")).ToString() + "\n Time: " + (level.time / 60).ToString("#.##") + " Minutes.";
+                        completeView.GetComponentsInChildren<Text>()[4].text = "Highscore: " + saveData()[levelID()].GetField("TTTime").ToString();
+                        completeView.GetComponentsInChildren<Text>()[5].text = "Time: " + (level.time / 60).ToString("#.##") + " Minutes.";
+                    }
+                    if (level.time > saveData()[levelID()].GetField("TTTime").n)
+                    {
+                        completeView.GetComponentsInChildren<Text>()[2].text = "Try Again";
+                        completeView.GetComponentsInChildren<Text>()[3].text = "";
+                    }
+                    else if (level.time < saveData()[levelID()].GetField("TTTime").n)
+                    {
+                        completeView.GetComponentsInChildren<Text>()[2].text = "";
+                        completeView.GetComponentsInChildren<Text>()[3].text = "High Score!";
                     }
                 }
                 else
                 {
-                    completeView.GetComponentsInChildren<Text>()[0].text = "Adventure\n\nComplete";
-                    float time = 0f;
-                    time = level.time;
-
-
-
-                    string message = "";
+                    completeView.GetComponentsInChildren<Text>()[1].text = "Game mode: Adventure";
 
                     if ((level.time / 60) < 1)
                     {
-                        message = "Score: " + level.score + "\n Time: " + level.time.ToString("#") + " Seconds.";
+                        completeView.GetComponentsInChildren<Text>()[4].text = "Score: " + level.score;
+                        completeView.GetComponentsInChildren<Text>()[5].text = "Time: " + level.time.ToString("#") + " Seconds.";
                     }
                     else
                     {
-                        message = "Score: " + level.score + "\n Time: " + level.time.ToString("#") + " Minutes.";
+                        completeView.GetComponentsInChildren<Text>()[4].text = "Score: " + level.score;
+                        completeView.GetComponentsInChildren<Text>()[5].text = "Time: " + (level.time / 60).ToString("#.##") + " Minutes.";
                     }
 
 
 
                     if (saveData()[levelID()].GetField("scoreToConquer").n < level.score)
                     {
-                        message += " Conquered.";
+                        completeView.GetComponentsInChildren<Text>()[2].text = "";
                     }
-
-                    completeView.GetComponentsInChildren<Text>()[1].text = message;
-
+                    else
+                    {
+                        completeView.GetComponentsInChildren<Text>()[2].text = "";
+                    }
 
                     
                 }
-
-
+                textGui[4].text = " ";
+                textGui[5].text = " ";
+                textGui[6].text = " ";
+                controls.gameObject.GetComponent<Animator>().SetBool("display", false);
+                
 
                 save();
             }
@@ -147,7 +161,7 @@ public class GUIManager : GUIStateHandle, GuiObserver
                 {
                     failedView.GetComponentsInChildren<Text>()[1].text = "Time: " + level.time.ToString("#") + " Seconds.";
                 }
-                
+
             }
         }
     }
@@ -163,11 +177,10 @@ public class GUIManager : GUIStateHandle, GuiObserver
 
                 state = State.STATE_INPROGRESS;
                 int id = levelID();
+                print(id);
                 JSONObject save = saveData();
+                print("display id " + id + ": " + save[id].GetField("Title").str);
                 startCard.GetComponentInChildren<Text>().text = save[id].GetField("Title").str;
-                print(saveData()[levelID()].GetField("Title").str);
-                
-
             }
         }
 
@@ -200,13 +213,13 @@ public class GUIManager : GUIStateHandle, GuiObserver
 
         int id = GameManager.instance.level;
 
-
+        
         switch (id)
         {
             case 3:
                 id = 0;
                 break;
-            case 4:
+            case 4: //level 2
                 id = 1;
                 break;
             case 5:
@@ -218,8 +231,8 @@ public class GUIManager : GUIStateHandle, GuiObserver
             case 7:
                 id = 3;
                 break;
-            case 8:
-                id = 4;
+            case 8: //level 2
+                id = 2;
                 break;
             case 9:
                 id = 5;
@@ -270,7 +283,7 @@ public class GUIManager : GUIStateHandle, GuiObserver
         }
 
 
-        if (GameManager.instance.GetGameType() == 0 || GameManager.instance.GetGameType() == 1)
+        if (GameManager.instance.GetGameType() == 0 || GameManager.instance.GetGameType() == 2)
         {
             if (save[id].GetField("Score").n < level.score)
             {
@@ -278,10 +291,6 @@ public class GUIManager : GUIStateHandle, GuiObserver
                 save[id].SetField("Time", level.time);
                 GameManager.instance.UpdateSaveData(save);
 
-            }
-            else
-            {
-                print("Score not higher");
             }
 
             if (save[id].GetField("scoreToConquer").n < level.score)
@@ -310,7 +319,7 @@ public class GUIManager : GUIStateHandle, GuiObserver
 
 
     }
-
+    new
     void Start()
     {
         base.Start();
@@ -322,7 +331,7 @@ public class GUIManager : GUIStateHandle, GuiObserver
         healthBar = gameObject.GetComponentInChildren<Slider>();
         healthBar.maxValue = 100;
         healthBar.minValue = 0;
-        textGui[1].text = "Score: " + level.score;
+        textGui[1].text = level.score.ToString();
         completeView.SetActive(false);
         failedView.SetActive(false);
         startCard.SetActive(false);
@@ -337,6 +346,7 @@ public class GUIManager : GUIStateHandle, GuiObserver
         GameManager.instance.changeLevel(levelId);
     }
 
+    new 
     void Update()
     {
         base.Update();
@@ -346,14 +356,23 @@ public class GUIManager : GUIStateHandle, GuiObserver
 
     private void timer()
     {
-        if (GameManager.instance.GetGameType() == 0)
+        try
         {
-            textGui[3].text = "Time: " + (Time.time - level.time).ToString("#");
+            if (GameManager.instance.GetGameType() == 1)
+            {
+                textGui[2].text = (Time.time - level.time).ToString("#");
+                textGui[1].text = "";
+            }
+            else
+            {
+                textGui[2].text = (Time.time - level.time).ToString("#");
+            }
         }
-        else
+        catch(Exception e)
         {
-            textGui[1].text = "Time: " + (Time.time - level.time).ToString("#");
+            print(e);
         }
+        
         
     }
 
@@ -417,7 +436,7 @@ public class GUIManager : GUIStateHandle, GuiObserver
     {
         level.score += value;
         if (GameManager.instance.GetGameType() == 0)
-            textGui[1].text = "Score: " + level.score;
+            textGui[1].text = level.score.ToString();
     }
 
     private void displayMessage()

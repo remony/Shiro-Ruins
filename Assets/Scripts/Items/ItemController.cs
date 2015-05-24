@@ -4,7 +4,6 @@ using System.Collections;
 public class ItemController : ItemStateHandler
 {
     public Item item;
-    private Animator animator;
     private Rigidbody2D body;
     private BoxCollider2D boxCollider;
     private AudioClip pickupSound;
@@ -20,6 +19,7 @@ public class ItemController : ItemStateHandler
 
     }
 	// Use this for initialization
+    new
 	void Start () {
         base.Start();
         item = new Item();
@@ -27,15 +27,12 @@ public class ItemController : ItemStateHandler
         {
             item.value = 100;
         }
-        
-        animator = gameObject.GetComponent<Animator>();
         body = gameObject.AddComponent<Rigidbody2D>();
         boxCollider = gameObject.AddComponent<BoxCollider2D>();
         body.isKinematic = false;
         body.fixedAngle = true;
         body.gravityScale = 0;
-        Debug.Log(item.value);
-        boxCollider.size = new Vector2(0.1f, 0.1f);
+        boxCollider.size = new Vector2(0.2f, 0.2f);
         boxCollider.isTrigger = true;
         levelManager = GameObject.FindGameObjectWithTag("LevelManager");
         audioSource = gameObject.AddComponent<AudioSource>();
@@ -54,6 +51,7 @@ public class ItemController : ItemStateHandler
 	}
 	
 	// Update is called once per frame
+    new
 	void Update () {
         base.Update();
 	}
@@ -68,12 +66,10 @@ public class ItemController : ItemStateHandler
             
             audioSource.PlayOneShot(pickupSound, 1f);
             int willHeal = Random.Range(0,2);
-            print(willHeal);
             if (levelManager != null)
             {
                 if (willHeal == 1)
                 {
-                    print("healing");
                     int health = Random.Range(0, 15);
                     //coll.gameObject.GetComponent<CharacterController>().heal(health);
                     coll.GetComponent<CharacterController>().heal(health);

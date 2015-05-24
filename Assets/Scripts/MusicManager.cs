@@ -19,7 +19,9 @@ public class MusicManager : MonoBehaviour {
         //Create the music object
         mm = new MusicM();
         TextAsset data = Resources.Load("sounds/MusicList") as TextAsset;
+        TextAsset soundlist = Resources.Load("sounds/soundList") as TextAsset;
         mm.musicList = new JSONObject(data.text);
+        mm.soundList = new JSONObject(soundlist.text);
 
         //Set the audiosource for music to loop forever
         audioSource.loop = true;
@@ -56,7 +58,7 @@ public class MusicManager : MonoBehaviour {
         if (!currentPlayingSEID().Equals(id))
         {
             mm.playingSoundEffectID = id;
-            SoundEffect.clip = getSong(id);
+            SoundEffect.clip = getSound(id);
             SoundEffect.Play();
         }
         else
@@ -110,6 +112,12 @@ public class MusicManager : MonoBehaviour {
     AudioClip getSong(int id)
     {   //Gets the location of the song file from the json and loads it from the resource as an audioClip
         return Resources.Load(mm.musicList [id].GetField ("location").str) as AudioClip;
+    }
+
+    //Returns the audioclip for the requested sound id
+    AudioClip getSound(int id)
+    {   //Gets the location of the song file from the json and loads it from the resource as an audioClip
+        return Resources.Load(mm.soundList[id].GetField("location").str) as AudioClip;
     }
 
     //Returns if music is playing or not

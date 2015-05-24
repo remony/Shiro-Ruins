@@ -5,12 +5,10 @@ public class RainPourController : MonoBehaviour {
 
     private Vector3 speed = Vector3.zero;
     float height;
-    float width;
     // Use this for initialization
     void Start()
     {
         height = Camera.main.orthographicSize * 2;
-        width = height * Screen.width / Screen.height; 
     }
 
     // Update is called once per frame
@@ -18,7 +16,6 @@ public class RainPourController : MonoBehaviour {
     {
 
         height = Camera.main.orthographicSize * 2;
-        width = height * Screen.width / Screen.height;
 
         gameObject.transform.localScale = Vector3.one * height;
 

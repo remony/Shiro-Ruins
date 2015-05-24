@@ -8,7 +8,8 @@ public class CollisionSetup : MonoBehaviour {
         GameObject[] lavas = GameObject.FindGameObjectsWithTag("Lava");
         for (int i = 0; i < lavas.Length; i++ )
         {
-            lavas[i].transform.FindChild("Collision").gameObject.tag = "Lava";
+            if (!lavas[i].name.Equals("Collision"))
+                lavas[i].transform.FindChild("Collision").gameObject.tag = "Lava";
         }
 
         GameObject[] MovingPlatforms = GameObject.FindGameObjectsWithTag("MovingPlatform");
@@ -22,7 +23,8 @@ public class CollisionSetup : MonoBehaviour {
         GameObject[] grounds = GameObject.FindGameObjectsWithTag("Ground");
         for (int i = 0; i < grounds.Length; i++)
         {
-            grounds[i].transform.FindChild("Collision").gameObject.tag = "Ground";
+            if (!grounds[i].name.Equals("Collision"))
+                grounds[i].transform.FindChild("Collision").gameObject.tag = "Ground";
         }
 
         GameObject[] Stairs_top = GameObject.FindGameObjectsWithTag("Stairs_top");
@@ -52,8 +54,12 @@ public class CollisionSetup : MonoBehaviour {
         GameObject[] movingPlatform = GameObject.FindGameObjectsWithTag("MovingPlatform");
         for (int i = 0; i < movingPlatform.Length; i++)
         {
-            movingPlatform[i].transform.FindChild("Collision").gameObject.tag = "MovingPlatform";
-            movingPlatform[i].AddComponent<MovingPlatformController>();
+            if (movingPlatform[i].transform.FindChild("Collision"))
+            {
+                movingPlatform[i].transform.FindChild("Collision").gameObject.tag = "MovingPlatform";
+                movingPlatform[i].AddComponent<MovingPlatformController>();
+            }
+           
         }
 
         GameObject[] Spikes = GameObject.FindGameObjectsWithTag("Spike");
@@ -71,13 +77,38 @@ public class CollisionSetup : MonoBehaviour {
             //JumpPads[i].transform.FindChild("Collision").gameObject.AddComponent<JumpPadController>();
         }
 
-        
 
+        GameObject[] PlatformGrounds = GameObject.FindGameObjectsWithTag("Platforms");
+        for (int i = 0; i < PlatformGrounds.Length; i++)
+        {
+            if (!PlatformGrounds[i].name.Equals("Collision"))
+                PlatformGrounds[i].transform.FindChild("Collision").gameObject.tag = "Platforms";
+        }
 
         GameObject[] PlatformGround = GameObject.FindGameObjectsWithTag("Platforms");
         for (int i = 0; i < PlatformGround.Length; i++)
         {
-            PlatformGround[i].transform.FindChild("Collision").gameObject.tag = "Platform";
+            if (!PlatformGround[i].name.Equals("Collision"))
+                PlatformGround[i].transform.FindChild("Collision").gameObject.tag = "Platforms";
+        }
+        GameObject[] WaterPlatforms = GameObject.FindGameObjectsWithTag("WaterPlatform");
+        for (int i = 0; i < WaterPlatforms.Length; i++)
+        {
+            if (!WaterPlatforms[i].name.Equals("Collision"))
+                WaterPlatforms[i].transform.FindChild("Collision").gameObject.tag = "WaterPlatform";
+        }
+
+        GameObject[] StairPlatforms = GameObject.FindGameObjectsWithTag("StairsPlatform");
+        for (int i = 0; i < StairPlatforms.Length; i++)
+        {
+            if (!StairPlatforms[i].name.Equals("Collision"))
+            {
+                StairPlatforms[i].transform.FindChild("Collision").gameObject.tag = "StairsPlatform";
+                StairPlatforms[i].transform.FindChild("Collision").GetComponent<PolygonCollider2D>().sharedMaterial = (PhysicsMaterial2D)Resources.Load("GroundPhysicsMaterial");
+            }
+            
+            //StairPlatforms[i].transform.FindChild("Collision").ge
+            //.material = (PhysicMaterial)Resources.Load("PhysicMaterials/Wood")
         }
 
 

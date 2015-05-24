@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Mainmenu : MonoBehaviour {
 
     public GameObject HardcoreGameModeButton;
+    public GameObject scrollbarObject;
 
 	// Use this for initialization
 	void Start () {
 
 
-        GameManager.instance.playSong(3);
+        GameManager.instance.playSong(7);
 
         if (PlayerPrefs.GetInt("HCmodeActivated") == 0)
         {
@@ -23,15 +25,7 @@ public class Mainmenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        //AudioSource source = this.gameObject.AddComponent<AudioSource>();
-        //source.clip = clip;
-
-        //source.Play();
-
-
-        //AudioSource sound = gameObject.GetComponent<AudioSource>();
-        //sound.Play();
+        
 	}
 
     

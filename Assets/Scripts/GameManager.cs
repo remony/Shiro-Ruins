@@ -129,8 +129,15 @@ public class GameManager : MonoBehaviour
         return levelManager.GameType();
     }
 
+    
+
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            GameManager.instance.playSoundEffect(4);
+        }
+
         if (updateSaveFromfile)
         {
             PlayerPrefs.SetString("Save", null);

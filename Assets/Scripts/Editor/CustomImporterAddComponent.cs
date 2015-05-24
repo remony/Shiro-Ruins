@@ -9,9 +9,7 @@ using Tiled2Unity;
 [Tiled2Unity.CustomTiledImporter]
 class CustomTiledImporterForBlocks : Tiled2Unity.ICustomTiledImporter
 {
-    int id = 0;
-    JSONObject signJson = null;
-    
+    int id = 0;    
  
     public void HandleCustomProperties(UnityEngine.GameObject gameObject,
         IDictionary<string, string> props)

@@ -10,7 +10,6 @@ public class MagicBulletController : MonoBehaviour {
     public MagicBullet magicBullet;
     private Rigidbody2D body;
     public bool collided = false;
-    private Transform collidedObject;
     public int speed = 400;
 
 
@@ -63,7 +62,6 @@ public class MagicBulletController : MonoBehaviour {
                // print("collided");
             }
 
-            collidedObject = coll.transform;
             //explosion.SetActive(true);
             StopCoroutine("timeToLive");
             StartCoroutine("collision");

@@ -5,7 +5,6 @@ using System.Collections;
 public class Item2Controller : ItemStateHandler
 {
     public Item item;
-    private Animator animator;
     private Rigidbody2D body;
     private BoxCollider2D boxCollider;
     private AudioClip pickupSound;
@@ -21,6 +20,7 @@ public class Item2Controller : ItemStateHandler
 
     }
 	// Use this for initialization
+    new
 	void Start () {
         base.Start();
         item = new Item();
@@ -28,8 +28,6 @@ public class Item2Controller : ItemStateHandler
         {
             item.value = 200;
         }
-        
-        animator = gameObject.GetComponent<Animator>();
         body = gameObject.AddComponent<Rigidbody2D>();
         boxCollider = gameObject.AddComponent<BoxCollider2D>();
         body.isKinematic = false;
@@ -56,6 +54,7 @@ public class Item2Controller : ItemStateHandler
 	}
 	
 	// Update is called once per frame
+    new
 	void Update () {
         base.Update();
 	}

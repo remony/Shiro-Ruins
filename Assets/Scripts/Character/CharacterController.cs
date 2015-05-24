@@ -13,11 +13,8 @@ public class CharacterController : CharacterStateHandler
 
     private GameObject levelManager;
 
-    public GameObject mphfun;
-
     private bool musicPlaying = false;
-    private AudioSource audioSource;
-    private float currentVelocity = 0;
+    public float currentVelocity = 0;
     public bool isFacingRight = false;
     private float velocityHorizontal = 0f;
     private float velocityVertical = 0f;
@@ -28,6 +25,7 @@ public class CharacterController : CharacterStateHandler
     public Character character;
     private GameObject trigger;
     private Vector2 boxCol;
+    public int respawnHeight;
 
     private Transform previousPostiton; //used to stop hugging walls
 
@@ -42,34 +40,46 @@ public class CharacterController : CharacterStateHandler
     public override void onIdle()
     {
 
-        body.gravityScale = 150;
+        body.gravityScale = 100;
         if (velocityHorizontal != 0)
         {
             currentVelocity = character.speed;
         }
 
-        body.mass = 10;
-        
-            if (velocityHorizontal > 0 || velocityHorizontal < 0)
-            {
-                state = State.STATE_WALKING;
-            }
+        body.mass = 1;
+        if (!isGrounded)
+        {
+            state = State.STATE_JUMPING;
+        }
+        if (velocityHorizontal > 0.1 || velocityHorizontal < -0.1)
+        {
+            state = State.STATE_WALKING;
+        }
              
     }
 
     public override void onWalking()
     {
-        body.gravityScale = 150;
-        body.mass = 10;
+        body.gravityScale = 50;
+        body.mass = 100;
+        if (velocityHorizontal == 0)
+        {
+            state = State.STATE_IDLE;
+        }
+
+        if (character.health <= 0)
+        {
+            state = State.STATE_DEATH;
+        }
 
 
         float timez = 0.1f;
 
-        if (currentVelocity < 150)
+        if (currentVelocity < 200)
         {
             timez = 1;
         } 
-        else if (currentVelocity > 150 && currentVelocity < 200)
+        else if (currentVelocity > 150 && currentVelocity < 240)
         {
             timez = 0.5f;
         }
@@ -81,7 +91,7 @@ public class CharacterController : CharacterStateHandler
         {
             timez = 0.01f;
         }
-
+        
 
         //calculate the speed for movement
         if (velocityHorizontal < 0)
@@ -98,12 +108,13 @@ public class CharacterController : CharacterStateHandler
         
         if (isGrounded)
         {
-            body.gravityScale = 150;
+            //body.gravityScale = 150;
             body.velocity = new Vector2(velocityHorizontal * currentVelocity, body.velocity.y);
         }
         else
         {
-            body.gravityScale = 150;
+            state = State.STATE_JUMPING;
+            //body.gravityScale = 150;
             body.velocity = new Vector2(velocityHorizontal * currentVelocity, body.velocity.y);
         }
 
@@ -111,35 +122,20 @@ public class CharacterController : CharacterStateHandler
 
     public override void onJumping()
     {
-        body.gravityScale = 150;
-        body.mass = 10;
+        body.gravityScale = 100;
+        body.mass = 1;
 
-        if (moveJump)
+        if (isGrounded)
         {
-            print("move jump");
-            if (currentVelocity > 300)
-            {
-                currentVelocity = 300;
-            }
-            body.velocity = new Vector2(currentVelocity * body.velocity.x, body.velocity.y);
+            state = State.STATE_WALKING;
         }
-        else if (!moveJump)
+
+        if (currentVelocity > 300)
         {
-
-            
-            if (isFacingRight)
-            {
-                body.velocity = new Vector2(currentVelocity, body.velocity.y);
-            }
-
-            else if (!isFacingRight)
-            {
-                body.velocity = new Vector2(-currentVelocity, body.velocity.y);
-            }
-            
-            
-            
+            currentVelocity = 300;
         }
+        body.velocity = new Vector2(velocityHorizontal * currentVelocity *0.9f, body.velocity.y);
+        
 
         
         
@@ -167,17 +163,23 @@ public class CharacterController : CharacterStateHandler
 
     public override void onMovingPlatform()
     {
-        body.gravityScale = 150;
-        body.mass = 10;
+        body.gravityScale = 100;
+        body.mass = 1;
         if (velocityHorizontal == 0)
         {
+            if (transform.parent)
+            {
+                body.velocity = new Vector2(transform.parent.GetComponent<Rigidbody2D>().velocity.x, body.velocity.y);
+            }
 
-            body.velocity = new Vector2(transform.parent.GetComponent<Rigidbody2D>().velocity.x, body.velocity.y);
+           
         }
         else
         {
-            body.velocity = new Vector2(transform.parent.GetComponent<Rigidbody2D>().velocity.x * ((currentVelocity / transform.parent.GetComponent<Rigidbody2D>().velocity.x) * velocityHorizontal), body.velocity.y);
-
+            if (transform.parent)
+            {
+                body.velocity = new Vector2(transform.parent.GetComponent<Rigidbody2D>().velocity.x * ((currentVelocity / transform.parent.GetComponent<Rigidbody2D>().velocity.x) * velocityHorizontal), body.velocity.y);
+            }
         }
     }
 
@@ -213,12 +215,13 @@ public class CharacterController : CharacterStateHandler
     public override void onLava()
     {
         body.gravityScale = 300;
-        body.mass = 10;
-        body.velocity = new Vector2(velocityHorizontal * (currentVelocity / 4f), velocityVertical * character.speed);
+        body.mass = 1000;
         if (character.health <= 0)
         {
             state = State.STATE_DEATH;
         }
+        body.velocity = new Vector2(0, velocityVertical * character.speed);
+        
     }
 
     public override void onDeath()
@@ -254,8 +257,8 @@ public class CharacterController : CharacterStateHandler
     public override void onAttacking()
     {
 
-        body.gravityScale = 150;
-        body.mass = 10;
+        body.gravityScale = 100;
+        body.mass = 1;
         body.velocity = new Vector2(velocityHorizontal * currentVelocity, body.velocity.y);
         
         body.GetComponent<BoxCollider2D>().size = new Vector2(boxCol.x + 0.2f, boxCol.y);
@@ -275,35 +278,49 @@ public class CharacterController : CharacterStateHandler
     {
         yield return new WaitForSeconds(delay);
         character.health -= 50;
+        hurt();
         StartCoroutine("lavaDamage", 0.25f);
     }
 
-
+    new
     void Start()
     {
         base.Start();
         character = new Character();
-        //If the current game mode is hardware then set the character to 1
-        if (GameManager.instance.GetGameType() == 2)
+        //If the current game mode is hardware then set the character to 17
+        try
         {
-            character.health = 1;
+            if (GameManager.instance.GetGameType() == 2)
+            {
+                character.health = 1;
+            }
+            else //For every other gamemode set the character health to full (100)
+            {
+                character.health = 100;
+            }
         }
-        else //For every other gamemode set the character health to full (100)
+        catch (Exception e)
         {
             character.health = 100;
         }
+
+        if (respawnHeight == 0)
+        {
+            respawnHeight = -3000;
+        }
         
-        character.jump = 450;
+
+        
+        character.jump = 390;
         character.speed = 120;
         character.cooldownLimit = magicCooldown;
         character.blastCooldownLimit = (magicCooldown * 6f);
-
+        character.startingPosition = new Vector2(transform.position.x, transform.position.y);
 
 
         player = this.gameObject;
         animator = gameObject.GetComponent<Animator>();
         body = player.AddComponent<Rigidbody2D>();
-        audioSource = player.AddComponent<AudioSource>();
         body.isKinematic = false;
         body.fixedAngle = true;
         boxCol = body.GetComponent<BoxCollider2D>().size;
@@ -311,14 +328,14 @@ public class CharacterController : CharacterStateHandler
     }
 
 
-    
+    new
     void Update()
     {
         base.Update();
         playerInput();
         movement();
 
-        checkRespawnHeight(-3000); //If the player is below the fall limit then they will respawn to the start of the map.
+        checkRespawnHeight(respawnHeight); //If the player is below the fall limit then they will respawn to the start of the map.
    
 
         if (isGrounded)
@@ -428,20 +445,28 @@ public class CharacterController : CharacterStateHandler
             {
                 character.cooldownStart = -character.cooldownLimit;
             }
-            // (time * 100 / 3)
-            
             character.cooldownTimer = Time.time - character.cooldownStart;
 
         }
         levelManager.GetComponent<GuiObserver>().updateMagicCooldown(character.cooldownTimer / character.cooldownLimit);
-        
-        //print("cooldown: " + character.cooldownTimer + "| start: " + character.cooldownStart + " limited to " + character.cooldownLimit);
 
     }
 
     private void shotMagic()
     {
         GameObject bullet = GameObject.Instantiate(magicBlastPrefab, new Vector2(transform.position.x + 0, transform.position.y), transform.rotation) as GameObject;
+
+        int rand = UnityEngine.Random.Range(0, 2);
+        if (rand == 1)
+        {
+            GameManager.instance.playSoundEffect(8);
+        }
+        else
+        {
+            GameManager.instance.playSoundEffect(9);
+
+        }
+        
         if (isFacingRight)
         {
             bullet.GetComponent<MagicBulletController>().isRight = true;
@@ -455,14 +480,15 @@ public class CharacterController : CharacterStateHandler
     private void shotBlast()
     {
         GameObject blast = GameObject.Instantiate(blastPrefab, new Vector2(transform.position.x + 0, transform.position.y), transform.rotation) as GameObject;
-        if (isFacingRight)
-        {
-            blast.GetComponent<MagicBulletController>().isRight = true;
-        }
-        else
-        {
-            blast.GetComponent<MagicBulletController>().isRight = false;
-        }
+        GameManager.instance.playSoundEffect(7);
+   
+    }
+
+    private void respawn()
+    {
+        body.velocity = Vector3.zero;
+        gameObject.transform.position = character.startingPosition;
+        //print(character.startingPosition.position.x + "  " + character.startingPosition.position.y);
     }
 
     private void checkRespawnHeight(int height)
@@ -470,7 +496,8 @@ public class CharacterController : CharacterStateHandler
         if (transform.position.y < height)
         {
             body.velocity = Vector3.zero;
-            body.position = new Vector2(57.4f, -647.5f);
+            GameManager.instance.playSoundEffect(1);
+            transform.position = character.startingPosition;//new Vector2(57.4f, -1347.5f);
         }
     }
 
@@ -488,7 +515,7 @@ public class CharacterController : CharacterStateHandler
 
         if (isGrounded)
         {
-            if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown("space"))
+            if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 jump();
                 
@@ -503,7 +530,16 @@ public class CharacterController : CharacterStateHandler
         {
             
             body.velocity = new Vector2(body.velocity.x, character.jump);
-            
+            int rand = UnityEngine.Random.Range(0, 2);
+            if (rand == 1)
+            {
+                GameManager.instance.playSoundEffect(5);
+            }
+            else
+            {
+                GameManager.instance.playSoundEffect(6);
+
+            }
             isGrounded = false;
             
         }
@@ -514,7 +550,8 @@ public class CharacterController : CharacterStateHandler
     {
         // Switch the way the player is labelled as facing.
         isFacingRight = !isFacingRight;
-        currentVelocity = character.speed;
+        if (state.Equals(State.STATE_WALKING))
+            currentVelocity = character.speed;
         // Multiply the player's x local scale by -1.
         Vector3 theScale = body.transform.localScale;
         theScale.x *= -1;
@@ -556,7 +593,7 @@ public class CharacterController : CharacterStateHandler
         else if (coll.tag.ToString().Equals("Lava"))
         {
             state = State.STATE_LAVA;
-            StartCoroutine("lavaDamage", 1);
+            StartCoroutine("lavaDamage", 0.25f);
         }
         
 
@@ -590,6 +627,7 @@ public class CharacterController : CharacterStateHandler
         }
         else if (coll.tag.ToString().Equals("Spike"))
         {
+            hurt();
             character.health = 0;
         }
     }
@@ -623,8 +661,6 @@ public class CharacterController : CharacterStateHandler
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        print(coll.transform.tag);
-
 
         if (!checkIfSide(coll))
         {
@@ -633,10 +669,12 @@ public class CharacterController : CharacterStateHandler
                 state = State.STATE_MOVINGPLATFORM;
                 isGrounded = true;
             }
-            else if (coll.transform.tag.ToString().Equals("Ground") || coll.transform.tag.ToString().Equals("Platform") || coll.transform.tag.ToString().Equals("BreakingPlatform"))
+            else if (coll.transform.tag.ToString().Equals("Ground") || coll.transform.tag.ToString().Equals("Platforms") || coll.transform.tag.ToString().Equals("Platform") || coll.transform.tag.ToString().Equals("BreakingPlatform"))
             {
+                
                 if (checkIfTop(coll))
                 {
+                    body.velocity = new Vector2(0, 0);
                     isGrounded = true;
                     state = State.STATE_WALKING;
                     animator.SetBool("Jumping", false);
@@ -647,16 +685,29 @@ public class CharacterController : CharacterStateHandler
                     state = State.STATE_FALLING;
                     isGrounded = false;
                 }
+                else
+                {
+
+                    isGrounded = true;
+                }
 
             }
-            else if (coll.transform.tag.ToString().Equals("Enemy"))
+            else if (coll.transform.tag.ToString().Equals("StairsPlatform"))
             {
-                int attack = coll.gameObject.GetComponent<EnemyController>().enemy.attackPower;
-
-                //character.health -= attack;
-
-
+                isGrounded = true;
+                state = State.STATE_WALKING;
+                animator.SetBool("Jumping", false);
             }
+            /*
+        else if (coll.transform.tag.ToString().Equals("Enemy"))
+        {
+                
+            //int attack = coll.gameObject.GetComponent<EnemyController>().enemy.attackPower;
+
+            //character.health -= attack;
+
+
+        }*/
             else if (coll.transform.tag.ToString().Equals("End"))
             {
                 //state = State.STATE_NOGRAVITY;
@@ -667,6 +718,11 @@ public class CharacterController : CharacterStateHandler
             {
                 if (checkIfBottom(coll))
                     isGrounded = false;
+            }
+            else if (coll.transform.tag.ToString().Equals("WaterPlatform"))
+            {
+                currentVelocity = currentVelocity * 0.8f;
+                isGrounded = true;
             }
             else
             {
@@ -691,11 +747,14 @@ public class CharacterController : CharacterStateHandler
                 isGrounded = true;
                 animator.SetBool("Jumping", false);
             }
-            else if (coll.transform.tag.ToString().Equals("Ground") || coll.transform.tag.ToString().Equals("Platform"))
+            else if (coll.transform.tag.ToString().Equals("Ground") || coll.transform.tag.ToString().Equals("Platforms") || coll.transform.tag.ToString().Equals("Platform") || coll.transform.tag.ToString().Equals("BreakingPlatform"))
             {
-                if(checkIfTop(coll))
+                if (checkIfTop(coll))
                 {
                     isGrounded = true;
+                    state = State.STATE_WALKING;
+                    animator.SetBool("Jumping", false);
+
                 }
 
 
@@ -706,16 +765,13 @@ public class CharacterController : CharacterStateHandler
 
                 }
             }
+            else if (coll.transform.tag.ToString().Equals("StairsPlatform"))
+            {
+                isGrounded = true;
+            }
             else if (coll.transform.tag.ToString().Equals("Enemy"))
             {
-                int attack = coll.gameObject.GetComponent<EnemyController>().enemy.attackPower;
-
-
-                if (coll.gameObject.GetComponent<EnemyController>().state.Equals("STATE_ATTACKING"))
-                {
-                    print("ow");
-                    //character.health -= attack;
-                }
+                
 
             }
             else if (coll.transform.tag.ToString().Equals("Stairs"))  
@@ -736,6 +792,10 @@ public class CharacterController : CharacterStateHandler
                     //state = State.STATE_IDLE;
                     enableStairs(false);
                 }
+            }
+            else if (coll.transform.tag.ToString().Equals("WaterPlatform"))
+            {
+                //currentVelocity = currentVelocity - 20 ;
             }
 
             else
@@ -762,7 +822,7 @@ public class CharacterController : CharacterStateHandler
 
                 animator.SetBool("Jumping", true);
             }
-            else if (coll.transform.tag.ToString().Equals("Ground") || coll.transform.tag.ToString().Equals("Platform"))
+            else if (coll.transform.tag.ToString().Equals("Ground") || coll.transform.tag.ToString().Equals("Platforms") || coll.transform.tag.ToString().Equals("Platform"))
             {
 
                 isGrounded = false;
@@ -787,6 +847,14 @@ public class CharacterController : CharacterStateHandler
             else if (coll.transform.tag.ToString().Equals("Stairs"))
             {
                 animator.SetBool("Climbing", false);
+            }
+            else if (coll.transform.tag.ToString().Equals("BreakingPlatform"))
+            {
+                isGrounded = true;
+            }
+            else
+            {
+                isGrounded = false;
             }
         }
 
@@ -861,20 +929,11 @@ public class CharacterController : CharacterStateHandler
     {
         yield return new WaitForSeconds(2);
         character.health = character.health - 25;
+        hurt();
         StartCoroutine("underWaterBreath");
     }
 
-    //from http://forum.unity3d.com/threads/trigger-collision-contact-point.26232/
-    private bool ifAirAbove()
-    {
-        if (Physics2D.Raycast(transform.position, transform.up, -60).collider.tag == "Stairs")
-        {
-            print("hit");
-            return true;
 
-        }
-        return false;
-    }
 
     private void enableStairs(bool enable)
     {
@@ -915,24 +974,12 @@ public class CharacterController : CharacterStateHandler
             currentVelocity = 300;
         }
 
-
-        mphfun.GetComponent<Text>().text = (currentVelocity - 80).ToString("#") + " MPH";
-
-        if (currentVelocity > 190 && currentVelocity < 200)
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            if (!musicPlaying)
-            {
-                musicPlaying = true;
-                GameManager.instance.playSong(8); 
-            }
-            
+            respawn();
         }
-        else if (currentVelocity < 190)
-        {
-            musicPlaying = false;
-            if (musicPlaying)
-                GameManager.instance.stopSong();
-        }
+
+        
 
 
         //if (velocityHorizontal < 0.1 && velocityHorizontal > -0.1)
@@ -962,6 +1009,19 @@ public class CharacterController : CharacterStateHandler
         {
             character.health = 100;
         }
+    }
+
+
+    public void takeDamage(int amount)
+    {
+        character.health -= amount;
+        hurt();
+    }
+
+    private void hurt()
+    {
+        if (character.health > 0)
+            GameManager.instance.playSoundEffect(0);
     }
 
 }

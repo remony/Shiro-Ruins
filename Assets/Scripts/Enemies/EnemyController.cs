@@ -8,13 +8,13 @@ public class EnemyController : EnemyStateHandler {
     public GameObject target;
     public bool movingRight = true;
     public float distance = 100;
+    private SharedBehaviour sharedBehaviour;
 
 
     private Animator animator;
     private Transform startingPos;
     private float endingPos;
     private float velocity;
-    private bool grounded;
     private Rigidbody2D body;
     private float distFromTarget = 1;
 
@@ -28,9 +28,11 @@ public class EnemyController : EnemyStateHandler {
     }
 
 	// Use this for initialization
+    new
 	void Start () {
         base.Start();
         createCharacter();
+
         startingPos = gameObject.transform;
         endingPos = startingPos.position.x + distance;
         //find the player, there should always be one but just incase
@@ -51,6 +53,7 @@ public class EnemyController : EnemyStateHandler {
 
         velocity = enemy.health;
         animator.SetFloat("Velocity", Mathf.Abs(velocity));
+        animator.SetBool("Hurt", false);
 	}
 
 
@@ -112,7 +115,6 @@ public class EnemyController : EnemyStateHandler {
     //Fallback forces the object to be pushed backwards, this is more of a behaviour. 
     private void fallback()
     {
-        float step = enemy.speed * Time.deltaTime;
         if (movingRight)
         {
             body.AddForce(new Vector2(200, 405), ForceMode2D.Impulse);
@@ -126,13 +128,15 @@ public class EnemyController : EnemyStateHandler {
     }
 
 	// Update is called once per frame
+    new
     void Update()
     {
         base.Update();
         if (enemy.health == 0 || enemy.health < 0)
         {
-            GameObject.FindGameObjectWithTag("LevelManager").GetComponent<GuiObserver>().AddScore(250);
-            Destroy(gameObject);
+            hit(enemy.health);
+            StartCoroutine(timeToDie());
+            
         }
 
         if (target != null)
@@ -189,42 +193,40 @@ public class EnemyController : EnemyStateHandler {
     void jump()
     {
         body.AddForce(new Vector2(0, 470), ForceMode2D.Impulse);
-        grounded = false;
     }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.transform.tag.ToString().Equals("Player"))
         {
-            if (state.Equals(State.STATE_ATTACKING))
+            //If the enemy is not under the player
+            if (coll.contacts[0].normal != new Vector2(0, -1))
             {
-                state = State.STATE_ATTACKING;
-                //strike(coll.gameObject);
-                StartCoroutine("Attack", coll.gameObject);
-            }
-            if (coll.contacts[0].normal == new Vector2(0, -1))
-            {
-                if (coll.gameObject.GetComponent<CharacterController>().isFacingRight)
+
+
+                if (state.Equals(State.STATE_ATTACKING))
                 {
-                    coll.gameObject.GetComponent<CharacterController>().GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 6405), ForceMode2D.Impulse);
+                    state = State.STATE_ATTACKING;
+                    //strike(coll.gameObject);
+                    StartCoroutine("Attack", coll.gameObject);
                 }
-                else
-                {
-                    coll.gameObject.GetComponent<CharacterController>().GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 6405), ForceMode2D.Impulse);
-                }
-               // coll.gameObject.GetComponent<CharacterController>().GetComponent<Rigidbody2D>()
+             
+            } //if the enemy is under the player
+            else
+            {   //Check which direction the player is in and add a push is the direction
+                coll.gameObject.GetComponent<CharacterController>().GetComponent<Rigidbody2D>().velocity = new Vector2(coll.gameObject.GetComponent<CharacterController>().currentVelocity * body.velocity.x, body.velocity.y + 400);
                 enemy.health = 0;
+                hit(enemy.health);
             }
            
         }   
-        else if (coll.transform.tag.ToString().Equals("Platform"))
+        else if (coll.transform.tag.ToString().Equals("Platforms"))
         {
             if (checkCollision(coll))
             {
                 jump();
 
             }
-            grounded = true;
         }
         
         
@@ -235,14 +237,17 @@ public class EnemyController : EnemyStateHandler {
         if (coll.transform.tag.ToString().Equals("MagicBullet"))
         {
             enemy.health -= (100 / 3);
+            hit(enemy.health);
         }
         else if (coll.transform.tag.ToString().Equals("Spike"))
         {
             enemy.health = 0;
+            hit(enemy.health);
         }
         else if (coll.transform.tag.ToString().Equals("Lava"))
         {
             enemy.health = 0;
+            hit(enemy.health);
         }
     }
 
@@ -254,11 +259,11 @@ public class EnemyController : EnemyStateHandler {
             if (coll.gameObject.GetComponent<CharacterController>().state.ToString().Equals("STATE_ATTACKING"))
             {
                 enemy.health -= 10;
+                hit(enemy.health);
             }
         }
-        else if (coll.transform.tag.ToString().Equals("Platform"))
+        else if (coll.transform.tag.ToString().Equals("Platforms"))
         {
-            grounded = true;
         }
     }
 
@@ -266,7 +271,6 @@ public class EnemyController : EnemyStateHandler {
     {
         if (coll.transform.tag.ToString().Equals("Ground"))
         {
-            grounded = false;
         }
     }
 
@@ -276,10 +280,17 @@ public class EnemyController : EnemyStateHandler {
         strike(player);
     }
 
-    IEnumerator hop()
+    IEnumerator timeToDie()
     {
-        yield return new WaitForSeconds(0.4f);
-        body.AddForce(new Vector2(50, 100), ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.1f);
+        GameObject.FindGameObjectWithTag("LevelManager").GetComponent<GuiObserver>().AddScore(250);
+        Destroy(gameObject);
+    }
+
+    IEnumerator animateHurt()
+    {
+        yield return new WaitForSeconds(0.005f);
+        animator.SetBool("Hurt", false);
     }
 
     private void strike(GameObject player)
@@ -287,7 +298,7 @@ public class EnemyController : EnemyStateHandler {
         if (state.Equals(State.STATE_ATTACKING))
         {
             fallback();
-            player.GetComponent<CharacterController>().character.health -= enemy.attackPower;
+            player.GetComponent<CharacterController>().takeDamage( enemy.attackPower);
             
         }
     }
@@ -298,4 +309,12 @@ public class EnemyController : EnemyStateHandler {
         theScale.x *= -1;
         body.transform.localScale = theScale;
     }
+    private void hit(int health)
+    {
+        //animator.SetBool
+        animator.SetBool("Hurt", true);
+        GameManager.instance.playSoundEffect(1);
+        StartCoroutine(animateHurt());
+    }
+    
 }

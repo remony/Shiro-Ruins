@@ -14,251 +14,977 @@ Platform assembly: C:\Users\remon\Documents\ShiroRuins\game_Data\Managed\Assembl
 Loading C:\Users\remon\Documents\ShiroRuins\game_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\remon\Documents\ShiroRuins\game_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\remon\Documents\ShiroRuins\game_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.088 seconds
+- Completed reload, in  0.100 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\remon\Documents\ShiroRuins\game_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\remon\Documents\ShiroRuins\game_Data\Managed\System.dll (this message is harmless)
-PlayerPref >>> [{"id":3,"Title":"Tutorial","sceneName":"Tutorial","ColourPercentage":0,"unlocked":1,"Score":0,"Time":0,"TTTime":9000},{"id":4,"Title":"Level 1","sceneName":"Level1","Score":0,"Time":0,"ColourPercentage":0,"unlocked":1,"TTTime":5.66124},{"id":3,"Title":"Level 3","sceneName":"Level3","Score":0,"Time":0,"TTTime":9000,"ColourPercentage":0,"unlocked":0},{"id":4,"Title":"Level 4","sceneName":"Level4","Score":0,"Time":0,"TTTime":9000,"ColourPercentage":0,"unlocked":0}]
+Loading level 8
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
-Current Save >>>> [{"id":3,"Title":"Tutorial","sceneName":"Tutorial","ColourPercentage":0,"unlocked":1,"Score":0,"Time":0,"TTTime":9000},{"id":4,"Title":"Level 1","sceneName":"Level1","Score":0,"Time":0,"ColourPercentage":0,"unlocked":1,"TTTime":5.66124},{"id":3,"Title":"Level 3","sceneName":"Level3","Score":0,"Time":0,"TTTime":9000,"ColourPercentage":0,"unlocked":0},{"id":4,"Title":"Level 4","sceneName":"Level4","Score":0,"Time":0,"TTTime":9000,"ColourPercentage":0,"unlocked":0}]
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.576475 ms
 
-Loading level 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.582462 ms
-
-Unloading 56 unused Assets to reduce memory usage. Loaded Objects now: 314.
-Total: 0.241196 ms (FindLiveObjects: 0.026086 ms CreateObjectMapping: 0.017961 ms MarkObjects: 0.177475 ms  DeleteObjects: 0.019244 ms)
+Unloading 56 unused Assets to reduce memory usage. Loaded Objects now: 913.
+Total: 0.410546 ms (FindLiveObjects: 0.079543 ms CreateObjectMapping: 0.027369 ms MarkObjects: 0.285244 ms  DeleteObjects: 0.017106 ms)
 
 Platform assembly: C:\Users\remon\Documents\ShiroRuins\game_Data\Managed\Boo.Lang.dll (this message is harmless)
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+display id 2: Lava Ruin
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Loading level 8
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.342828 ms
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+display id 2: Lava Ruin
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 925.
+Total: 0.433212 ms (FindLiveObjects: 0.037633 ms CreateObjectMapping: 0.023520 ms MarkObjects: 0.351102 ms  DeleteObjects: 0.020527 ms)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Loading level 8
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.080677 ms
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+display id 2: Lava Ruin
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 925.
+Total: 0.534565 ms (FindLiveObjects: 0.037205 ms CreateObjectMapping: 0.025659 ms MarkObjects: 0.450745 ms  DeleteObjects: 0.020954 ms)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Loading level 8
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.701201 ms
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+display id 2: Lava Ruin
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 925.
+Total: 0.510617 ms (FindLiveObjects: 0.054311 ms CreateObjectMapping: 0.032501 ms MarkObjects: 0.404986 ms  DeleteObjects: 0.018389 ms)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
 Loading level 1
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
-0
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.224072 ms
+
+Unloading 140 unused Assets to reduce memory usage. Loaded Objects now: 467.
+Total: 0.932710 ms (FindLiveObjects: 0.037205 ms CreateObjectMapping: 0.033356 ms MarkObjects: 0.390446 ms  DeleteObjects: 0.470845 ms)
+
+Loading level 6
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-0.9
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.131420 ms
 
-0.9
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-UnloadTime: 1.787159 ms
-oh
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-
-Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 384.
-Total: 0.285671 ms (FindLiveObjects: 0.019244 ms CreateObjectMapping: 0.016250 ms MarkObjects: 0.238202 ms  DeleteObjects: 0.011974 ms)
-
-Loading level 5
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-0.9
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-0.9
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-UnloadTime: 0.614109 ms
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 399.
-Total: 0.543118 ms (FindLiveObjects: 0.024376 ms CreateObjectMapping: 0.017961 ms MarkObjects: 0.450318 ms  DeleteObjects: 0.050462 ms)
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 691.
+Total: 0.741549 ms (FindLiveObjects: 0.040626 ms CreateObjectMapping: 0.028652 ms MarkObjects: 0.632498 ms  DeleteObjects: 0.039344 ms)
 
 Loading level 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-0.9
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+UnloadTime: 1.089658 ms
 
-UnloadTime: 0.720594 ms
-oh
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 386.
-Total: 0.499925 ms (FindLiveObjects: 0.062864 ms CreateObjectMapping: 0.033356 ms MarkObjects: 0.382749 ms  DeleteObjects: 0.019672 ms)
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 468.
+Total: 0.917742 ms (FindLiveObjects: 0.041909 ms CreateObjectMapping: 0.034639 ms MarkObjects: 0.791157 ms  DeleteObjects: 0.049607 ms)
 
 Loading level 2
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
-0
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.526440 ms
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 619.
+Total: 1.509613 ms (FindLiveObjects: 0.030363 ms CreateObjectMapping: 0.023520 ms MarkObjects: 1.403555 ms  DeleteObjects: 0.052173 ms)
+
+Loading level 3
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
-0.2614108
+The referenced script on this Behaviour is missing!
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-0.9
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-0.9
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-UnloadTime: 0.615819 ms
-oh
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 505.
-Total: 0.683388 ms (FindLiveObjects: 0.044475 ms CreateObjectMapping: 0.025659 ms MarkObjects: 0.555092 ms  DeleteObjects: 0.057733 ms)
-
-Loading level 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename:  Line: 1713)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-0.9
+UnloadTime: 0.560224 ms
+0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
-UnloadTime: 0.609404 ms
-oh
+display id 0: Tutorial
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
 
-Unloading 79 unused Assets to reduce memory usage. Loaded Objects now: 387.
-Total: 0.405842 ms (FindLiveObjects: 0.020954 ms CreateObjectMapping: 0.016678 ms MarkObjects: 0.244617 ms  DeleteObjects: 0.123591 ms)
+Unloading 103 unused Assets to reduce memory usage. Loaded Objects now: 1362.
+Total: 0.647893 ms (FindLiveObjects: 0.070562 ms CreateObjectMapping: 0.041054 ms MarkObjects: 0.428507 ms  DeleteObjects: 0.107768 ms)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+L
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+ArgumentException: The thing you want to instantiate is null.
+  at UnityEngine.Object.CheckNullArgument (System.Object arg, System.String message) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Object.Instantiate (UnityEngine.Object original, Vector3 position, Quaternion rotation) [0x00000] in <filename unknown>:0 
+  at CharacterController.shotBlast () [0x00000] in <filename unknown>:0 
+  at CharacterController.playerInput () [0x00000] in <filename unknown>:0 
+  at CharacterController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+L
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+ArgumentException: The thing you want to instantiate is null.
+  at UnityEngine.Object.CheckNullArgument (System.Object arg, System.String message) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Object.Instantiate (UnityEngine.Object original, Vector3 position, Quaternion rotation) [0x00000] in <filename unknown>:0 
+  at CharacterController.shotBlast () [0x00000] in <filename unknown>:0 
+  at CharacterController.playerInput () [0x00000] in <filename unknown>:0 
+  at CharacterController.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
 Loading level 2
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
-0
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.326150 ms
+
+Unloading 154 unused Assets to reduce memory usage. Loaded Objects now: 618.
+Total: 1.019523 ms (FindLiveObjects: 0.035495 ms CreateObjectMapping: 0.028225 ms MarkObjects: 0.531144 ms  DeleteObjects: 0.424658 ms)
+
+Loading level 4
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
-0.2726141
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.766780 ms
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+display id 1: Level 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+
+Unloading 99 unused Assets to reduce memory usage. Loaded Objects now: 1965.
+Total: 0.791157 ms (FindLiveObjects: 0.094083 ms CreateObjectMapping: 0.039771 ms MarkObjects: 0.541408 ms  DeleteObjects: 0.115038 ms)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Enemy
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Enemy
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Ground
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Loading level 2
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-0.9
+UnloadTime: 1.880815 ms
+
+Unloading 169 unused Assets to reduce memory usage. Loaded Objects now: 618.
+Total: 0.871983 ms (FindLiveObjects: 0.044475 ms CreateObjectMapping: 0.025659 ms MarkObjects: 0.417816 ms  DeleteObjects: 0.384031 ms)
+
+Loading level 8
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
-0.9
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.426910 ms
+2
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
-UnloadTime: 0.450318 ms
-oh
+display id 2: Lava Ruin
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
 
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 505.
-Total: 0.476404 ms (FindLiveObjects: 0.030363 ms CreateObjectMapping: 0.020099 ms MarkObjects: 0.369491 ms  DeleteObjects: 0.056022 ms)
+Unloading 131 unused Assets to reduce memory usage. Loaded Objects now: 925.
+Total: 0.587594 ms (FindLiveObjects: 0.046186 ms CreateObjectMapping: 0.025231 ms MarkObjects: 0.369064 ms  DeleteObjects: 0.146684 ms)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Loading level 8
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.553940 ms
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+display id 2: Lava Ruin
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 925.
+Total: 1.378324 ms (FindLiveObjects: 0.077832 ms CreateObjectMapping: 0.070135 ms MarkObjects: 1.177755 ms  DeleteObjects: 0.052173 ms)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Loading level 8
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.749098 ms
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+display id 2: Lava Ruin
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 925.
+Total: 0.709047 ms (FindLiveObjects: 0.052173 ms CreateObjectMapping: 0.035067 ms MarkObjects: 0.598713 ms  DeleteObjects: 0.023093 ms)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Player
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+
+Platform hit Platforms
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
 Loading level 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-0
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-0.9
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+UnloadTime: 2.941821 ms
 
-UnloadTime: 0.522163 ms
-oh
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-
-Unloading 79 unused Assets to reduce memory usage. Loaded Objects now: 386.
-Total: 0.375906 ms (FindLiveObjects: 0.017961 ms CreateObjectMapping: 0.014540 ms MarkObjects: 0.230932 ms  DeleteObjects: 0.112472 ms)
-
-Loading level 5
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-0.9
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-0.9
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-UnloadTime: 0.669703 ms
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 399.
-Total: 0.419527 ms (FindLiveObjects: 0.022237 ms CreateObjectMapping: 0.012829 ms MarkObjects: 0.345115 ms  DeleteObjects: 0.039344 ms)
-
-Loading level 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-0.9
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-UnloadTime: 0.484957 ms
-oh
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 386.
-Total: 0.478970 ms (FindLiveObjects: 0.028225 ms CreateObjectMapping: 0.017106 ms MarkObjects: 0.402848 ms  DeleteObjects: 0.030363 ms)
+Unloading 139 unused Assets to reduce memory usage. Loaded Objects now: 467.
+Total: 0.742832 ms (FindLiveObjects: 0.026942 ms CreateObjectMapping: 0.023520 ms MarkObjects: 0.299356 ms  DeleteObjects: 0.392585 ms)
 

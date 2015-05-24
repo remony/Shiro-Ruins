@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="32" tileheight="32" nextobjectid="113">
+ <tileset firstgid="1" name="Untitled" tilewidth="32" tileheight="32">
+  <image source="Untitled.png" trans="000000" width="256" height="1248"/>
+  <tile id="69">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,16"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="70">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 32,16 0,16"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="71">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="88">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="111">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="113">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="147">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="153">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="32">
+     <polygon points="0,0 32,-16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="154">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="155">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 32,-16 32,16 0,16"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="193">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="194">
+   <objectgroup draworder="index">
+    <object id="0" x="32" y="16">
+     <polygon points="0,0 -32,16 0,16"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="195">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="196">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 32,16 0,16"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="197">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="199">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="200">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="201">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="206">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="210">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="236">
+   <animation>
+    <frame tileid="236" duration="200"/>
+    <frame tileid="237" duration="200"/>
+    <frame tileid="238" duration="200"/>
+    <frame tileid="241" duration="200"/>
+    <frame tileid="242" duration="200"/>
+    <frame tileid="243" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="239">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="265">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="266">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="267">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="268">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="313" name="TiledIcons" tilewidth="32" tileheight="32">
+  <image source="TiledIcons.png" trans="000000" width="256" height="32"/>
+ </tileset>
+ <tileset firstgid="321" name="breakable platform" tilewidth="32" tileheight="32">
+  <image source="../../../Sprites/Menu/breakable platform.png" trans="000000" width="256" height="32"/>
+ </tileset>
+ <layer name="BackGround" width="600" height="100">
+  <properties>
+   <property name="unity:isTrigger" value="true"/>
+   <property name="unity:sortingOrder" value="-20"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt3cFumzAcwGF63boH7G3v3BfpLqu204SUqIiZxMDf2ODvkzgkJcYhB/8ESB0GoIZfD7ajj1fqmAAAR9JXAACx9BUAQCx9BQAQS18BAMTSVwAAsfQVAEAsfQUAEEtfAQDE0lcAALH0FQBALH0FABBLXwEAxNJXAACx9BUAQCx9BQAQS18BEO3byzB8f6k9C6hHXwFQwg99Rcf0FQBALH0FQCnvtw16o68AKOV9tkEv9BUApcz7SmfRC30FQClLfaWzaMHbbStBXwFQyrO+0lnU9Ja5baGvACglt690FjWU7Kuj6SuAfqztK51FablNldtXrfSXvgLox9a+0lk8svX60pa20lcAtGZvX+kspvbev2upr6LvP+orgD5EtZXO6lvk81H6igifw/Cz9hyAfpXoK511fdH9s3fsZ/9HM3X8Z595fYl/hl5fAfShZF/prOs6Y19N9xnbaW9fbWkufQXQhyP6SmddS4n7d3vHr9lXa76bvgLow5F9pbPOb2tbna2vPoZ1fZX7/fQVQB/W9o7O6s+eprpaX90/s/XZLH0F0IeafaWxzqG3vvoYztNXEecbgHboq37oq7y+mo+X+t5H9tWzcwJAu/RV++YtMb5e8xtdqa+m7TR9ndpq9NU47u/J/n9uY+S+p68ArkVf5XstvO6lemreFq32VapbzthXS3/P6avPybz/3j6b+56+ArguffVYdF/l9FTPfXUfM6KvpvQVADXoq7S9fbWlp1roq5z1vrW+GmbHmdNXANSkr76s7auIntJX2/tqC30FQA29ttVo/gzz1J/h/2slET2V6qv5HMZjL/VVat+l1lnad01fpcZ4NIfW+mpq+ns+66uoltVXAPRmfo1ianodIrKnUn01n8N47KW+Su27tK4v7bumr1JjPJrDlr5qUWRfvQ0AcH339U5fLSvRV3dn6KuRvgKAdZYa5E5f9d1Xrl8BwHb6Kk1f6SsAiNDL2njE89Y5505fAcC5WRO/tNJXLdNXAPCc9fBYZz+P+goAaM3Zu0JfAQCtOXtX6CsAgFj6CgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA2v4BTBd3xA==
+  </data>
+ </layer>
+ <layer name="Lava back" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-3"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt3cEJACEMRcH036tgCV49LSgh4joDH1t4pxgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACc1AoHAPCCXriYXgCAv9JXAAC59BUAQC59BQAAAAAAAAAAAAAAAAAAAAAAAAB38RcrAECu1VvLAAB801cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADArmbXDwCgghYBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeMQAKoQ8J
+  </data>
+ </layer>
+ <layer name="Ground" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-2"/>
+   <property name="unity:tag" value="Ground"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt3U1u2zoUgFF7mrQLzL6y4CIDo2miVBb/Lnl5DsBBgWdXoknq64Pb3G6323vheL3fAKjwci8/gx8DmM9bxfitrwCq/LrXncNvAdcMnNNXAHH0FeSkrwDi6CvISV8BxNFXkJO+AoijryAnfQUQR19BTvoKII6+gpz0FUAcfQU56SuAOPoKctJXAHH0FeSkrwDi6CvISV8BxNFXkJO+AoijryAnfQUQR19BTvoKII6+gpz0FUAcfQU56SuAOPoKcqrtq/db+QDYnb6CnGr7ypkAUE5fQU76CiCOvoKc9BVAHH0FOekrMir5vp/vCBJBX0FO+opsStebNUoEfQU56SuyqF1vZ68p/XuwX/87/1+Mz/QV5KSvWF2r9dZjjR6917Pva4/sQV9BTvqKVbVeb7Ot0Vmug770FeSkr1jNLmsr4z3xnb6CnPQVq9hxTf10bxnvdVf6CnLSV4x29Wco7b6WfuqrHe59B/oKctJXjFb7LLGGzMMKnv0zhL6CnPQVo+mqNszH3J5dy/oKctJXjGbNtGNe5qWvYG/6itGsl/7MVzx9BXvbua+e/X7E6/3va17u9b++8v3uklF735+vt4eV1siqSudw1Bo8+30z0Fewt5376sp9PnychbW/rj1La+f1yv32sNIaWVXpPI5ag2e/5+qu7HN9BTnV7Gl9pa9KrLRGVlYyjyP3cObPXV8BNXtaX+kr5jbLXvtshbOhlr4C9JW+0le5zbDXPqx0NtTSV4C+0lf6am6tvkMeZcWzoZa+Amr7amX6KufnmsnKz9Wde0FfAfpKX2X7XDNY+fk6Yg3PTl8BO/fVkd7t0/Jc/N/7viT8bHbQYj31+nfRWvwc7l3OFn0F7HwGHsnSV48zmzmMbJPStTZ67Wc+W/QVsPMZeGT0c6TXtX49s4kT3SrProHo68t0tugrYOcz8Mhsz7zSa/3pzGac6EYp+eyjrzHL2aKvgJ3PwCMzPvNKrvXszKaf6Dap+cyjrzHL2aKvAPu6r57z1uLM/tD7503vMqKbpMVejb7Gx9BXzmFYnX2dR/Qz0Zh7XHH02qvvF32/reftymv0FWBf5xH9HDLmHj1E39PIebvyGn0F2Nd5RD+HjLlHK9H3ETVvV16jrwD7Oo/o55Ax9zgTfX2zjpL50VeAfZ3f2WcW/fwyxowz0dc36yiZH30F2NdEP7+MMeNM9PXNOkrmR18B9jXRzy/DmHk8XHmNvgLsa1hbdH9kHz3nGcjL+QBrm+G5H91ANfcZ2VfOUMjL2QA5RezrVufJyI6JajtnKOTmbICcovd1zfvX9FfL69RXQClnA+RkPz9HXwE9OBsA/qWrgFo158PqP+Me4IiOAmrpK4Bjmgkopa8AANrSVwAAbekrAIC2fG8TAKAtHQUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAzv4AhCE4Yw==
+  </data>
+ </layer>
+ <layer name="Platform" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:tag" value="Platforms"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt3W1Po0AUgNH6ddX1z/uDtdmYRYrMCHfgznBO0kRrS99MeHKZ0NsNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyOL56f/Pf56+/z69HgCAOq8V7fSirwAAqv3UV/eZ1fvt32VrXy3Nwqbbn9/mp/nZ0v0AALJqOb9a2/bXNqe3uV9Xej5maQBAdq+TOdX9sjQ/yt5XpZkXAMCRRphffd3HsUMAIIOW66+O7ivHDgHg2uZruc+avYw0v3LsEACuZd5T85Y4a/aSbf3VnsdZay9ycAwXgD1qeipLX5W0eG6R29RX/XAMF4Df2NJTmfsqYv3VmjP6yuzkfPoKgDURPZW5r6ZG6avR9+2l87PWnL+1tdE/A4ArqjmfeK2Insqw72+5/mrNUa+39B7X9Ebk3Gtv36yd737+P1X6+xn0FcB4atZb1xqpr0pG7qujX//evon8n7tbmmnVzrm2zMP0FcB49NWjEdZf7XnM3r7fOrqvaq9bsmUelum9BCBGpr7KYvT5VekxM34ma/QVANlE7kt77am50ddfjab3vgJgPEf2VS96Oz52dfoKgGxa9lWvzlp/xTb6CoBs7AsemV/1RV8BQH5nrb/K4ujzX0XSVwBARj3P7/QVAPRluv5qZPpKXwEAsfSVvgKAljJ8/29G+qru8QGAR38/95Vv9pfd0FcAALH0FQBALH0FABCr1XeM6ysA4Kr0FQBALH0FABBLXwEAxNJXAACx9BUAQKyoniptd+/tAAB60aqvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA7z4AgJYtqw==
+  </data>
+ </layer>
+ <layer name="Lava" width="600" height="100">
+  <properties>
+   <property name="unity:isTrigger" value="true"/>
+   <property name="unity:sortingOrder" value="1"/>
+   <property name="unity:tag" value="Lava"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt3UEKgzAQQFHvf9dCj9CNUBBrTB3bmeQ9yCLiogMKf1HMsgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM3qsa7vfWwAAtD3Xtd3vLQAA2vQVAEAsfQUAEEtfAQCR/G9bXwEA12x7SjfoKwCgT6undIO+AgCO9faUbjjfVwDAHK72lHbQVwCw9enb29/us4vuKe1wrq94G/0dA2C+voiet9r8d9BXfa4+Y3vnDbWuHZ1V1LrP+UYA/WbrC33Fv0U9cz3Xjpq3dZ9OBug3W1/MNi/56CuA8c3WG6PPR376CmB8+qr2PNSjrwDGp69q/X7q01cA45u9r+DX9BUAkF21bwroKwAgu2pNoK8AgOyqNYG+AgCyq9YE+goAyK5aE+grACA7TQAAEEtfAQDE0lcAALH0FQBALH0FABBLXwEAxNJXAAD30lQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVPECx/nZlw==
+  </data>
+ </layer>
+ <objectgroup name="Player">
+  <object id="1" gid="315" x="672" y="520">
+   <properties>
+    <property name="spawn" value="player"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="Lava front" width="600" height="100">
+  <properties>
+   <property name="unity:istrigger" value="true"/>
+   <property name="unity:sortingOrder" value="60"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt3cENgzAQRUH67xUpJdBAcnvY0XpG+jXs8wWuCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgjnvhAABO8Fk4AIAT6CsAgJa+AgBo6SsAgJa+AgBo6SsAAAAAAAAAAAAAAAAAAIDv/M8VAKDlezcAAC19BQDQ0lcAAC19BQDQ0lcAAJ2VbaWvAIAT6CsAgJa+AgBo6SsAgJa+AgBo6SsAgJa+AgBo6SsAgJa+AgBo6SsAgJa+ApjltuMGALxr9bvZ9g8AeNfuW2/6CgCm2X3rTV8BwDS7b73pKwCYZvetN30FANPsvvWmrwAA/oGGAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIDfHuLDo9M=
+  </data>
+ </layer>
+ <layer name="Stairs Platform" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:tag" value="StairsPlatform"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt3VFugkAQgGFOZz2j7Wnaei/tg0lDSrS6OzvsfF/CAy/IwyT8AVyWBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAqORw3d5GnwQAwGSOi84CAOhBZwEA9KGzAAD60Fk843TdPhoezwwCMCOdxSNuXfXe4dhmEIBZucbxl55dtXYM+I3fzDsAUXQWPyK7aiTzDkAk152aqnTVWvS9MwBq01k1VO2qLWYegAg6a066apuZByCKa85cdNV9nh3ux9dq/zzkLACep7OAbD5X+99DzgLgdToLAKAPnUUlZh2ASDqLKsw6ANG8E0wVmWe99fciAQCqsu4GAEAbugoAoA1dBQDQhq4CADK59+535v8G6ioAIJP/tEm2NRh0FQCQySttMrqzdBUAVWS6r8G2lm0yaq0rXQVAJaPva1T3yPqZ2gQA9klnxfK8DADq0Fl96SoAqEtntaWrAICbzN/+3RNdBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwhws3jkd2
+  </data>
+ </layer>
+ <layer name="Foreground" width="600" height="100">
+  <properties>
+   <property name="unity:isTrigger" value="true"/>
+   <property name="unity:sortingOrder" value="60"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1rkNgFAMBUH/lKP/TiGFhAbQkyxZMxVsuFUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPyxrap9dVcAAMxxvG91+isAgBh/BQCQ5a8AALL8FQBAlr8CAMjyVwAAWf4KACDLXwEAZPkrAAAAAAAAAGCCqzsAAGCYuzsAAGAYfwUAkOWvAACy/BUAQJa/AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4PMASVQG1A==
+  </data>
+ </layer>
+ <objectgroup name="DisappearingBlocks">
+  <object id="3" gid="321" x="3872" y="1120">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="14" gid="321" x="6176" y="736">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="15" gid="321" x="8064" y="1120">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="17" gid="321" x="8120" y="1120">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="21" gid="321" x="8176" y="1120">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="22" gid="321" x="8232" y="1120">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="25" gid="321" x="8056" y="1376">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="26" gid="321" x="8120" y="1344">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="27" gid="321" x="8200" y="1360">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="32" gid="321" x="10344" y="1152">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="33" gid="321" x="10432" y="1152">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="34" gid="321" x="10656" y="1136">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="35" gid="321" x="10728" y="1088">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="36" gid="321" x="10808" y="1040">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="37" gid="321" x="10872" y="992">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="39" gid="321" x="7184" y="800">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="42" gid="321" x="7264" y="800">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="MovingPlatform1" width="600" height="100">
+  <properties>
+   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:tag" value="MovingPlatform"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztzqENAAAIwDBOJvwv4AQciDaZXwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPyTU11PAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArDdnjAOM=
+  </data>
+ </layer>
+ <layer name="The end" width="600" height="100">
+  <properties>
+   <property name="unity:isTrigger" value="true"/>
+   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:tag" value="End"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztzqENACAMAMHuPxnUsBKVWFQDuUvefwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHBjVFnN7hEAgE+sIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3rQBAroEyQ==
+  </data>
+ </layer>
+ <objectgroup name="Enemies">
+  <object id="43" gid="313" x="2072" y="1072">
+   <properties>
+    <property name="spawn" value="Enemy1"/>
+   </properties>
+  </object>
+  <object id="44" gid="313" x="3064" y="1056">
+   <properties>
+    <property name="spawn" value="Enemy2"/>
+   </properties>
+  </object>
+  <object id="45" gid="313" x="3488" y="1056">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+  <object id="46" gid="313" x="4096" y="1072">
+   <properties>
+    <property name="spawn" value="Enemy2"/>
+   </properties>
+  </object>
+  <object id="47" gid="313" x="4344" y="1496">
+   <properties>
+    <property name="spawn" value="Enemy2"/>
+   </properties>
+  </object>
+  <object id="48" gid="313" x="4744" y="1480">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+  <object id="49" gid="313" x="5472" y="1464">
+   <properties>
+    <property name="spawn" value="Enemy1"/>
+   </properties>
+  </object>
+  <object id="50" gid="313" x="5928" y="1464">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+  <object id="51" gid="313" x="7064" y="1360">
+   <properties>
+    <property name="spawn" value="Enemy2"/>
+   </properties>
+  </object>
+  <object id="52" gid="313" x="5072" y="912">
+   <properties>
+    <property name="spawn" value="Enemy1"/>
+   </properties>
+  </object>
+  <object id="53" gid="313" x="6328" y="680">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+  <object id="54" gid="313" x="8424" y="1072">
+   <properties>
+    <property name="spawn" value="Enemy2"/>
+   </properties>
+  </object>
+  <object id="55" gid="313" x="8728" y="1072">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+  <object id="56" gid="313" x="8480" y="1328">
+   <properties>
+    <property name="spawn" value="Enemy1"/>
+   </properties>
+  </object>
+  <object id="57" gid="313" x="9096" y="1088">
+   <properties>
+    <property name="spawn" value="Enemy2"/>
+   </properties>
+  </object>
+  <object id="58" gid="313" x="10936" y="944">
+   <properties>
+    <property name="spawn" value="Enemy1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Items">
+  <object id="59" gid="314" x="1120" y="560">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="60" gid="314" x="1400" y="680">
+   <properties>
+    <property name="spawn" value="item1"/>
+   </properties>
+  </object>
+  <object id="61" gid="314" x="1616" y="784">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="62" gid="314" x="1816" y="912">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="63" gid="314" x="2384" y="1032">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="64" gid="314" x="2528" y="1048">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="65" gid="314" x="2616" y="1032">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="66" gid="314" x="2768" y="1048">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="67" gid="314" x="2880" y="1040">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="68" gid="314" x="3824" y="1024">
+   <properties>
+    <property name="spawn" value="item1"/>
+   </properties>
+  </object>
+  <object id="69" gid="314" x="3880" y="1024">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="70" gid="314" x="3912" y="1216">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="71" gid="314" x="3912" y="1280">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="72" gid="314" x="4272" y="1472">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="73" gid="314" x="5064" y="1384">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="74" gid="314" x="5176" y="1384">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="75" gid="314" x="5416" y="1384">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="76" gid="314" x="5520" y="1384">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="77" gid="314" x="5776" y="1376">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="78" gid="314" x="5872" y="1376">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="79" gid="314" x="6112" y="1304">
+   <properties>
+    <property name="spawn" value="item1"/>
+   </properties>
+  </object>
+  <object id="80" gid="314" x="6104" y="1176">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="81" gid="314" x="6112" y="1008">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="82" gid="314" x="6120" y="880">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="83" gid="314" x="6984" y="1328">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="84" gid="314" x="7544" y="1168">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="85" gid="314" x="7824" y="1224">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="86" gid="314" x="7888" y="1232">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="87" gid="314" x="8224" y="1248">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="88" gid="314" x="8144" y="1272">
+   <properties>
+    <property name="spawn" value="item1"/>
+   </properties>
+  </object>
+  <object id="89" gid="314" x="8792" y="1056">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="90" gid="314" x="8496" y="1048">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="91" gid="314" x="8112" y="1016">
+   <properties>
+    <property name="spawn" value="item1"/>
+   </properties>
+  </object>
+  <object id="92" gid="314" x="8200" y="1024">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="93" gid="314" x="7800" y="952">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="94" gid="314" x="7928" y="952">
+   <properties>
+    <property name="spawn" value="item1"/>
+   </properties>
+  </object>
+  <object id="95" gid="314" x="7600" y="784">
+   <properties>
+    <property name="spawn" value="item1"/>
+   </properties>
+  </object>
+  <object id="96" gid="314" x="7200" y="664">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="97" gid="314" x="7296" y="656">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="98" gid="314" x="6808" y="672">
+   <properties>
+    <property name="spawn" value="item1"/>
+   </properties>
+  </object>
+  <object id="99" gid="314" x="6808" y="944">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="100" gid="314" x="6800" y="1016">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="101" gid="314" x="6808" y="1112">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="102" gid="314" x="6808" y="1216">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="103" gid="314" x="6808" y="1272">
+   <properties>
+    <property name="spawn" value="item1"/>
+   </properties>
+  </object>
+  <object id="104" gid="314" x="6048" y="608">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="105" gid="314" x="6168" y="608">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="106" gid="314" x="4320" y="976">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="107" gid="314" x="4424" y="928">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="108" gid="314" x="4568" y="904">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="109" gid="314" x="4712" y="856">
+   <properties>
+    <property name="spawn" value="item1"/>
+   </properties>
+  </object>
+  <object id="110" gid="314" x="4848" y="840">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="111" gid="314" x="4976" y="824">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="112" gid="314" x="5304" y="904">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

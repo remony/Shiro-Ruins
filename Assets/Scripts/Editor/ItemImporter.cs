@@ -10,7 +10,6 @@ class ItemImporter : Tiled2Unity.ICustomTiledImporter
 {
 
     int id = 0;
-    int value = 100;
 
     public void HandleCustomProperties(UnityEngine.GameObject gameObject,
         IDictionary<string, string> props)
@@ -45,7 +44,7 @@ class ItemImporter : Tiled2Unity.ICustomTiledImporter
 
             // Use the position of the game object we're attached to
             spawnInstance.transform.parent = gameObject.transform;
-            spawnInstance.transform.localPosition = Vector3.zero;
+            spawnInstance.transform.localPosition = new Vector3(14F, 14f, 0);
         }
     }
 

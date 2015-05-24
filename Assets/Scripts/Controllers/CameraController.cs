@@ -9,60 +9,72 @@ public class CameraController : MonoBehaviour {
     public GameObject StartPos;
     public GameObject EndPos;
 
-
+    Vector3 destination;
     //Add padding to the 
     public int DistanceFromLeft = 0;
 
-    CameraStore camera;
+    CameraStore cameraStore;
 
     // Use this for initialization
     void Start()
     {
         //DontDestroyOnLoad(this.gameObject);
-        camera = new CameraStore();
+        cameraStore = new CameraStore();
 
-        if(GameObject.FindGameObjectsWithTag("Player") != null)
-        {
-            target = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
-        }
+        target = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
 
         if (StartPos != null && EndPos != null)
         {
-            camera.StartPos = StartPos.transform.position;
-            camera.EndPos = EndPos.transform.position;
+            cameraStore.StartPos = StartPos.transform.position;
+            cameraStore.EndPos = EndPos.transform.position;
         }
-
+        destination = Vector3.zero;
         
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (target)
         {
             Vector3 point = GetComponent<Camera>().WorldToViewportPoint(target.position);
             Vector3 delta = target.position - GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.4f, point.z));
-            Vector3 destination = Vector3.zero;
-            if (target.transform.position.x < camera.StartPos.x + 400)
+            destination = Vector3.zero;
+           // destination = new Vector3(cameraStore.StartPos.x + 300, transform.position.y, -220) + delta;
+            destination = transform.position + delta;
+            /*
+            if (target.transform.position.x < cameraStore.StartPos.x + 400)
             {
-                destination = new Vector3(camera.StartPos.x + 300, transform.position.y, 0) + delta;
+                destination = new Vector3(cameraStore.StartPos.x + 300, transform.position.y, -220) + delta;
             }
-            else if (target.transform.position.x > camera.StartPos.x + 400)
+            else if (target.transform.position.x > cameraStore.StartPos.x + 400)
             {
 
                 destination = transform.position + delta;
 
-
             }
-            else if (target.transform.position.x > camera.StartPos.x - 400)
+            else if (target.transform.position.x > cameraStore.StartPos.x - 400)
             {
-                if (target.transform.position.x < camera.EndPos.x - 400)
+                if (target.transform.position.x < cameraStore.EndPos.x - 400)
                 {
-                    destination = new Vector3(camera.EndPos.x - 300, transform.position.y, 0) + delta;
+                    destination = new Vector3(cameraStore.EndPos.x - 300, transform.position.y, -220) + delta;
                 }
             }
+             */
+            //print("distance from start" + (target.position.x - cameraStore.StartPos.x));
 
-            transform.position = Vector3.SmoothDamp(transform.position, destination, ref speed, duration);
+            if ((target.position.x - cameraStore.StartPos.x) < 190f)
+            {
+                transform.position = new Vector3(190f, target.position.y, -180);
+            }
+            else
+            {
+                transform.position = new Vector3(target.position.x, target.position.y, -180);
+            }
+
+
+           
+
         }
             
     }

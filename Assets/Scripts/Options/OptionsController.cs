@@ -64,8 +64,16 @@ public class OptionsController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        playerInput();
 	}
+
+    private void playerInput()
+    {
+        if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown("delete"))
+        {
+            GameManager.instance.changeLevel(1);
+        }
+    }
 
     //adjust the volume of the given id where id 0 = music volume and id 1 = sound effect volume
     public void adjustVolume(int id)

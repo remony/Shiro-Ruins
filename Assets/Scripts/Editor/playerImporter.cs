@@ -8,8 +8,6 @@ using Tiled2Unity;
 [Tiled2Unity.CustomTiledImporter]
 class PlayerImporter : Tiled2Unity.ICustomTiledImporter
 {
-    int value = 100;
-
     public void HandleCustomProperties(UnityEngine.GameObject gameObject,
         IDictionary<string, string> props)
     {

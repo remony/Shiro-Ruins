@@ -62,21 +62,21 @@
   },
   {
     "id" : 7,
-    "title": "",
-    "artist" : "",
-    "album" : "",
-    "location": "sounds/illya",
-    "url": "",
-    "license" : "null"
+    "title": "水中 (johnny_ripper remix)",
+    "artist" : "Little Cloud",
+    "album" : "Deximer",
+    "location": "sounds/little_cloud_-_12_-__johnny_ripper_remix",
+    "url": "http://freemusicarchive.org/music/little_cloud/deximer/12__johnny_ripper_remix",
+    "license" : "A Attribution-NonCommercial-ShareAlike 3.0 (Will Not Appear in Vimeo Music Store) License"
   }
   ,
   {
     "id" : 8,
-    "title": "",
-    "artist" : "",
-    "album" : "",
-    "location": "sounds/gtgf",
-    "url": "",
-    "license" : "null"
+    "title": "Hardsync01|",
+    "artist" : "Nils 505 Feske",
+    "album" : "Relix (1996-2013)",
+    "location": "sounds/Nils_505_Feske_-_15_-_Hardsync_01I (1)",
+    "url": "http://freemusicarchive.org/music/505/Relix_1996-2013/15_505_-_hardsync_01i",
+    "license" : "Attribution-NonCommercial-ShareAlike License"
   }
 ]

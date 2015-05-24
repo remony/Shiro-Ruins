@@ -32,4 +32,9 @@ public class MusicM
         get;
         set;
     }
+    public JSONObject soundList
+    {
+        get;
+        set;
+    }
 }

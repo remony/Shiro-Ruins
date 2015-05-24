@@ -21,22 +21,22 @@
 		"scoreToConquer":300,
 		"conquered": 0,
 		"ColourPercentage":0,
-		"unlocked":0
+		"unlocked":1
 	},
 	{
-		"id":3,
-		"Title":"Level 3",
-		"sceneName":"Level3",
+		"id":8,
+		"Title":"Lava Ruin",
+		"sceneName":"Level2",
 		"Score":0,
 		"Time":0,
 		"TTTime": 9000,
 		"scoreToConquer":3000,
 		"conquered": 0,
 		"ColourPercentage":0,
-		"unlocked":0
+		"unlocked":1
 	},
 	{
-		"id":4,
+		"id":6,
 		"Title":"Level 4",
 		"sceneName":"Level4",
 		"Score":0,

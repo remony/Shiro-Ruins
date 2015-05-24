@@ -4,11 +4,10 @@ using System.Collections;
 public class MovingPlatformController : MonoBehaviour
 {
 
-    Vector2 movement = Vector2.right;
+
     public float speed = 50f;
-    bool hitWall = false;
     bool moveLeft = false;
-    Rigidbody2D rigidbody;
+    Rigidbody2D body;
     SliderJoint2D slider;
 
     
@@ -18,14 +17,16 @@ public class MovingPlatformController : MonoBehaviour
     {
         transform.FindChild("Collision").gameObject.tag = "MovingPlatform";
         gameObject.tag = "MovingPlatform";
-        rigidbody = this.gameObject.AddComponent<Rigidbody2D>();
-        slider = this.gameObject.AddComponent<SliderJoint2D>();
-        rigidbody.mass = 150;
+        gameObject.AddComponent<Rigidbody2D>();
+        body = gameObject.GetComponent<Rigidbody2D>();
+        slider = gameObject.AddComponent<SliderJoint2D>();
+        //slider.rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+        body.mass = 150;
         gameObject.transform.position = new Vector2(transform.position.x - 20,transform.position.y);
         //gameObject.transform.position.x = gameObject.transform.position.x - 20;
-        rigidbody.gravityScale = 150;
-        rigidbody.isKinematic = false;
-        rigidbody.fixedAngle = true;
+        body.gravityScale = 150;
+        body.isKinematic = false;
+        body.fixedAngle = true;
     }
 
     // Update is called once per frame
@@ -56,14 +57,14 @@ public class MovingPlatformController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-       // Debug.Log("Platform hit " + coll.collider.tag);
-        if (coll.collider.tag == "Ground" || coll.collider.tag == "Platform")
+        Debug.Log("Platform hit " + coll.collider.tag);
+        if (coll.collider.tag == "Ground" || coll.collider.tag == "Platforms" || coll.collider.tag.Equals("Platform"))
             moveLeft = !moveLeft;
 
         if (coll.collider.tag == "Player")
         {
             GameObject.Find("Player").transform.parent = this.gameObject.transform;
-            rigidbody.isKinematic = false;
+            body.isKinematic = false;
         }
     }
 

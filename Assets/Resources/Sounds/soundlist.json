@@ -1,0 +1,50 @@
+[
+  {
+    "id" : 0,
+    "location" : "sounds/hurt1",
+  },
+  {
+    "id" : 1,
+    "location" : "sounds/hurt2",
+  },
+  {
+    "id" : 2,
+    "location": "sounds/appear",
+  },
+  {
+    "id" : 3,
+    "location": "sounds/Start Level",
+  },
+  {
+    "id" : 4,
+    "location": "sounds/8mmprojector",
+  },
+  {
+    "id" : 5,
+    "location": "sounds/jump1",
+  },
+  {
+    "id" : 6,
+    "location": "sounds/jump2",
+  },
+  {
+    "id" : 7,
+    "location": "sounds/blast",
+  },
+  {
+    "id" : 8,
+    "location": "sounds/shot",
+  },
+  {
+    "id" : 9,
+    "location": "sounds/shot1",
+  },
+  {
+    "id" : 10,
+    "location": "sounds/select1",
+  },
+  {
+    "id" : 11,
+    "location": "sounds/select2",
+  }
+]

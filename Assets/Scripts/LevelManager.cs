@@ -36,6 +36,15 @@ public class LevelManager : MonoBehaviour {
             case 5:
                 sceneName = "Options";
                 break;
+            case 6:
+                sceneName = "Help";
+                break;
+            case 7:
+                sceneName = "Credits";
+                break;
+            case 8:
+                sceneName = "level2";
+                break;
             default:
                 sceneName = "MainMenu";
                 break;

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f8fc95ed49b827145aa926c73b7f2e38
-timeCreated: 1431598275
+timeCreated: 1432242438
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,8 @@ TextureImporter:
     21300002: keyboard_keys_1
     21300004: keyboard_keys_2
     21300006: keyboard_keys_3
+    21300008: keyboard_keys_4
+    21300010: keyboard_keys_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -87,6 +89,26 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: keyboard_keys_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: keyboard_keys_5
+      rect:
+        serializedVersion: 2
+        x: 160
         y: 0
         width: 32
         height: 32

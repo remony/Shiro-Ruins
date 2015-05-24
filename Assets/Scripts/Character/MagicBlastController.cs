@@ -37,6 +37,7 @@ public class MagicBlastController : MonoBehaviour {
             {
                 coll.gameObject.GetComponent<EnemyController>().GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 405), ForceMode2D.Impulse);
             }
+            GameManager.instance.playSoundEffect(1);
             
         }
 

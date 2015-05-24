@@ -57,9 +57,10 @@ public class splashscreen : MonoBehaviour {
   
     void Start()
     {
+        GameManager.instance.playSoundEffect(4);
         StartCoroutine(splash1Wait());
 
-        GameManager.instance.playSoundEffect(6);
+        
     }
 
 

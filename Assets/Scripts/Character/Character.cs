@@ -54,4 +54,10 @@ public class Character {
         get;
         set;
     }
+
+    public Vector2 startingPosition
+    {
+        get;
+        set;
+    }
 }

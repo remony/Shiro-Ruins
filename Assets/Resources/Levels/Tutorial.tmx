@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="32" tileheight="32" nextobjectid="157">
  <tileset firstgid="1" name="Untitled" tilewidth="32" tileheight="32">
-  <image source="Untitled.png" trans="000000" width="256" height="1184"/>
+  <image source="Untitled.png" trans="000000" width="256" height="1248"/>
   <tile id="66">
    <properties>
     <property name="unity" value=""/>
@@ -752,7 +752,7 @@
    </objectgroup>
   </tile>
  </tileset>
- <tileset firstgid="297" name="TiledIcons" tilewidth="32" tileheight="32">
+ <tileset firstgid="313" name="TiledIcons" tilewidth="32" tileheight="32">
   <image source="../../../Images/TiledIcons.png" trans="000000" width="256" height="32"/>
  </tileset>
  <layer name="Background" width="600" height="100" opacity="0.94">
@@ -792,62 +792,62 @@
    <property name="spawn" value="AppearingBlock 1"/>
    <property name="unity:sortingOrder" value="-1"/>
   </properties>
-  <object id="130" gid="301" x="168" y="2816">
+  <object id="130" gid="317" x="168" y="2816">
    <properties>
     <property name="spawn" value="AppearingBlock"/>
    </properties>
   </object>
-  <object id="131" gid="301" x="256" y="2816">
+  <object id="131" gid="317" x="256" y="2816">
    <properties>
     <property name="spawn" value="AppearingBlock"/>
    </properties>
   </object>
-  <object id="135" gid="301" x="384" y="2816">
+  <object id="135" gid="317" x="384" y="2816">
    <properties>
     <property name="spawn" value="AppearingBlock"/>
    </properties>
   </object>
-  <object id="137" gid="301" x="544" y="2816">
+  <object id="137" gid="317" x="544" y="2816">
    <properties>
     <property name="spawn" value="AppearingBlock"/>
    </properties>
   </object>
-  <object id="141" gid="301" x="576" y="2432">
+  <object id="141" gid="317" x="576" y="2432">
    <properties>
     <property name="spawn" value="AppearingBlock"/>
    </properties>
   </object>
-  <object id="144" gid="301" x="1264" y="2432">
+  <object id="144" gid="317" x="1264" y="2432">
    <properties>
     <property name="spawn" value="AppearingBlock"/>
    </properties>
   </object>
-  <object id="147" gid="301" x="1736" y="2432">
+  <object id="147" gid="317" x="1736" y="2432">
    <properties>
     <property name="spawn" value="AppearingBlock"/>
    </properties>
   </object>
-  <object id="149" gid="301" x="2472" y="2432">
+  <object id="149" gid="317" x="2472" y="2432">
    <properties>
     <property name="spawn" value="AppearingBlock"/>
    </properties>
   </object>
-  <object id="151" gid="301" x="3064" y="2240">
+  <object id="151" gid="317" x="3064" y="2240">
    <properties>
     <property name="spawn" value="AppearingBlock"/>
    </properties>
   </object>
-  <object id="153" gid="301" x="3464" y="2240">
+  <object id="153" gid="317" x="3464" y="2240">
    <properties>
     <property name="spawn" value="AppearingBlock"/>
    </properties>
   </object>
-  <object id="155" gid="301" x="3504" y="2240">
+  <object id="155" gid="317" x="3504" y="2240">
    <properties>
     <property name="spawn" value="AppearingBlock"/>
    </properties>
   </object>
-  <object id="156" gid="301" x="4456" y="2112">
+  <object id="156" gid="317" x="4456" y="2112">
    <properties>
     <property name="spawn" value="AppearingBlock"/>
    </properties>
@@ -857,7 +857,7 @@
   <properties>
    <property name="spawn" value="enemy"/>
   </properties>
-  <object id="94" gid="299" x="3808" y="2240">
+  <object id="94" gid="315" x="3808" y="2240">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>
@@ -936,143 +936,143 @@
   </object>
  </objectgroup>
  <objectgroup name="Items">
-  <object id="66" gid="298" x="320" y="2816">
+  <object id="66" gid="314" x="320" y="2816">
    <properties>
     <property name="spawn" value="item"/>
     <property name="value" value="120"/>
    </properties>
   </object>
-  <object id="67" gid="298" x="368" y="2816">
+  <object id="67" gid="314" x="368" y="2816">
    <properties>
     <property name="spawn" value="item"/>
     <property name="value" value="120"/>
    </properties>
   </object>
-  <object id="68" gid="298" x="408" y="2816">
+  <object id="68" gid="314" x="408" y="2816">
    <properties>
     <property name="spawn" value="item"/>
     <property name="value" value="120"/>
    </properties>
   </object>
-  <object id="69" gid="298" x="448" y="2816">
+  <object id="69" gid="314" x="448" y="2816">
    <properties>
     <property name="spawn" value="item"/>
     <property name="value" value="120"/>
    </properties>
   </object>
-  <object id="95" gid="298" x="3112" y="2240">
+  <object id="95" gid="314" x="3112" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="96" gid="298" x="3128" y="2240">
+  <object id="96" gid="314" x="3128" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="98" gid="298" x="3152" y="2240">
+  <object id="98" gid="314" x="3152" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="99" gid="298" x="3176" y="2240">
+  <object id="99" gid="314" x="3176" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="100" gid="298" x="3192" y="2240">
+  <object id="100" gid="314" x="3192" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="101" gid="298" x="3216" y="2240">
+  <object id="101" gid="314" x="3216" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="102" gid="298" x="3240" y="2240">
+  <object id="102" gid="314" x="3240" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="103" gid="298" x="3264" y="2240">
+  <object id="103" gid="314" x="3264" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="104" gid="298" x="3024" y="2240">
+  <object id="104" gid="314" x="3024" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="105" gid="298" x="2944" y="2240">
+  <object id="105" gid="314" x="2944" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="107" gid="298" x="256" y="2432">
+  <object id="107" gid="314" x="256" y="2432">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="108" gid="298" x="320" y="2432">
+  <object id="108" gid="314" x="320" y="2432">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="109" gid="298" x="392" y="2432">
+  <object id="109" gid="314" x="392" y="2432">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="111" gid="298" x="160" y="2432">
+  <object id="111" gid="314" x="160" y="2432">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="112" gid="298" x="1984" y="2240">
+  <object id="112" gid="314" x="1984" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="113" gid="298" x="1936" y="2240">
+  <object id="113" gid="314" x="1936" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="114" gid="298" x="1880" y="2240">
+  <object id="114" gid="314" x="1880" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="115" gid="298" x="1824" y="2240">
+  <object id="115" gid="314" x="1824" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="116" gid="298" x="1768" y="2240">
+  <object id="116" gid="314" x="1768" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="117" gid="298" x="1696" y="2240">
+  <object id="117" gid="314" x="1696" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="118" gid="298" x="2064" y="2240">
+  <object id="118" gid="314" x="2064" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
-  <object id="119" gid="298" x="2184" y="2240">
+  <object id="119" gid="314" x="2184" y="2240">
    <properties>
     <property name="spawn" value="item"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="CharacterSpawn">
-  <object id="48" name="Character" gid="299" x="168" y="2792">
+  <object id="48" name="Character" gid="315" x="168" y="2792">
    <properties>
     <property name="spawn" value="player"/>
    </properties>
@@ -1096,7 +1096,7 @@
   <properties>
    <property name="spawn" value="end"/>
   </properties>
-  <object id="85" name="End" gid="300" x="4712" y="2104"/>
+  <object id="85" name="End" gid="316" x="4712" y="2104"/>
  </objectgroup>
  <layer name="Waterfall" width="600" height="100">
   <data encoding="base64" compression="zlib">
@@ -1107,7 +1107,7 @@
   <properties>
    <property name="spawn" value="start"/>
   </properties>
-  <object id="123" gid="300" x="160" y="2816"/>
+  <object id="123" gid="316" x="160" y="2816"/>
  </objectgroup>
  <layer name="Overlay" width="600" height="100">
   <properties>
