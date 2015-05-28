@@ -22,5 +22,11 @@ public class MagicBullet
         get;
         set;
     }
+
+    public bool collided
+    {
+        get;
+        set;
+    }
 }
 

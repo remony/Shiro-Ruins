@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Assets.Scripts.HelpScene;
 
 public class HelpController : MonoBehaviour {
 
     public GameObject sliderObject;
-    private float inputAmount;
-    private float sliderValue;
+    public Help help;
 
 	// Use this for initialization
 	void Start () {
-	
+        help = new Help();
 	}
 	
 	// Update is called once per frame
@@ -36,23 +36,23 @@ public class HelpController : MonoBehaviour {
 
         if (Input.GetAxisRaw("Vertical") > 0)
         {
-            inputAmount = 0.01f * Input.GetAxisRaw("Vertical");
+            help.inputAmount = 0.01f * Input.GetAxisRaw("Vertical");
         }
         else if (Input.GetAxisRaw("Vertical") < 0)
         {
-            inputAmount = 0.01f * Input.GetAxisRaw("Vertical");
+            help.inputAmount = 0.01f * Input.GetAxisRaw("Vertical");
         }
         else if (Input.GetAxisRaw("Vertical") == 0)
         {
-            inputAmount = 0;
+            help.inputAmount = 0;
         }
         else if (Input.GetAxisRaw("Vertical") > 0.6f)
         {
-            inputAmount = 0.01f * 0.6f;
+            help.inputAmount = 0.01f * 0.6f;
         }
 
-        sliderValue = sliderObject.GetComponent<Scrollbar>().value;
+        help.sliderValue = sliderObject.GetComponent<Scrollbar>().value;
 
-        sliderObject.GetComponent<Scrollbar>().value += inputAmount;
+        sliderObject.GetComponent<Scrollbar>().value += help.inputAmount;
     }
 }

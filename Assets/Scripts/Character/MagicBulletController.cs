@@ -5,11 +5,11 @@ using System.Collections.Generic;
 public class MagicBulletController : MonoBehaviour {
 
     
-    public bool isRight = true;
+    
     public GameObject explosion;
     public MagicBullet magicBullet;
     private Rigidbody2D body;
-    public bool collided = false;
+    public bool isRight = false;
     public int speed = 400;
 
 
@@ -18,7 +18,8 @@ public class MagicBulletController : MonoBehaviour {
 	void Start () {
         magicBullet = new MagicBullet();
         magicBullet.speed = speed;
-        //print(magicBullet.speed);
+        magicBullet.collided = false;
+        
 
         if (!isRight)
         {
@@ -26,7 +27,7 @@ public class MagicBulletController : MonoBehaviour {
         }
 
         body = GetComponent<Rigidbody2D>();
-        if (collided)
+        if (magicBullet.collided)
         {
             body.velocity = Vector3.zero;
         }
@@ -42,7 +43,7 @@ public class MagicBulletController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (collided)
+        if (magicBullet.collided)
         {
             body.velocity = Vector3.zero;
             
@@ -54,22 +55,15 @@ public class MagicBulletController : MonoBehaviour {
         if (coll.tag.ToString().Equals("Enemy"))
         {
             gameObject.GetComponent<Animator>().SetBool("Explode", true);
-            collided = true;
+            magicBullet.collided = true;
             changeSize();
-            //print("boom");
-            if (collided)
-            {
-               // print("collided");
-            }
 
-            //explosion.SetActive(true);
             StopCoroutine("timeToLive");
             StartCoroutine("collision");
-            //Destroy(gameObject);
         }
         else if (coll.tag.ToString().Equals("Ground") || coll.tag.ToString().Equals("Platform"))
         {
-            collided = true;
+            magicBullet.collided = true;
             gameObject.GetComponent<Animator>().SetBool("Explode", true);
             StartCoroutine("collision");
         }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <!--Tiled2Unity generated xml data-->
 <!--Do not modify by hand-->
-<!--Last exported: 20/05/2015 23:02:39-->
+<!--Last exported: 27/05/2015 15:54:04-->
 <Tiled2Unity version="0.9.9.4">
   <AssignMaterial mesh="mesh_[00]_[00]" material="Untitled" sortingLayerName="" sortingOrder="0" alphaColorKey="#000000" />
   <AssignMaterial mesh="mesh_[01]_[00]" material="Untitled" sortingLayerName="" sortingOrder="1" alphaColorKey="#000000" />
@@ -42,7 +42,7 @@
       </GameObject>
     </GameObject>
     <GameObject name="Enemy">
-      <GameObject name="TileObject" x="1016" y="-392" rotation="0">
+      <GameObject name="TileObject" x="896" y="-384" rotation="0">
         <Property name="spawn" value="Enemy" />
       </GameObject>
     </GameObject>

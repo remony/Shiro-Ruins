@@ -39,8 +39,6 @@ public class splashscreen : MonoBehaviour {
                 StopCoroutine(splash2Wait());
                 changelevel(1);
             }
-            
-            //StopCoroutine(astart());
         }
 
 	}

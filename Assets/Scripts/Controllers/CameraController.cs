@@ -18,7 +18,6 @@ public class CameraController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        //DontDestroyOnLoad(this.gameObject);
         cameraStore = new CameraStore();
 
         target = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
@@ -40,28 +39,8 @@ public class CameraController : MonoBehaviour {
             Vector3 point = GetComponent<Camera>().WorldToViewportPoint(target.position);
             Vector3 delta = target.position - GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.4f, point.z));
             destination = Vector3.zero;
-           // destination = new Vector3(cameraStore.StartPos.x + 300, transform.position.y, -220) + delta;
             destination = transform.position + delta;
-            /*
-            if (target.transform.position.x < cameraStore.StartPos.x + 400)
-            {
-                destination = new Vector3(cameraStore.StartPos.x + 300, transform.position.y, -220) + delta;
-            }
-            else if (target.transform.position.x > cameraStore.StartPos.x + 400)
-            {
 
-                destination = transform.position + delta;
-
-            }
-            else if (target.transform.position.x > cameraStore.StartPos.x - 400)
-            {
-                if (target.transform.position.x < cameraStore.EndPos.x - 400)
-                {
-                    destination = new Vector3(cameraStore.EndPos.x - 300, transform.position.y, -220) + delta;
-                }
-            }
-             */
-            //print("distance from start" + (target.position.x - cameraStore.StartPos.x));
 
             if ((target.position.x - cameraStore.StartPos.x) < 190f)
             {

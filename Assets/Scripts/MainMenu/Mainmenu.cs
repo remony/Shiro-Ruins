@@ -12,7 +12,7 @@ public class Mainmenu : MonoBehaviour {
 
 
         GameManager.instance.playSong(7);
-
+        //If the hardcore mode is set to true then the button to access should be shown
         if (PlayerPrefs.GetInt("HCmodeActivated") == 0)
         {
             HardcoreGameModeButton.SetActive(false);

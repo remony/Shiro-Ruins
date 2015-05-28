@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
         else
         {
             store.saveData = new JSONObject(PlayerPrefs.GetString("Save"));
-            
         }
         InitGame();
     }
@@ -61,7 +60,6 @@ public class GameManager : MonoBehaviour
 
     void InitGame()
     {
-        Debug.Log("Loading level " + level);
         levelManager.setupLevel(level);
 
     }
@@ -115,8 +113,6 @@ public class GameManager : MonoBehaviour
         store.saveData = save;
         PlayerPrefs.SetString("Save", store.saveData.ToString());
         PlayerPrefs.Save();
-        //File.WriteAllText(Environment.CurrentDirectory + "/Assets/Resources/Save/" + @"\Save.json", save.ToString(true));
-
     }
 
     public void ChangeGameType(int type)
@@ -144,11 +140,8 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.Save();
             print(PlayerPrefs.GetString("Save"));
             print("PlayerPrefs deleted");
-            //store.saveData = new JSONObject((Resources.Load("Save/Save") as TextAsset).text);
-            //PlayerPrefs.SetString("Save", store.saveData.ToString());
             PlayerPrefs.Save();
             print(PlayerPrefs.GetString("Save"));
-            //UpdateSaveData(store.saveData);
             updateSaveFromfile = false;
         }
         

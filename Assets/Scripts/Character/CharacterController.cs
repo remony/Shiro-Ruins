@@ -387,7 +387,7 @@ public class CharacterController : CharacterStateHandler
         {
             if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown("joystick button 1"))
             {
-                print("L");
+
                 if (character.blastCooldownTimer < character.blastCooldownLimit)
                 {
                     print("poof cooldown");
@@ -397,7 +397,6 @@ public class CharacterController : CharacterStateHandler
                     character.blastCooldownStart = Time.time;
                     character.blastCooldownTimer = Time.time - character.blastCooldownStart;
                     shotBlast();
-                    print("boom");
                 }
             }
         }

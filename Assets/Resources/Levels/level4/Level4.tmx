@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="600" height="400" tilewidth="32" tileheight="32" nextobjectid="252">
+ <tileset firstgid="1" name="Untitled" tilewidth="32" tileheight="32">
+  <image source="Untitled.png" trans="000000" width="256" height="1248"/>
+  <tile id="69">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 32,16 32,32 0,32"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="70">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 32,16 0,16"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="71">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="97">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+   <animation>
+    <frame tileid="97" duration="200"/>
+    <frame tileid="98" duration="200"/>
+    <frame tileid="99" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="100">
+   <properties>
+    <property name="unity:isTrigger" value="true"/>
+    <property name="unity:tag" value="UnderWater"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="101">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+   <animation>
+    <frame tileid="101" duration="200"/>
+    <frame tileid="102" duration="200"/>
+    <frame tileid="103" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="104">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+   <animation>
+    <frame tileid="104" duration="200"/>
+    <frame tileid="105" duration="200"/>
+    <frame tileid="106" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="107">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+   <animation>
+    <frame tileid="107" duration="200"/>
+    <frame tileid="108" duration="200"/>
+    <frame tileid="109" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="115">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="116">
+   <animation>
+    <frame tileid="116" duration="200"/>
+    <frame tileid="117" duration="200"/>
+    <frame tileid="118" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="119">
+   <animation>
+    <frame tileid="119" duration="200"/>
+    <frame tileid="120" duration="200"/>
+    <frame tileid="121" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="122">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+   <animation>
+    <frame tileid="122" duration="200"/>
+    <frame tileid="123" duration="200"/>
+    <frame tileid="124" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="138">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="147">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="153">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="32">
+     <polygon points="0,0 32,-16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="154">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 32,0 32,32 0,32"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="155">
+   <objectgroup draworder="index">
+    <object id="0" x="32" y="0">
+     <polygon points="0,0 0,32 -32,32 -32,16"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="156">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="193">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="194">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="32">
+     <polygon points="0,0 32,-16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="195">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="196">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 0,16 32,16"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="198">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="199">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="200">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="201">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="206">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="207">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="16">
+     <polygon points="0,0 0,16 32,16 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="235">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="8">
+     <polygon points="0,0 0,-8 32,-8 32,8 0,8"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="265">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="266">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="267">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="268">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="269">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="270">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0">
+     <polygon points="0,0 0,24 0,32 32,32 32,0"/>
+    </object>
+   </objectgroup>
+  </tile>
+  <tile id="291">
+   <animation>
+    <frame tileid="291" duration="200"/>
+    <frame tileid="292" duration="200"/>
+    <frame tileid="293" duration="200"/>
+    <frame tileid="294" duration="200"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="313" name="TiledIcons" tilewidth="32" tileheight="32">
+  <image source="TiledIcons.png" trans="000000" width="256" height="32"/>
+ </tileset>
+ <tileset firstgid="321" name="breakable platform" tilewidth="32" tileheight="32">
+  <image source="../../../Sprites/breakable platform.png" trans="000000" width="256" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Ground" width="600" height="400">
+  <properties>
+   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:tag" value="Ground"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt2MuuwiAUBVA6Ve/fO/V3fNyvso5MiBEORdG6VnImpRAeg+6SEgAAAAAAwBinuc5z/Wd1GTkpAPhBmymlfbrXdmprz58Tt19YxydV098ZAkAfu/mbekj3+pva2vPnxBw+oJwhACX5vUvpX33pPU7pnUf3PDVjRtcZHeNV+apmL6JtJaUzf+c9Tc1cbkZnKvkKgIg8F5S+JUtzRumdRzmkZszoOqNjvCpf1exFtC26lpE5onYun1TyFQAl8lWf/vJVG/kKgDWSr/r0l6/ayFcArJF81ae/fNVGvgJgjeSrseSr8XlJvgKgN/lqLPlqfF6SrwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgG9zBcxIwP0=
+  </data>
+ </layer>
+ <objectgroup name="Character">
+  <object id="153" gid="315" x="6088" y="136">
+   <properties>
+    <property name="spawn" value="player"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="DisappearingPlatform">
+  <object id="154" gid="321" x="7560" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="156" gid="321" x="7624" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="159" gid="321" x="7688" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="162" gid="321" x="7752" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="164" gid="321" x="7816" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="165" gid="321" x="6896" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="168" gid="321" x="9776" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="171" gid="321" x="9840" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="173" gid="321" x="9904" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="176" gid="321" x="9968" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="177" gid="321" x="9056" y="152">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="178" gid="321" x="8112" y="168">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="179" gid="321" x="8184" y="144">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="180" gid="321" x="8264" y="128">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="183" gid="321" x="8336" y="128">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="184" gid="321" x="9776" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="185" gid="321" x="9840" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="186" gid="321" x="9904" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="187" gid="321" x="9968" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="188" gid="321" x="9056" y="152">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="189" gid="321" x="8112" y="168">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="190" gid="321" x="8184" y="144">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="191" gid="321" x="8264" y="128">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="192" gid="321" x="8336" y="128">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="195" gid="321" x="10448" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="198" gid="321" x="10552" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="199" gid="321" x="10640" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="201" gid="321" x="10736" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="203" gid="321" x="10832" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="204" gid="321" x="10928" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="206" gid="321" x="11016" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+  <object id="209" gid="321" x="11088" y="192">
+   <properties>
+    <property name="spawn" value="DisappearingBlock"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="StairsPlatform" width="600" height="400">
+  <properties>
+   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:tag" value="StairsPlatform"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt1rEJwDAMBEDvP0LiaZJ4L7txrcKgJOYOVD08X6oUAAAAAACAfHeQt5QVAADfcIyrix1XkD+L/QAAfzD/qvPtIQAAm/BXAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC768SnBrE=
+  </data>
+ </layer>
+ <layer name="the end" width="600" height="400">
+  <properties>
+   <property name="unity:sortingOrder" value="-1"/>
+   <property name="unity:tag" value="End"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztw7ENAAAIA6D+f5pXuXc3LpCQAAAAAAAA/JoKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwbQFJgQMp
+  </data>
+ </layer>
+ <layer name="Spikes" width="600" height="400">
+  <properties>
+   <property name="unity:isTrigger" value="true"/>
+   <property name="unity:tag" value="Spike"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzt2EEKgDAMBMD+/60+wrsgYVVM0BnopWkKDT2kXQsAAAAAAAAAAAAAAAAAAAAAAAAAAACYbgtGlZ/EqzwAAACANyR/I50jPcvdeLWmmjvb84lzTpHW6Rj7Ui3IuQcAMNuE/n6i7nfRX+sOAHCVHggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACg3w5jTaqN
+  </data>
+ </layer>
+ <objectgroup name="Enemys">
+  <object id="210" gid="313" x="11224" y="160">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+  <object id="211" gid="313" x="10040" y="160">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+  <object id="212" gid="313" x="9568" y="144">
+   <properties>
+    <property name="spawn" value="Enemy1"/>
+   </properties>
+  </object>
+  <object id="213" gid="313" x="9336" y="144">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+  <object id="214" gid="313" x="9128" y="144">
+   <properties>
+    <property name="spawn" value="Enemy1"/>
+   </properties>
+  </object>
+  <object id="215" gid="313" x="7904" y="144">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+  <object id="216" gid="313" x="7352" y="144">
+   <properties>
+    <property name="spawn" value="Enemy1"/>
+   </properties>
+  </object>
+  <object id="217" gid="313" x="6688" y="144">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+  <object id="218" gid="313" x="6968" y="144">
+   <properties>
+    <property name="spawn" value="Enemy"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Items">
+  <object id="219" gid="314" x="6344" y="120">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="220" gid="314" x="6384" y="120">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="221" gid="314" x="6600" y="120">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="222" gid="314" x="6640" y="120">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="223" gid="314" x="6864" y="120">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="224" gid="314" x="6928" y="120">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="225" gid="314" x="7136" y="120">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="226" gid="314" x="7160" y="120">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="227" gid="314" x="7304" y="120">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="228" gid="314" x="7320" y="112">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="229" gid="314" x="7528" y="104">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="230" gid="314" x="7856" y="104">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="231" gid="314" x="7640" y="104">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="232" gid="314" x="7752" y="104">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="233" gid="314" x="7976" y="152">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="234" gid="314" x="8400" y="56">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="235" gid="314" x="8496" y="72">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="236" gid="314" x="8608" y="64">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="237" gid="314" x="8856" y="56">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="238" gid="314" x="9088" y="80">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="239" gid="314" x="9176" y="64">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="240" gid="314" x="9296" y="104">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="241" gid="314" x="9528" y="128">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="242" gid="314" x="10504" y="80">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="243" gid="314" x="10600" y="80">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="244" gid="314" x="10688" y="80">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="245" gid="314" x="10784" y="80">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="246" gid="314" x="10880" y="88">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="247" gid="314" x="10960" y="88">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="248" gid="314" x="11056" y="96">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="249" gid="314" x="11360" y="136">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="250" gid="314" x="11720" y="72">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+  <object id="251" gid="314" x="11808" y="72">
+   <properties>
+    <property name="spawn" value="item"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

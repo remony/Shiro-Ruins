@@ -27,7 +27,7 @@ public class PauseManager : MonoBehaviour {
 
     public void onOptions()
     {
-        print("Not implemented");
+        //print("Not implemented");
     }
 
     public void onLeaveRuins()

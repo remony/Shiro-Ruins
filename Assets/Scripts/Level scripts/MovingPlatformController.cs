@@ -57,7 +57,6 @@ public class MovingPlatformController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        Debug.Log("Platform hit " + coll.collider.tag);
         if (coll.collider.tag == "Ground" || coll.collider.tag == "Platforms" || coll.collider.tag.Equals("Platform"))
             moveLeft = !moveLeft;
 

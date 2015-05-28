@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using Assets.Scripts.Manager;
 
 
 public class GUIManager : GUIStateHandle, GuiObserver
@@ -30,16 +31,16 @@ public class GUIManager : GUIStateHandle, GuiObserver
     public Sprite l_enable;
     public Sprite l_disable;
 
-    
+    private GUIEntity gui;
 
-    public int currentInputType;
-    public bool displayHelp = true;
+    //public int currentInputType;
+    //public bool displayHelp = true;
 
-    Text[] textGui;
-    new private string name = "";
-    Slider healthBar;
+    //Text[] textGui;
+    //new private string name = "";
+    //Slider healthBar;
     Level level;
-    float endTime;
+    //float endTime;
 
     public override void onProgress()
     {
@@ -136,9 +137,9 @@ public class GUIManager : GUIStateHandle, GuiObserver
 
                     
                 }
-                textGui[4].text = " ";
-                textGui[5].text = " ";
-                textGui[6].text = " ";
+                gui.textGui[4].text = " ";
+                gui.textGui[5].text = " ";
+                gui.textGui[6].text = " ";
                 if (BossControls.activeInHierarchy)
                 {
                     BossControls.SetActive(false);
@@ -174,6 +175,7 @@ public class GUIManager : GUIStateHandle, GuiObserver
 
     public override void onStart()
     {
+        
         if (startCard)
         {
             if (!startCard.activeSelf)
@@ -343,21 +345,35 @@ public class GUIManager : GUIStateHandle, GuiObserver
     void Start()
     {
         base.Start();
+        gui = new GUIEntity();
+        gui.name = "";
+        gui.displayHelp = true;
+        //public int currentInputType;
+        //public bool displayHelp = true;
+
+        //Text[] textGui;
+        //new private string name = "";
+        //Slider healthBar;
+
+        //float endTime;
+
+
+        
         level = new Level();
         level.score = 0;
         level.message = "";
         level.time = Time.time;
-        textGui = gameObject.GetComponentsInChildren<Text>();
-        healthBar = gameObject.GetComponentInChildren<Slider>();
-        healthBar.maxValue = 100;
-        healthBar.minValue = 0;
-        textGui[1].text = level.score.ToString();
+        gui.textGui = gameObject.GetComponentsInChildren<Text>();
+        gui.healthBar = gameObject.GetComponentInChildren<Slider>();
+        gui.healthBar.maxValue = 100;
+        gui.healthBar.minValue = 0;
+        gui.textGui[1].text = level.score.ToString();
         completeView.SetActive(false);
         failedView.SetActive(false);
         startCard.SetActive(false);
         messageView.SetActive(false);
         controls.gameObject.GetComponent<Animator>().SetBool("display", true);
-        displayHelp = true;
+        gui.displayHelp = true;
         BossControls.SetActive(false);
     }
 
@@ -381,12 +397,12 @@ public class GUIManager : GUIStateHandle, GuiObserver
         {
             if (GameManager.instance.GetGameType() == 1)
             {
-                textGui[2].text = (Time.time - level.time).ToString("#");
-                textGui[1].text = "";
+                gui.textGui[2].text = (Time.time - level.time).ToString("#");
+                gui.textGui[1].text = "";
             }
             else
             {
-                textGui[2].text = (Time.time - level.time).ToString("#");
+                gui.textGui[2].text = (Time.time - level.time).ToString("#");
             }
         }
         catch(Exception e)
@@ -412,8 +428,8 @@ public class GUIManager : GUIStateHandle, GuiObserver
         }
         if (Input.GetKeyDown("h") || Input.GetKeyDown("joystick button 6"))
         {
-            displayHelp = !displayHelp;
-            if (displayHelp)
+            gui.displayHelp = !gui.displayHelp;
+            if (gui.displayHelp)
             {
                 controls.gameObject.GetComponent<Animator>().SetBool("display", true);
             }
@@ -457,7 +473,7 @@ public class GUIManager : GUIStateHandle, GuiObserver
     {
         level.score += value;
         if (GameManager.instance.GetGameType() == 0)
-            textGui[1].text = level.score.ToString();
+            gui.textGui[1].text = level.score.ToString();
     }
 
     private void displayMessage()
@@ -482,8 +498,8 @@ public class GUIManager : GUIStateHandle, GuiObserver
     public void UpdateHealth(int health)
     {
         level.health = health;
-        textGui[0].text = level.health.ToString();
-        healthBar.value = health;
+        gui.textGui[0].text = level.health.ToString();
+        gui.healthBar.value = health;
         
     }
 
@@ -493,12 +509,12 @@ public class GUIManager : GUIStateHandle, GuiObserver
         {
 
             controls.GetComponentsInChildren<Text>()[2].text = "Blast (" + (100 - count * 100).ToString("#") + ")";
-            if (currentInputType == 0)
+            if (gui.currentInputType == 0)
             {
                 controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].sprite = l_disable;
                 controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
             }
-            else if (currentInputType == 1)
+            else if (gui.currentInputType == 1)
             {
                 controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].sprite = b_disable;
                 controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
@@ -506,12 +522,12 @@ public class GUIManager : GUIStateHandle, GuiObserver
         }
         else if (count >= 0.91f)
         {
-            if (currentInputType == 0)
+            if (gui.currentInputType == 0)
             {
                 controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].sprite = l_enable;
                 controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
             }
-            else if (currentInputType == 1)
+            else if (gui.currentInputType == 1)
             {
                 controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].sprite = b_enable;
                 controls.GetComponentsInChildren<Text>()[2].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
@@ -528,12 +544,12 @@ public class GUIManager : GUIStateHandle, GuiObserver
         {
 
             controls.GetComponentsInChildren<Text>()[1].text = "Magic (" + (100 - count * 100).ToString("#") + ")";
-            if (currentInputType == 0)
+            if (gui.currentInputType == 0)
             {
                 controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].sprite = k_disable;
                 controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
             }
-            else if (currentInputType == 1)
+            else if (gui.currentInputType == 1)
             {
                 controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].sprite = x_disable;
                 controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
@@ -544,12 +560,12 @@ public class GUIManager : GUIStateHandle, GuiObserver
         }
         else if (count >= 0.91f)
         {
-            if (currentInputType == 0)
+            if (gui.currentInputType == 0)
             {
                 controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].sprite = k_enable;
                 controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
             }
-            else if (currentInputType == 1)
+            else if (gui.currentInputType == 1)
             {
                 controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].sprite = x_enable;
                 controls.GetComponentsInChildren<Text>()[1].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(2, 2);
@@ -564,12 +580,12 @@ public class GUIManager : GUIStateHandle, GuiObserver
         
         if (grounded)
         {
-            if (currentInputType == 0)
+            if (gui.currentInputType == 0)
             {
                 controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].sprite = space_enable;
                 controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
             }
-            else if (currentInputType == 1)
+            else if (gui.currentInputType == 1)
             {
                 controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].sprite = a_enable;
                 controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
@@ -579,12 +595,12 @@ public class GUIManager : GUIStateHandle, GuiObserver
         }
         else
         {
-            if (currentInputType == 0)
+            if (gui.currentInputType == 0)
             {
                 controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].sprite = space_disable;
                 controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
             }
-            else if (currentInputType == 1)
+            else if (gui.currentInputType == 1)
             {
                 controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].sprite = a_disable;
                 controls.GetComponentsInChildren<Text>()[0].GetComponentsInChildren<Image>()[0].transform.localScale = new Vector2(1, 1);
@@ -632,11 +648,11 @@ public class GUIManager : GUIStateHandle, GuiObserver
 
         if (type == 0)
         {
-            currentInputType = 0;
+            gui.currentInputType = 0;
         }
         else if (type == 1)
         {
-            currentInputType = 1;
+            gui.currentInputType = 1;
         }
     }
 

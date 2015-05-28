@@ -112,7 +112,19 @@ public class CollisionSetup : MonoBehaviour {
         }
 
 
- 
+        GameObject[] Waters = GameObject.FindGameObjectsWithTag("Water");
+        for (int i = 0; i < Waters.Length; i++)
+        {
+            if (!Waters[i].name.Equals("Collision"))
+                //if (Waters[i].transform.FindChild("Collision").gameObject.tag != "Water")
+                 Waters[i].transform.FindChild("Collision").gameObject.tag = "Water";
+        }
+        GameObject[] UnderWaters = GameObject.FindGameObjectsWithTag("UnderWater");
+        for (int i = 0; i < UnderWaters.Length; i++)
+        {
+            if (!UnderWaters[i].name.Equals("Collision"))
+                UnderWaters[i].transform.FindChild("Collision").gameObject.tag = "UnderWater";
+        }
 
             
 	}

@@ -58,7 +58,7 @@
   </data>
  </layer>
  <objectgroup name="Enemy">
-  <object id="1" gid="79" x="1016" y="392">
+  <object id="1" gid="79" x="896" y="384">
    <properties>
     <property name="spawn" value="Enemy"/>
    </properties>

@@ -28,6 +28,11 @@ public class Sign
         get;
         set;
     }
+    public GameObject guiController
+    {
+        get;
+        set;
+    }
 }
 
 

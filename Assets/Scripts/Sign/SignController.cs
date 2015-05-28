@@ -12,11 +12,8 @@ public class SignController : SignStateHandler
     public GameObject notifyButton;
 
 
-    GameObject guiController;
-
-
-
     
+
     public override void onIdle()
     {
      
@@ -47,7 +44,7 @@ public class SignController : SignStateHandler
         sign.text = text;
         sign.read = false;
 
-        guiController = GameObject.FindGameObjectWithTag("LevelManager");
+        sign.guiController = GameObject.FindGameObjectWithTag("LevelManager");
         
     }
 
@@ -63,7 +60,7 @@ public class SignController : SignStateHandler
             notifyButton.SetActive(true);
             if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown("e"))
             {
-                guiController.GetComponent<GuiObserver>().MessageUpdate(sign.text);
+                sign.guiController.GetComponent<GuiObserver>().MessageUpdate(sign.text);
             }
         }
         else
@@ -85,7 +82,7 @@ public class SignController : SignStateHandler
             
             if (sign.read == false)
             {
-                guiController.GetComponent<GuiObserver>().MessageUpdate(sign.text);
+                sign.guiController.GetComponent<GuiObserver>().MessageUpdate(sign.text);
                 sign.read = true;
             }            
         }

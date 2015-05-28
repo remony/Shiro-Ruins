@@ -56,7 +56,7 @@ public class Enemy3Controller : EnemyStateHandler {
         flip();
 
         velocity = enemy.health;
-        animator.SetBool("Hurt", false);
+        //animator.SetBool("Hurt", false);
     }
 
 
