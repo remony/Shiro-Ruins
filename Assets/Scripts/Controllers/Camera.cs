@@ -15,5 +15,23 @@ class CameraStore
         set;
     }
 
+    public Vector3 destination
+    {
+        get;
+        set;
+    }
+    public Vector3 point
+    {
+        get;
+        set;
+
+    }
+
+    public Vector3 delta
+    {
+        get;
+        set;
+    }
+
 }
 

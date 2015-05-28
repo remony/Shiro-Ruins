@@ -57,7 +57,7 @@
    eJzt1EsKwjAUBdAs0g9uQBAcugVHTh34XYFTF2jABqWgbYyfgOfApTx4paW3JAQAAAAA/sH5QbhZxsxipk8yb/ZKrR+Em9Ob9yjzzT6cV91K+tjFHEK/824QnFd9bF/YSz3sY44975/kvNQf28QswvU/HTXXVWteNHtJTg+JPvqZ3GXcXIetOaX0OeQZd8wl9JFPH3XRR10+2Qf59FEXfdQlff9ha+Y39FEXfdRFH3XRR130AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtF0AQ6g3sw==
   </data>
  </layer>
- <objectgroup name="Enemy">
+ <objectgroup name="Enemy" visible="0">
   <object id="1" gid="79" x="896" y="384">
    <properties>
     <property name="spawn" value="Enemy"/>

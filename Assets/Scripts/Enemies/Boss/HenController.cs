@@ -6,8 +6,6 @@ public class HenController : HenStateHandler
     public GameObject LevelScriptController;
     public Hen hen;
     private GameObject guiManager;
-    private GameObject dialogViewer;
-    private bool addedScore = false;
     public bool hardcoreBoss = false;
     public GameObject EggPrefab;
 
@@ -26,9 +24,9 @@ public class HenController : HenStateHandler
         hen.body = this.GetComponent<Rigidbody2D>();
         hen.target = GameObject.FindGameObjectWithTag("Player");
         hen.speed = 70;
+        hen.addedScore = false;
         state = State.STATE_WALKING;
         guiManager = GameObject.FindGameObjectWithTag("LevelManager");
-        dialogViewer = GameObject.FindGameObjectWithTag("DialogViewer");
         transform.localScale = new Vector2(hen.size, hen.size);
         if (hardcoreBoss)
         {
@@ -93,7 +91,7 @@ public class HenController : HenStateHandler
             LevelScriptController.GetComponent<Boss1>().goingUp = false;
         }
 
-        if (!addedScore)
+        if (!hen.addedScore)
         {
             GameObject.FindGameObjectWithTag("LevelManager").GetComponent<GuiObserver>().AddScore(3000);
             if (hardcoreBoss)
@@ -104,7 +102,7 @@ public class HenController : HenStateHandler
             {
                 guiManager.GetComponent<GuiObserver>().MessageUpdate("AHHH you have beat me, but I shall be back!");
             }
-            addedScore = true;
+            hen.addedScore = true;
         }
     }
     public override void onWalking()
@@ -165,15 +163,16 @@ public class HenController : HenStateHandler
                     guiManager.GetComponent<GuiObserver>().updateBossHealth(hen.health);
                     transform.localScale = new Vector2(hen.size, hen.size);
                     Rigidbody2D body = coll.transform.GetComponent<Rigidbody2D>();
+
+
+                    //Apply velocity to the player script (to make them bounce off)
                     if (coll.gameObject.GetComponent<CharacterController>().isFacingRight)
                     {
                         body.velocity = new Vector2(coll.gameObject.GetComponent<CharacterController>().currentVelocity * body.velocity.x + 400, body.velocity.y + 400);
-                        //body.AddForce(new Vector2(body.velocity.x + 3200, body.velocity.y + 400), ForceMode2D.Impulse);
                     }
                     else
                     {
                         body.velocity = new Vector2(coll.gameObject.GetComponent<CharacterController>().currentVelocity * body.velocity.x + -400, body.velocity.y + 400);
-                        //body.AddForce(new Vector2(body.velocity.x + -3200, body.velocity.y + 400), ForceMode2D.Impulse);
                     }
                     fallback();
                     
@@ -254,23 +253,17 @@ public class HenController : HenStateHandler
 
     private void flip()
     {
-       /* hen.facingRight = !hen.facingRight;
-        Vector3 theScale = hen.body.transform.localScale;
-        theScale.x *= -1;
-        hen.body.transform.localScale = theScale;
-        */
-
-        Vector2 rotationVector = transform.rotation.eulerAngles;
+        Vector2 rotation = transform.rotation.eulerAngles;
         if (hen.facingRight)
         {
-            
-            rotationVector.y = 180;
-            transform.rotation = Quaternion.Euler(rotationVector);
+
+            rotation.y = 180;
+            transform.rotation = Quaternion.Euler(rotation);
         }
         else
         {
-            rotationVector.y = 0;
-            transform.rotation = Quaternion.Euler(rotationVector);
+            rotation.y = 0;
+            transform.rotation = Quaternion.Euler(rotation);
         }
     }
 
@@ -282,26 +275,15 @@ public class HenController : HenStateHandler
 
     private void shootEgg()
     {
-        GameObject bullet = GameObject.Instantiate(EggPrefab, new Vector2(transform.position.x + 0, transform.position.y), transform.rotation) as GameObject;
-
-        int rand = UnityEngine.Random.Range(0, 2);
-        if (rand == 1)
-        {
-            //GameManager.instance.playSoundEffect(8);
-        }
-        else
-        {
-            //GameManager.instance.playSoundEffect(9);
-
-        }
+        GameObject egg = GameObject.Instantiate(EggPrefab, new Vector2(transform.position.x + 0, transform.position.y), transform.rotation) as GameObject;
 
         if (hen.facingRight)
         {
-            bullet.GetComponent<EggController>().isRight = true;
+            egg.GetComponent<EggController>().isRight = true;
         }
         else
         {
-            bullet.GetComponent<EggController>().isRight = false;
+            egg.GetComponent<EggController>().isRight = false;
         }
     }
 

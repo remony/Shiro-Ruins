@@ -25,7 +25,7 @@ namespace Assets.Scripts.Manager
             get;
             set;
         }
-        new public string name
+        public string name
         {
             get;
             set;

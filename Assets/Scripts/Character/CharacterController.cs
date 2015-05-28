@@ -9,121 +9,113 @@ public class CharacterController : CharacterStateHandler
 
 
     public AudioClip NotificationSound;
-    public bool isGrounded = true;
-
-    private GameObject levelManager;
-
-    private bool musicPlaying = false;
+    public bool isGrounded = true;   
     public float currentVelocity = 0;
     public bool isFacingRight = false;
-    private float velocityHorizontal = 0f;
-    private float velocityVertical = 0f;
-    public GameObject spritesheet;
-    private Animator animator;
-    private GameObject player;
-    private Rigidbody2D body;
     public Character character;
-    private GameObject trigger;
     private Vector2 boxCol;
     public int respawnHeight;
-
-    private Transform previousPostiton; //used to stop hugging walls
-
-
-    private bool moveJump = false;
-
     public float magicCooldown = 1;
 
+    private GameObject levelManager;
     public GameObject blastPrefab;
     public GameObject magicBlastPrefab;
+    public GameObject spritesheet;
 
+    //When the player is not moving it is in idle state
     public override void onIdle()
     {
 
-        body.gravityScale = 100;
-        if (velocityHorizontal != 0)
+        character.body.gravityScale = 100;
+        if (character.velocityHorizontal != 0)
         {
             currentVelocity = character.speed;
         }
 
-        body.mass = 1;
-        if (!isGrounded)
+        character.body.mass = 1;
+        if (!isGrounded) //If the player is in idle and jumps it will change to jumping state
         {
             state = State.STATE_JUMPING;
         }
-        if (velocityHorizontal > 0.1 || velocityHorizontal < -0.1)
+        if (character.velocityHorizontal > 0.1 || character.velocityHorizontal < -0.1) //if horizontal input is detected from devices change the state to walking
         {
             state = State.STATE_WALKING;
+        }
+
+        if (character.health <= 0) //If health is < or equal to 0 change state dealth
+        {
+            state = State.STATE_DEATH;
         }
              
     }
 
+    //When the player is in walking state
     public override void onWalking()
     {
-        body.gravityScale = 50;
-        body.mass = 100;
-        if (velocityHorizontal == 0)
+        character.body.gravityScale = 50;
+        character.body.mass = 100;
+        if (character.velocityHorizontal == 0) //If there is no movement input from the player set character to idle
         {
             state = State.STATE_IDLE;
         }
 
-        if (character.health <= 0)
+        if (character.health <= 0) //If health is < or equal to 0 change state dealth
         {
             state = State.STATE_DEATH;
         }
 
 
-        float timez = 0.1f;
+        float TimeIncrease = 0.1f;
 
         if (currentVelocity < 200)
         {
-            timez = 1;
+            TimeIncrease = 1;
         } 
         else if (currentVelocity > 150 && currentVelocity < 240)
         {
-            timez = 0.5f;
+            TimeIncrease = 0.5f;
         }
         else if(currentVelocity > 200 && currentVelocity < 250)
         {
-            timez = 0.25f;
+            TimeIncrease = 0.25f;
         }
         else if(currentVelocity > 250 && currentVelocity < 300)
         {
-            timez = 0.01f;
+            TimeIncrease = 0.01f;
         }
         
 
         //calculate the speed for movement
-        if (velocityHorizontal < 0)
+        if (character.velocityHorizontal < 0)
         {
-            currentVelocity += character.speed * ((Time.deltaTime * -velocityHorizontal)* timez);
+            currentVelocity += character.speed * ((Time.deltaTime * -character.velocityHorizontal) * TimeIncrease);
         }
-        else if (velocityHorizontal > 0)
+        else if (character.velocityHorizontal > 0)
         {
-            currentVelocity += character.speed * ((Time.deltaTime * velocityHorizontal) * timez);
+            currentVelocity += character.speed * ((Time.deltaTime * character.velocityHorizontal) * TimeIncrease);
         }
 
         
         
-        
+        //Apply velocity to the character using the calculated speed
         if (isGrounded)
         {
-            //body.gravityScale = 150;
-            body.velocity = new Vector2(velocityHorizontal * currentVelocity, body.velocity.y);
+            character.body.velocity = new Vector2(character.velocityHorizontal * currentVelocity, character.body.velocity.y);
         }
         else
         {
             state = State.STATE_JUMPING;
-            //body.gravityScale = 150;
-            body.velocity = new Vector2(velocityHorizontal * currentVelocity, body.velocity.y);
+            character.body.velocity = new Vector2(character.velocityHorizontal * currentVelocity, character.body.velocity.y);
         }
 
     }
 
+
+    //When in jumping state
     public override void onJumping()
     {
-        body.gravityScale = 100;
-        body.mass = 1;
+        character.body.gravityScale = 100;
+        character.body.mass = 1;
 
         if (isGrounded)
         {
@@ -134,42 +126,43 @@ public class CharacterController : CharacterStateHandler
         {
             currentVelocity = 300;
         }
-        body.velocity = new Vector2(velocityHorizontal * currentVelocity *0.9f, body.velocity.y);
-        
-
-        
-        
-        //body.AddForce(new Vector2(velocityHorizontal * currentVelocity, body.velocity.y), ForceMode2D.Impulse);
+        character.body.velocity = new Vector2(character.velocityHorizontal * currentVelocity * 0.9f, character.body.velocity.y);
     }
 
+    //When the player is swimming
     public override void onSwimming()
     {
 
         StopCoroutine("underWaterBreath");
 
-        body.gravityScale = 80;
-        body.mass = 10;
-        body.velocity = new Vector2(velocityHorizontal * (currentVelocity / 4f), velocityVertical * (character.speed / 4f));
+        character.body.gravityScale = 80;
+        character.body.mass = 10;
+        //movement is slower underwater 
+        character.body.velocity = new Vector2(character.velocityHorizontal * (currentVelocity / 2f), character.velocityVertical * (character.speed / 2f));
     }
 
+
+    //When the player is climbing
     public override void onClimbing()
     {
-        body.gravityScale = 0;
-        body.mass = 10;
-        body.velocity = new Vector2(velocityHorizontal * currentVelocity, velocityVertical * character.speed);
-        animator.SetBool("Climbing", true);
+        character.body.gravityScale = 0; //disable gravity for the player
+        character.body.mass = 10;
+        character.body.velocity = new Vector2(character.velocityHorizontal * currentVelocity, character.velocityVertical * character.speed); //slow down movement a bit
+        character.animator.SetBool("Climbing", true);
 
     }
 
+    //When the player is on a moving platform
     public override void onMovingPlatform()
     {
-        body.gravityScale = 100;
-        body.mass = 1;
-        if (velocityHorizontal == 0)
+        character.body.gravityScale = 100;
+        character.body.mass = 1;
+        if (character.velocityHorizontal == 0)
         {
             if (transform.parent)
             {
-                body.velocity = new Vector2(transform.parent.GetComponent<Rigidbody2D>().velocity.x, body.velocity.y);
+                //Set the velocity of the player to that of the moving platforma
+                character.body.velocity = new Vector2(transform.parent.GetComponent<Rigidbody2D>().velocity.x, character.body.velocity.y);
             }
 
            
@@ -178,24 +171,26 @@ public class CharacterController : CharacterStateHandler
         {
             if (transform.parent)
             {
-                body.velocity = new Vector2(transform.parent.GetComponent<Rigidbody2D>().velocity.x * ((currentVelocity / transform.parent.GetComponent<Rigidbody2D>().velocity.x) * velocityHorizontal), body.velocity.y);
+                //Set the velocity of the player to that of the moving platform and that of your own movement speed (this is for moving on the platform)
+                character.body.velocity = new Vector2(transform.parent.GetComponent<Rigidbody2D>().velocity.x * ((currentVelocity / transform.parent.GetComponent<Rigidbody2D>().velocity.x) * character.velocityHorizontal), character.body.velocity.y);
             }
         }
     }
 
+    //When the player is falling
     public override void onFalling()
     {
-        body.gravityScale = 180;
-        body.mass = 10;
+        character.body.gravityScale = 180;
+        character.body.mass = 10;
 
  
         if (isFacingRight)
         {
-            body.velocity = new Vector2((character.speed * velocityHorizontal), body.velocity.y);
+            character.body.velocity = new Vector2((character.speed * character.velocityHorizontal), character.body.velocity.y);
         }
         else if (!isFacingRight)
         {
-            body.velocity = new Vector2((character.speed * velocityHorizontal), body.velocity.y);
+            character.body.velocity = new Vector2((character.speed * character.velocityHorizontal), character.body.velocity.y);
         }
         
         if (isGrounded)
@@ -205,75 +200,80 @@ public class CharacterController : CharacterStateHandler
 
     }
 
+    //When the player is underwater
     public override void onUnderWater()
     {
-        body.gravityScale = 80;
-        body.mass = 10;
-        body.velocity = new Vector2(velocityHorizontal * (currentVelocity / 4f), velocityVertical * (character.speed / 4f));
+        character.body.gravityScale = 80;
+        character.body.mass = 10;
+        character.body.velocity = new Vector2(character.velocityHorizontal * (currentVelocity / 4f), character.velocityVertical * (character.speed / 4f));
     }
 
+    //When the player is in lava
     public override void onLava()
     {
-        body.gravityScale = 300;
-        body.mass = 1000;
+        character.body.gravityScale = 300;
+        character.body.mass = 1000;
         if (character.health <= 0)
         {
             state = State.STATE_DEATH;
         }
-        body.velocity = new Vector2(0, velocityVertical * character.speed);
+        //Restrict all movement
+        character.body.velocity = new Vector2(0, character.velocityVertical * character.speed);
         
     }
 
+    //When the player is dead
     public override void onDeath()
     {
-        body.velocity = Vector3.zero;
-        levelManager.GetComponent<GuiObserver>().ChangeState(4);
+        character.body.velocity = Vector3.zero;
+        levelManager.GetComponent<GuiObserver>().ChangeState(4); //change the state of the GUI to display the failed screen
 
     }
 
     public override void onStairs()
     {
-        body.gravityScale = 0;
-        body.mass = 10;
-        body.velocity = new Vector2(velocityHorizontal * currentVelocity, velocityVertical * (character.speed * 0.6f));
+        character.body.gravityScale = 0;
+        character.body.mass = 10;
+        character.body.velocity = new Vector2(character.velocityHorizontal * currentVelocity, character.velocityVertical * (character.speed * 0.6f));
     }
 
     public override void onCrossJunction()
     {
         //isGrounded = true;
-        body.gravityScale = 0;
-        body.mass = 10;
+        character.body.gravityScale = 0;
+        character.body.mass = 10;
 
-        body.velocity = new Vector2(velocityHorizontal * currentVelocity, velocityVertical * (character.speed / 2));
+        character.body.velocity = new Vector2(character.velocityHorizontal * currentVelocity, character.velocityVertical * (character.speed / 2));
     }
 
     public override void onNoGravity()
     {
-        body.gravityScale = 10;
-        body.mass = 10;
-        body.velocity = new Vector2(velocityHorizontal * currentVelocity, body.transform.position.y);
+        character.body.gravityScale = 10;
+        character.body.mass = 10;
+        character.body.velocity = new Vector2(character.velocityHorizontal * currentVelocity, character.body.transform.position.y);
     }
 
     public override void onAttacking()
     {
 
-        body.gravityScale = 100;
-        body.mass = 1;
-        body.velocity = new Vector2(velocityHorizontal * currentVelocity, body.velocity.y);
-        
-        body.GetComponent<BoxCollider2D>().size = new Vector2(boxCol.x + 0.2f, boxCol.y);
+        character.body.gravityScale = 100;
+        character.body.mass = 1;
+        character.body.velocity = new Vector2(character.velocityHorizontal * currentVelocity, character.body.velocity.y);
+
+        character.body.GetComponent<BoxCollider2D>().size = new Vector2(boxCol.x + 0.2f, boxCol.y);
     }
 
 
-
+    //attack  wait for x seconds then change the animation to attacking and change the box collider to cover the new area
     IEnumerator attack(float delay)
     {
         yield return new WaitForSeconds(delay);
         state = State.STATE_IDLE;
-        animator.SetBool("Attacking", false);
-        body.GetComponent<BoxCollider2D>().size = boxCol;
+        character.animator.SetBool("Attacking", false);
+        character.body.GetComponent<BoxCollider2D>().size = boxCol;
     }
 
+    //Lava damage deals damage over x seconds
     IEnumerator lavaDamage(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -287,7 +287,7 @@ public class CharacterController : CharacterStateHandler
     {
         base.Start();
         character = new Character();
-        //If the current game mode is hardware then set the character to 17
+        
         try
         {
             if (GameManager.instance.GetGameType() == 2)
@@ -310,22 +310,24 @@ public class CharacterController : CharacterStateHandler
             respawnHeight = -3000;
         }
         
-
-        
         character.jump = 390;
         character.speed = 120;
         character.cooldownLimit = magicCooldown;
         character.blastCooldownLimit = (magicCooldown * 6f);
         character.startingPosition = new Vector2(transform.position.x, transform.position.y);
+        character.player = this.gameObject;
+        character.animator = gameObject.GetComponent<Animator>();
+        character.body = character.player.AddComponent<Rigidbody2D>();
+        character.body.isKinematic = false;
+        character.body.fixedAngle = true;
+        character.moveJump = false;
+        character.velocityHorizontal = 0f;
+        character.velocityVertical = 0f;
+        character.musicPlaying = false;
 
-
-        player = this.gameObject;
-        animator = gameObject.GetComponent<Animator>();
-        body = player.AddComponent<Rigidbody2D>();
-        body.isKinematic = false;
-        body.fixedAngle = true;
-        boxCol = body.GetComponent<BoxCollider2D>().size;
+        boxCol = character.body.GetComponent<BoxCollider2D>().size;
         levelManager = GameObject.FindGameObjectWithTag("LevelManager");
+
     }
 
 
@@ -333,7 +335,7 @@ public class CharacterController : CharacterStateHandler
     void Update()
     {
         base.Update();
-        playerInput();
+        playerInput(); //Handles the player input
         movement();
 
         checkRespawnHeight(respawnHeight); //If the player is below the fall limit then they will respawn to the start of the map.
@@ -341,11 +343,11 @@ public class CharacterController : CharacterStateHandler
 
         if (isGrounded)
         {
-            animator.SetBool("Jumping", false);
+            character.animator.SetBool("Jumping", false);
         }
         else
         {
-            animator.SetBool("Jumping", true);
+            character.animator.SetBool("Jumping", true);
             isGrounded = false;
             if (character.health <= 0)
             {
@@ -355,14 +357,14 @@ public class CharacterController : CharacterStateHandler
             
         }
 
-        levelManager.GetComponent<GuiObserver>().changeGrounded(isGrounded);
+        levelManager.GetComponent<GuiObserver>().changeGrounded(isGrounded); //updates the control gui
 
     }
 
     private void playerInput()
     {
 
-        if (velocityHorizontal >= -0.1 && velocityHorizontal <= 0.1f)
+        if (character.velocityHorizontal >= -0.1 && character.velocityHorizontal <= 0.1f) //If the player is moving update the currentVelocity
         {
             currentVelocity = character.speed;
         }
@@ -372,17 +374,17 @@ public class CharacterController : CharacterStateHandler
         {
             state = State.STATE_ATTACKING;
             StartCoroutine("attack", 0.5f);
-            animator.SetBool("Attacking", true);
+            character.animator.SetBool("Attacking", true);
             
         }
 
-        if (Input.GetKeyDown("joystick button 3") || Input.GetKeyDown("q"))
+        if (Input.GetKeyDown("joystick button 3") || Input.GetKeyDown("q")) //pressing this button will show the last message displayed by a sign
         {
             levelManager.GetComponent<GuiObserver>().displayLastMessage();
         }
 
 
-
+        //If the player blast cooldown timer is more than the limit then they will be able to shot a new blast
         if (character.blastCooldownTimer >= character.blastCooldownLimit)
         {
             if (Input.GetKeyDown(KeyCode.L) || Input.GetKeyDown("joystick button 1"))
@@ -406,37 +408,25 @@ public class CharacterController : CharacterStateHandler
             {
                 character.blastCooldownStart = -character.blastCooldownLimit;
             }
-            // (time * 100 / 3)
-
             character.blastCooldownTimer = Time.time - character.blastCooldownStart;
         }
 
         levelManager.GetComponent<GuiObserver>().updateSphereCooldown(character.blastCooldownTimer / character.blastCooldownLimit);
-
-        
+ 
         if (character.cooldownTimer >= character.cooldownLimit)
         {
-            //character.cooldownTimer = 0;
             if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown("joystick button 2"))
             {
-
-
                 if (character.cooldownTimer < character.cooldownLimit)
                 {
-                    //Play sound
                     print("Poof: cooldown");
                 }
                 else
                 {
-                    //set start time
-                    //character.cooldownTimer = Time.time - character.cooldownTimer;
                     character.cooldownStart = Time.time;
                     character.cooldownTimer = Time.time - character.cooldownStart;
                     shotMagic();
-
                 }
-
-
             }
         } 
         else
@@ -452,10 +442,11 @@ public class CharacterController : CharacterStateHandler
 
     }
 
-    private void shotMagic()
+    private void shotMagic() //Handles everything when shooting a magic shot
     {
+        //Spawn in the bullet prefab
         GameObject bullet = GameObject.Instantiate(magicBlastPrefab, new Vector2(transform.position.x + 0, transform.position.y), transform.rotation) as GameObject;
-
+        //Get a random number and choose which sound that should be played
         int rand = UnityEngine.Random.Range(0, 2);
         if (rand == 1)
         {
@@ -466,7 +457,7 @@ public class CharacterController : CharacterStateHandler
             GameManager.instance.playSoundEffect(9);
 
         }
-        
+        //check if your facing left or right and shoot the bullet in that direction
         if (isFacingRight)
         {
             bullet.GetComponent<MagicBulletController>().isRight = true;
@@ -486,34 +477,33 @@ public class CharacterController : CharacterStateHandler
 
     private void respawn()
     {
-        body.velocity = Vector3.zero;
+        character.body.velocity = Vector3.zero;
         gameObject.transform.position = character.startingPosition;
-        //print(character.startingPosition.position.x + "  " + character.startingPosition.position.y);
     }
 
     private void checkRespawnHeight(int height)
     {
         if (transform.position.y < height)
         {
-            body.velocity = Vector3.zero;
+            character.body.velocity = Vector3.zero;
             GameManager.instance.playSoundEffect(1);
-            transform.position = character.startingPosition;//new Vector2(57.4f, -1347.5f);
+            transform.position = character.startingPosition;
         }
     }
 
     void movement()
     {
-        velocityHorizontal = Input.GetAxisRaw("Horizontal");
-        velocityVertical = Input.GetAxisRaw("Vertical");
-        animator.SetFloat("speed", Mathf.Abs(velocityHorizontal));
-        
+        character.velocityHorizontal = Input.GetAxisRaw("Horizontal");
+        character.velocityVertical = Input.GetAxisRaw("Vertical");
+        character.animator.SetFloat("speed", Mathf.Abs(character.velocityHorizontal));
 
-        if (velocityHorizontal > 0 && !isFacingRight)
+        //If the player is moving right flip 
+        if (character.velocityHorizontal > 0 && !isFacingRight)
             flip();
-        else if (velocityHorizontal < 0 && isFacingRight)
+        else if (character.velocityHorizontal < 0 && isFacingRight)
             flip();
 
-        if (isGrounded)
+        if (isGrounded) //The player should only be able to jump is they are grounded
         {
             if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
@@ -528,8 +518,8 @@ public class CharacterController : CharacterStateHandler
     {
         if (state != State.STATE_CLIMBING && state != State.STATE_FALLING)
         {
-            
-            body.velocity = new Vector2(body.velocity.x, character.jump);
+
+            character.body.velocity = new Vector2(character.body.velocity.x, character.jump);
             int rand = UnityEngine.Random.Range(0, 2);
             if (rand == 1)
             {
@@ -546,25 +536,27 @@ public class CharacterController : CharacterStateHandler
 
     }
 
+    //Inverts the player sprite to look the other way
     private void flip()
     {
-        // Switch the way the player is labelled as facing.
+        
         isFacingRight = !isFacingRight;
         if (state.Equals(State.STATE_WALKING))
             currentVelocity = character.speed;
-        // Multiply the player's x local scale by -1.
-        Vector3 theScale = body.transform.localScale;
+
+        Vector3 theScale = character.body.transform.localScale;
         theScale.x *= -1;
-        body.transform.localScale = theScale;
+        character.body.transform.localScale = theScale;
     }
 
+    //Checks for triggers entering the collision
     void OnTriggerEnter2D(Collider2D coll)
     {
         
         if (coll.tag.ToString().Equals("Ladder"))
         {
             state = State.STATE_CLIMBING;
-            animator.SetBool("Climbing", true);
+            character.animator.SetBool("Climbing", true);
         }
         else if (coll.tag.ToString().Equals("Water"))
         {
@@ -577,10 +569,7 @@ public class CharacterController : CharacterStateHandler
         }
         else if (coll.tag.ToString().Equals("Stairs"))
         {
-
             state = State.STATE_STAIRS;
-
-
         }
         else if (coll.tag.ToString().Equals("CrossJunction"))
         {
@@ -588,15 +577,12 @@ public class CharacterController : CharacterStateHandler
             {
                 state = State.STATE_WALKING;
             }
-
         }
         else if (coll.tag.ToString().Equals("Lava"))
         {
             state = State.STATE_LAVA;
             StartCoroutine("lavaDamage", 0.25f);
         }
-        
-
     }
 
     void OnTriggerStay2D(Collider2D coll)
@@ -604,7 +590,7 @@ public class CharacterController : CharacterStateHandler
         if (coll.tag.ToString().Equals("Ladder"))
         {
             state = State.STATE_CLIMBING;
-            animator.SetBool("Climbing", true);
+            character.animator.SetBool("Climbing", true);
         }
         else if (coll.tag.ToString().Equals("Water"))
         {
@@ -616,10 +602,7 @@ public class CharacterController : CharacterStateHandler
         }
         else if (coll.tag.ToString().Equals("Stairs") || coll.tag.ToString().Equals("Stairs_top"))
         {
-
             state = State.STATE_STAIRS;
-            //animator.SetBool("Jumping", false);
-
         }
         else if (coll.tag.ToString().Equals("Lava"))
         {
@@ -637,7 +620,7 @@ public class CharacterController : CharacterStateHandler
         if (coll.tag.ToString().Equals("Ladder"))
         {
             state = State.STATE_IDLE;
-            animator.SetBool("Climbing", false);
+            character.animator.SetBool("Climbing", false);
         }
         else if (coll.tag.ToString().Equals("Water"))
         {
@@ -675,10 +658,10 @@ public class CharacterController : CharacterStateHandler
                 {
                     if (checkIfTop(coll))
                     {
-                        body.velocity = new Vector2(0, 0);
+                        character.body.velocity = new Vector2(0, 0);
                         isGrounded = true;
                         state = State.STATE_WALKING;
-                        animator.SetBool("Jumping", false);
+                        character.animator.SetBool("Jumping", false);
 
                     }
                     else if (checkIfBottom(coll))
@@ -699,21 +682,10 @@ public class CharacterController : CharacterStateHandler
             {
                 isGrounded = true;
                 state = State.STATE_WALKING;
-                animator.SetBool("Jumping", false);
+                character.animator.SetBool("Jumping", false);
             }
-            /*
-        else if (coll.transform.tag.ToString().Equals("Enemy"))
-        {
-                
-            //int attack = coll.gameObject.GetComponent<EnemyController>().enemy.attackPower;
-
-            //character.health -= attack;
-
-
-        }*/
             else if (coll.transform.tag.ToString().Equals("End"))
             {
-                //state = State.STATE_NOGRAVITY;
                 atEndGoal();
                 isGrounded = true;
             }
@@ -732,10 +704,6 @@ public class CharacterController : CharacterStateHandler
                 isGrounded = true;
             }
         }
-        else
-        {
-            //state = State.STATE_FALLING;
-        }
     }
     
 
@@ -743,12 +711,11 @@ public class CharacterController : CharacterStateHandler
     {
         if (!checkIfSide(coll))
         {
-            //print(coll.transform.tag.ToString());
             if (coll.transform.tag.ToString().Equals("MovingPlatform"))
             {
                 state = State.STATE_MOVINGPLATFORM;
                 isGrounded = true;
-                animator.SetBool("Jumping", false);
+                character.animator.SetBool("Jumping", false);
             }
             else if (coll.transform.tag.ToString().Equals("Ground") || coll.transform.tag.ToString().Equals("Platforms") || coll.transform.tag.ToString().Equals("Platform") || coll.transform.tag.ToString().Equals("BreakingPlatform"))
             {
@@ -756,27 +723,16 @@ public class CharacterController : CharacterStateHandler
                 {
                     isGrounded = true;
                     state = State.STATE_WALKING;
-                    animator.SetBool("Jumping", false);
-
+                    character.animator.SetBool("Jumping", false);
                 }
-                
-
-
                 if (coll.contacts[0].normal == new Vector2(0, 1))
                 {
-                    //isGrounded = true;
-                    animator.SetBool("Jumping", false);
-
+                    character.animator.SetBool("Jumping", false);
                 }
             }
             else if (coll.transform.tag.ToString().Equals("StairsPlatform"))
             {
                 isGrounded = true;
-            }
-            else if (coll.transform.tag.ToString().Equals("Enemy"))
-            {
-                
-
             }
             else if (coll.transform.tag.ToString().Equals("Stairs"))  
             { 
@@ -784,7 +740,7 @@ public class CharacterController : CharacterStateHandler
             }
             else if (coll.transform.tag.ToString().Equals("Stairs_top"))
             {
-                if (velocityVertical < -0.7 || velocityVertical > 0.7)
+                if (character.velocityVertical < -0.7 || character.velocityVertical > 0.7)
                 {
                     coll.gameObject.GetComponent<Collider2D>().isTrigger = true;
                     state = State.STATE_STAIRS;
@@ -793,15 +749,9 @@ public class CharacterController : CharacterStateHandler
                 else
                 {
                     coll.gameObject.GetComponent<Collider2D>().isTrigger = false;
-                    //state = State.STATE_IDLE;
                     enableStairs(false);
                 }
             }
-            else if (coll.transform.tag.ToString().Equals("WaterPlatform"))
-            {
-                //currentVelocity = currentVelocity - 20 ;
-            }
-
             else
             {
                 //isGrounded = true;
@@ -821,19 +771,13 @@ public class CharacterController : CharacterStateHandler
         {
             if (coll.transform.tag.ToString().Equals("MovingPlatform"))
             {
-                //state = State.STATE_IDLE;
                 isGrounded = false;
-
-                animator.SetBool("Jumping", true);
+                character.animator.SetBool("Jumping", true);
             }
             else if (coll.transform.tag.ToString().Equals("Ground") || coll.transform.tag.ToString().Equals("Platforms") || coll.transform.tag.ToString().Equals("Platform"))
             {
-
                 isGrounded = false;
-                //state = State.STATE_JUMPING;
-                animator.SetBool("Jumping", true);
-
-
+                character.animator.SetBool("Jumping", true);
             }
             else if (coll.transform.tag.ToString().Equals("Stairs_top"))
             {
@@ -844,13 +788,11 @@ public class CharacterController : CharacterStateHandler
                     {
                         stairs[i].transform.GetComponent<Collider2D>().enabled = true;
                     }
-
-                    //GameObject collision = coll.gameObject.transform.FindChild("Collision").gameObject;
                 }
             }
             else if (coll.transform.tag.ToString().Equals("Stairs"))
             {
-                animator.SetBool("Climbing", false);
+                character.animator.SetBool("Climbing", false);
             }
             else if (coll.transform.tag.ToString().Equals("BreakingPlatform"))
             {
@@ -898,33 +840,6 @@ public class CharacterController : CharacterStateHandler
         }
 
         return false;
-        /*
-        if (!isGrounded)
-        {
-            if (coll.contacts[0].normal.y == 0)
-            {
-                if (state == State.STATE_JUMPING || state == State.STATE_WALKING)
-                {
-                    state = State.STATE_FALLING;
-                    isGrounded = false;
-                    return true;
-                }
-                return false;
-
-            }
-            else
-            {
-                if (state == State.STATE_FALLING)
-                {
-                    state = State.STATE_IDLE;
-                }
-
-                return false;
-            }
-        }
-        return false;
-        */
-
     }
 
 
@@ -938,14 +853,12 @@ public class CharacterController : CharacterStateHandler
     }
 
 
-
+    //When climbing stairs they are disabled, entering the topstairs triggers enables the stairs to allow you to climb them
     private void enableStairs(bool enable)
     {
-        //print(">> " + enable);
         GameObject stairs = GameObject.FindGameObjectWithTag("Stairs");
         if (enable)
         {
-
             if (stairs.transform.GetComponent<Collider2D>())
             {
                 stairs.transform.GetComponent<Collider2D>().enabled = true;
@@ -977,26 +890,6 @@ public class CharacterController : CharacterStateHandler
         {
             currentVelocity = 300;
         }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            respawn();
-        }
-
-        
-
-
-        //if (velocityHorizontal < 0.1 && velocityHorizontal > -0.1)
-        //{
-         //   if (state != State.STATE_JUMPING)
-          //      state = State.STATE_IDLE;
-        //} 
-        //else
-        //{
-         //   state = State.STATE_WALKING;
-        //}
-
-
         if (character.health <= 0)
         {
             state = State.STATE_DEATH;
@@ -1005,6 +898,7 @@ public class CharacterController : CharacterStateHandler
         levelManager.GetComponent<GuiObserver>().UpdateHealth(character.health);
     }
 
+    //Used by the item to give the player health back
     public void heal(int health)
     {
         
@@ -1015,13 +909,14 @@ public class CharacterController : CharacterStateHandler
         }
     }
 
-
+    
     public void takeDamage(int amount)
     {
         character.health -= amount;
         hurt();
     }
 
+    //When this is called it plays the hurt sound, only when the health is more than 0
     private void hurt()
     {
         if (character.health > 0)

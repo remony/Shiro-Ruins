@@ -60,4 +60,50 @@ public class Character {
         get;
         set;
     }
+
+    public Rigidbody2D body
+    {
+        get;
+        set;
+    }
+
+    public bool musicPlaying
+    {
+        get;
+        set;
+    }
+
+    public float velocityHorizontal
+    {
+        get;
+        set;
+    }
+    public float velocityVertical
+    {
+        get;
+        set;
+    }
+
+    public Animator animator
+    {
+        get;
+        set;
+    }
+    public GameObject player
+    {
+        get;
+        set;
+    }
+
+    public Transform previousPostiton
+    {
+        get;
+        set;
+    }
+
+    public bool moveJump
+    {
+        get;
+        set;
+    }
 }

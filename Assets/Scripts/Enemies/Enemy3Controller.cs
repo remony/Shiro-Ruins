@@ -17,7 +17,6 @@ public class Enemy3Controller : EnemyStateHandler {
     private Animator animator;
     private Transform startingPos;
     private float endingPos;
-    private float velocity;
     private Rigidbody2D body;
     private float distFromTarget = 1;
 
@@ -55,14 +54,14 @@ public class Enemy3Controller : EnemyStateHandler {
         body.fixedAngle = true;
         flip();
 
-        velocity = enemy.health;
-        //animator.SetBool("Hurt", false);
+
+
+        animator.SetBool("Hurt", false);
     }
 
 
     public override void onIdle()
     {
-        velocity = 0;
         state = State.STATE_WALKING;
     }
 
@@ -109,7 +108,7 @@ public class Enemy3Controller : EnemyStateHandler {
 
     public override void onAttacking()
     {
-        velocity = enemy.speed;
+
         float step = enemy.speed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.transform.position.x + 1, gameObject.transform.position.y + 100), step);
 
@@ -178,18 +177,6 @@ public class Enemy3Controller : EnemyStateHandler {
         {
             return true;
         }
-        /*
-        if (coll.contacts[0].normal == new Vector2(0, -1))
-        {
-            Debug.Log("We touched the enemy's bottom!");
-        }
-
-        if (coll.contacts[0].normal == new Vector2(0, 1))
-        {
-            Debug.Log("We touched the top of the enemy!");
-            
-        }
-         * */
         return false;
     }
 
@@ -210,7 +197,6 @@ public class Enemy3Controller : EnemyStateHandler {
                 if (state.Equals(State.STATE_ATTACKING))
                 {
                     state = State.STATE_ATTACKING;
-                    //strike(coll.gameObject);
                     StartCoroutine("Attack", coll.gameObject);
                 }
 
@@ -315,7 +301,7 @@ public class Enemy3Controller : EnemyStateHandler {
     private void hit(int health)
     {
         //animator.SetBool
-        //animator.SetBool("Hurt", true);
+        animator.SetBool("Hurt", true);
         GameManager.instance.playSoundEffect(1);
         StartCoroutine(animateHurt());
     }

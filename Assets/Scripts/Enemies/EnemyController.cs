@@ -8,8 +8,6 @@ public class EnemyController : EnemyStateHandler {
     public GameObject target;
     public bool movingRight = true;
     public float distance = 100;
-    private SharedBehaviour sharedBehaviour;
-
 
     private Animator animator;
     private Transform startingPos;
@@ -175,18 +173,7 @@ public class EnemyController : EnemyStateHandler {
         {
             return true;
         }
-        /*
-        if (coll.contacts[0].normal == new Vector2(0, -1))
-        {
-            Debug.Log("We touched the enemy's bottom!");
-        }
 
-        if (coll.contacts[0].normal == new Vector2(0, 1))
-        {
-            Debug.Log("We touched the top of the enemy!");
-            
-        }
-         * */
         return false;
     }
 
@@ -311,7 +298,6 @@ public class EnemyController : EnemyStateHandler {
     }
     private void hit(int health)
     {
-        //animator.SetBool
         animator.SetBool("Hurt", true);
         GameManager.instance.playSoundEffect(1);
         StartCoroutine(animateHurt());

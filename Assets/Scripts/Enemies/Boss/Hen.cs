@@ -62,4 +62,11 @@ public class Hen
         get;
         set;
     }
+
+    public bool addedScore
+    {
+        get;
+        set;
+    }
+
 }

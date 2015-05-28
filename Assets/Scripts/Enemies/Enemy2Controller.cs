@@ -180,18 +180,6 @@ public class Enemy2Controller : EnemyStateHandler {
         {
             return true;
         }
-        /*
-        if (coll.contacts[0].normal == new Vector2(0, -1))
-        {
-            Debug.Log("We touched the enemy's bottom!");
-        }
-
-        if (coll.contacts[0].normal == new Vector2(0, 1))
-        {
-            Debug.Log("We touched the top of the enemy!");
-            
-        }
-         * */
         return false;
     }
 
@@ -212,7 +200,6 @@ public class Enemy2Controller : EnemyStateHandler {
                 if (state.Equals(State.STATE_ATTACKING))
                 {
                     state = State.STATE_ATTACKING;
-                    //strike(coll.gameObject);
                     StartCoroutine("Attack", coll.gameObject);
                 }
 
