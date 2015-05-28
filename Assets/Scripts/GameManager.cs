@@ -5,6 +5,7 @@ using System.IO;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 
+
 public class GameManager : MonoBehaviour
 {
     //Singleton
