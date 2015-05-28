@@ -301,6 +301,7 @@ public class CharacterController : CharacterStateHandler
         }
         catch (Exception e)
         {
+            print(e);
             character.health = 100;
         }
 
@@ -671,25 +672,28 @@ public class CharacterController : CharacterStateHandler
             }
             else if (coll.transform.tag.ToString().Equals("Ground") || coll.transform.tag.ToString().Equals("Platforms") || coll.transform.tag.ToString().Equals("Platform") || coll.transform.tag.ToString().Equals("BreakingPlatform"))
             {
+                if (!state.Equals(State.STATE_UNDERWATER))
+                {
+                    if (checkIfTop(coll))
+                    {
+                        body.velocity = new Vector2(0, 0);
+                        isGrounded = true;
+                        state = State.STATE_WALKING;
+                        animator.SetBool("Jumping", false);
+
+                    }
+                    else if (checkIfBottom(coll))
+                    {
+                        state = State.STATE_FALLING;
+                        isGrounded = false;
+                    }
+                    else
+                    {
+                        state = State.STATE_WALKING;
+                        isGrounded = true;
+                    }
+                }
                 
-                if (checkIfTop(coll))
-                {
-                    body.velocity = new Vector2(0, 0);
-                    isGrounded = true;
-                    state = State.STATE_WALKING;
-                    animator.SetBool("Jumping", false);
-
-                }
-                else if (checkIfBottom(coll))
-                {
-                    state = State.STATE_FALLING;
-                    isGrounded = false;
-                }
-                else
-                {
-
-                    isGrounded = true;
-                }
 
             }
             else if (coll.transform.tag.ToString().Equals("StairsPlatform"))
@@ -731,7 +735,7 @@ public class CharacterController : CharacterStateHandler
         }
         else
         {
-            state = State.STATE_FALLING;
+            //state = State.STATE_FALLING;
         }
     }
     
@@ -756,6 +760,7 @@ public class CharacterController : CharacterStateHandler
                     animator.SetBool("Jumping", false);
 
                 }
+                
 
 
                 if (coll.contacts[0].normal == new Vector2(0, 1))
@@ -805,7 +810,7 @@ public class CharacterController : CharacterStateHandler
         }
         else
         {
-            state = State.STATE_FALLING;
+            //state = State.STATE_FALLING;
         }
     }
 

@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour {
     private void loadLevel(int level)   {
         loadingScreen.SetActive(true);
         String sceneName;
-        
+        print("LEVEL: " + level);
         switch (level)
         {
                 
@@ -44,6 +44,21 @@ public class LevelManager : MonoBehaviour {
                 break;
             case 8:
                 sceneName = "level2";
+                break;
+            case 9:
+                sceneName = "Boss1";
+                break;
+            case 10:
+                sceneName = "Boss2";
+                break;
+            case 11:
+                sceneName = "Level3";
+                break;
+            case 12:
+                sceneName = "Level4";
+                break;
+            case 13:
+                sceneName = "Credits";
                 break;
             default:
                 sceneName = "MainMenu";

@@ -29,14 +29,30 @@ public class MagicBlastController : MonoBehaviour {
     {
         if (coll.tag.ToString().Equals("Enemy"))
         {
-            if (coll.gameObject.GetComponent<EnemyController>().movingRight)
+            if (coll.gameObject.GetComponent<EnemyController>())
             {
-                coll.gameObject.GetComponent<EnemyController>().GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 405), ForceMode2D.Impulse);
+                if (coll.gameObject.GetComponent<EnemyController>().movingRight)
+                {
+                    coll.gameObject.GetComponent<EnemyController>().GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 405), ForceMode2D.Impulse);
+                }
+                else
+                {
+                    coll.gameObject.GetComponent<EnemyController>().GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 405), ForceMode2D.Impulse);
+                }
             }
-            else
+
+            if (coll.gameObject.GetComponent<HenController>())
             {
-                coll.gameObject.GetComponent<EnemyController>().GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 405), ForceMode2D.Impulse);
+                if (coll.gameObject.GetComponent<HenController>().hen.facingRight)
+                {
+                    coll.gameObject.GetComponent<HenController>().GetComponent<Rigidbody2D>().AddForce(new Vector2(200, 405), ForceMode2D.Impulse);
+                }
+                else
+                {
+                    coll.gameObject.GetComponent<HenController>().GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 405), ForceMode2D.Impulse);
+                }
             }
+            
             GameManager.instance.playSoundEffect(1);
             
         }

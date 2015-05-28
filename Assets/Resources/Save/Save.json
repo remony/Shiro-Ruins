@@ -13,7 +13,7 @@
 	},
 	{
 		"id":4,
-		"Title":"Level 1",
+		"Title":"Forest Ruin",
 		"sceneName":"Level1",
 		"Score":0,
 		"Time":0,
@@ -36,15 +36,51 @@
 		"unlocked":1
 	},
 	{
-		"id":6,
-		"Title":"Level 4",
-		"sceneName":"Level4",
+		"id":9,
+		"Title":"Evil Chicken",
+		"sceneName":"Boss1",
 		"Score":0,
 		"Time":0,
 		"TTTime": 9000,
 		"scoreToConquer":3000,
 		"conquered": 0,
 		"ColourPercentage":0,
-		"unlocked":0
+		"unlocked":1
+	},
+	{
+		"id":11,
+		"Title":"Water Ruin",
+		"sceneName":"Level3",
+		"Score":0,
+		"Time":0,
+		"TTTime": 9000,
+		"scoreToConquer":6000,
+		"conquered": 0,
+		"ColourPercentage":0,
+		"unlocked":1
+	},
+	{
+		"id":10,
+		"Title":"Evil Chicken Returns",
+		"sceneName":"Boss2",
+		"Score":0,
+		"Time":0,
+		"TTTime": 9000,
+		"scoreToConquer":3000,
+		"conquered": 0,
+		"ColourPercentage":0,
+		"unlocked":1
+	},
+	{
+		"id":12,
+		"Title":"Air Ruin",
+		"sceneName":"Level4",
+		"Score":0,
+		"Time":0,
+		"TTTime": 9000,
+		"scoreToConquer":6500,
+		"conquered": 0,
+		"ColourPercentage":0,
+		"unlocked":1
 	}
 ]

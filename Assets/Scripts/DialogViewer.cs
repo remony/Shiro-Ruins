@@ -15,6 +15,11 @@ public class DialogViewer : MonoBehaviour {
 
     }
 
+    public void displayMessage()
+    {
+
+    }
+
     void changeMessage(string message)
     {
         if (message.Length > 10)

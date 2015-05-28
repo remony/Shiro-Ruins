@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public abstract class EnemyStateHandler : MonoBehaviour 
+public abstract class EnemyStateHandler : MonoBehaviour
 {
     public abstract void onIdle();
 
@@ -45,5 +45,5 @@ public abstract class EnemyStateHandler : MonoBehaviour
                 break;
         }
     }
-	
+
 }

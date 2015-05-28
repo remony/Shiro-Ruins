@@ -12,6 +12,7 @@ public class GUIManager : GUIStateHandle, GuiObserver
     public GameObject startCard;
     public GameObject magicCooldown;
     public GameObject controls;
+    public GameObject BossControls;
 
     //Controls sprites references
     public Sprite x_enable;
@@ -35,6 +36,7 @@ public class GUIManager : GUIStateHandle, GuiObserver
     public bool displayHelp = true;
 
     Text[] textGui;
+    new private string name = "";
     Slider healthBar;
     Level level;
     float endTime;
@@ -137,6 +139,10 @@ public class GUIManager : GUIStateHandle, GuiObserver
                 textGui[4].text = " ";
                 textGui[5].text = " ";
                 textGui[6].text = " ";
+                if (BossControls.activeInHierarchy)
+                {
+                    BossControls.SetActive(false);
+                }
                 controls.gameObject.GetComponent<Animator>().SetBool("display", false);
                 
 
@@ -177,9 +183,7 @@ public class GUIManager : GUIStateHandle, GuiObserver
 
                 state = State.STATE_INPROGRESS;
                 int id = levelID();
-                print(id);
                 JSONObject save = saveData();
-                print("display id " + id + ": " + save[id].GetField("Title").str);
                 startCard.GetComponentInChildren<Text>().text = save[id].GetField("Title").str;
             }
         }
@@ -232,13 +236,22 @@ public class GUIManager : GUIStateHandle, GuiObserver
                 id = 3;
                 break;
             case 8: //level 2
-                id = 2;
+                id = 2  ;
                 break;
-            case 9:
+            case 9: //Boss Level 1
+                id = 3;
+                break;
+            case 10: //Boss Level 2
                 id = 5;
                 break;
-            case 10:
+            case 11: //Boss Level 2
+                id = 4;
+                break;
+            case 12: //Level 4
                 id = 6;
+                break;
+            case 13: //Credits
+                id = 7;
                 break;
         }
 
@@ -254,6 +267,7 @@ public class GUIManager : GUIStateHandle, GuiObserver
     {
         JSONObject save = saveData();
         int id = levelID();
+        /*
         switch (id)
         {
             case 3:
@@ -269,26 +283,32 @@ public class GUIManager : GUIStateHandle, GuiObserver
                 id = 3;
                 break;
             case 7:
-                id = 3;
-                break;
-            case 8:
                 id = 4;
                 break;
-            case 9:
+            case 8:
+                id = 3;
+                break;
+            case 9: //Boss1
+                id = 3;
+                break;
+            case 10: //Boss2
                 id = 5;
                 break;
-            case 10:
-                id = 6;
+            case 11:
+                id = 4;
                 break;
-        }
+        }*/
 
+        Debug.Log("Saving ID: " + id);
 
+        
         if (GameManager.instance.GetGameType() == 0 || GameManager.instance.GetGameType() == 2)
         {
             if (save[id].GetField("Score").n < level.score)
             {
                 save[id].SetField("Score", level.score);
                 save[id].SetField("Time", level.time);
+                print(">>>>>> " + level.score + "  |  " + level.time);
                 GameManager.instance.UpdateSaveData(save);
 
             }
@@ -338,6 +358,7 @@ public class GUIManager : GUIStateHandle, GuiObserver
         messageView.SetActive(false);
         controls.gameObject.GetComponent<Animator>().SetBool("display", true);
         displayHelp = true;
+        BossControls.SetActive(false);
     }
 
 
@@ -570,6 +591,38 @@ public class GUIManager : GUIStateHandle, GuiObserver
             }
 
         }
+        
+    }
+
+    public void updateBossHealth(int health)
+    {
+        if (!BossControls.activeInHierarchy)
+        {
+            BossControls.SetActive(true);
+            int id = levelID();
+            JSONObject save = saveData();
+            name = save[id].GetField("Title").str;
+            BossControls.GetComponentInChildren<Text>().text = save[id].GetField("Title").str;
+            BossControls.GetComponentInChildren<Slider>().minValue = 0;
+            BossControls.GetComponentInChildren<Slider>().maxValue = 1000;
+            BossControls.GetComponentInChildren<Slider>().minValue = 0;
+            BossControls.GetComponentInChildren<Slider>().wholeNumbers = true;
+        }
+        else
+        {
+            if (health <= 0)
+            {
+                BossControls.GetComponentInChildren<Slider>().value = 0;
+                //BossControls.GetComponentInChildren<Slider>().
+            }
+            else
+            {
+                BossControls.GetComponentInChildren<Slider>().value = health;
+
+            }
+            BossControls.GetComponentInChildren<Text>().text = name + " | health: " + health;
+        }
+
         
     }
 

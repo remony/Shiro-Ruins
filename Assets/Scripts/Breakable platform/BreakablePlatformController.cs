@@ -46,7 +46,11 @@ public class BreakablePlatformController : MonoBehaviour {
         if (coll.transform.tag.ToString().Equals("Player"))
         {
             playerIsHere = true;
-            StartCoroutine("timeToBreak");
+            if (coll.contacts[0].normal == new Vector2(0, -1))
+            {
+                StartCoroutine("timeToBreak");
+            }
+            
         }
     }
 

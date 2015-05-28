@@ -12,4 +12,5 @@ public interface GuiObserver
     void changeGrounded(bool grounded);
     void changeInput(int type);
     void updateSphereCooldown(float count);
+    void updateBossHealth(int health);
 }
